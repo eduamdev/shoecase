@@ -2,6 +2,8 @@
   "name": "shoecase",
   "version": "0.1.0",
   "private": true,
+  "description": "A JAMstack Shoe Store site built with Gatsby and Netlify Functions",
+  "author": "Eduardo Rodriguez <eduardo.roamz@gmail.com>",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -13,7 +15,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -30,5 +31,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edroamz/shoecase"
+  },
+  "bugs": {
+    "url": "https://github.com/edroamz/shoecase/issues"
   }
 }
