@@ -700,7 +700,7 @@ video {
   src: local('Poppins'), url(./../fonts/Poppins-Black.ttf) format('woff');
 }
 
-.custom-font {
+.font-custom {
   font-family: 'Poppins', sans-serif;
 }
 

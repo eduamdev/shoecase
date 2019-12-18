@@ -1,11 +1,12 @@
 import React from 'react';
 import NavBar from './navBar';
+import Benefits from './benefits';
 import banner from '../images/banner.jpg';
 
 function App() {
   return (
-    <div className='App custom-font'>
-      <div className='w-full text-center bg-gray-100 py-3 text-sm text-gray-600 font-light tracking-wide'>
+    <div className='App font-custom'>
+      <div className='w-full text-center bg-red-100 border-b border-gray-200 py-2 text-sm text-gray-800 font-light tracking-wider'>
         Free ships worldwide!
       </div>
       <NavBar></NavBar>
@@ -14,6 +15,7 @@ function App() {
         src={banner}
         alt='grey sneakers on black banner'
       />
+      <Benefits></Benefits>
     </div>
   );
 }
