@@ -1,5 +1,7 @@
 # 👟 Shoecase
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/efd79ed8-4944-485d-98c2-be329e3d173a/deploy-status)](https://app.netlify.com/sites/shoecase/deploys)
+
 ## Project setup
 
 - Run `yarn build` for production
