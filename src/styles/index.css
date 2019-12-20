@@ -65,7 +65,7 @@
   src: local('Poppins'), url(./../fonts/Poppins-Black.ttf) format('woff');
 }
 
-.font-custom {
+.font-global {
   font-family: 'Poppins', sans-serif;
 }
 
