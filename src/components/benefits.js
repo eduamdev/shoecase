@@ -33,7 +33,7 @@ const Benefits = () => {
           alt='very light weight sneakers'
         />
         <p className='pt-4 font-bold uppercase leading-loose'>light weight</p>
-        <p className=' text-sm tracking-wide'>Lighter than air</p>
+        <p className=' text-sm tracking-wide'>As lighter as air</p>
       </div>
       <div className='p-6 pb-32'>
         <Img
