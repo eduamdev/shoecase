@@ -2,6 +2,7 @@ import React from 'react';
 import Img from 'react-image';
 import { ReactComponent as SvgFilter } from '../icons/filter.svg';
 import { ReactComponent as SvgPlus } from '../icons/plus.svg';
+import { ReactComponent as SvgMinus } from '../icons/minus.svg';
 import batcombeLord from '../images/products/batcombe-lord.jpg';
 import orsonHarbour from '../images/products/orson-harbour.webp';
 
@@ -18,7 +19,7 @@ const Men = () => {
           <p className='text-left capitalize font-bold pl-8'>
             All shoes{' '}
             <span className='text-sm font-light tracking-wide'>
-              ( 2 Products)
+              ( 4 Products)
             </span>
           </p>
           <div className='w-32 h-full border-l border-gray-300'>
@@ -35,10 +36,15 @@ const Men = () => {
             <p className='text-left text-sm uppercase tracking-wide font-bold'>
               categories
             </p>
-            <SvgPlus className='h-4 w-4 text-gray-600 fill-current'></SvgPlus>
+            <div className='flex flex-wrap items-center'>
+              <p className='text-sm font-sans tracking-wider underline mr-6 hidden'>
+                Reset
+              </p>
+              <SvgPlus className='h-4 w-4 text-gray-800 fill-current'></SvgPlus>
+            </div>
           </div>
         </div>
-        <div className='w-full px-8 bg-gray-200'>
+        <div className='w-full px-8 bg-gray-200 hidden'>
           <ul className='w-full py-4'>
             <li className='flex flex-wrap items-center  w-full h-12 text-left text-sm capitalize font-light tracking-wide'>
               sports
@@ -56,7 +62,12 @@ const Men = () => {
             <p className='text-left text-sm uppercase tracking-wide font-bold'>
               colors
             </p>
-            <SvgPlus className='h-4 w-4 text-gray-600 fill-current'></SvgPlus>
+            <div className='flex flex-wrap items-center'>
+              <p className='text-sm font-sans tracking-wider underline mr-6'>
+                Reset
+              </p>
+              <SvgMinus className='h-4 w-4 text-gray-800 fill-current'></SvgMinus>
+            </div>
           </div>
         </div>
         <div className='w-full px-8 bg-gray-200 '>
@@ -80,20 +91,20 @@ const Men = () => {
             <h2 className='pt-4 font-bold uppercase tracking-wide leading-loose'>
               Batcombe Lord
             </h2>
-            <p className='font-light font-sm tracking-wide'>$145</p>
+            <p className='font-light font-sm tracking-wide px-4'>$145</p>
           </div>
         </article>
         <article className='w-1/2 border-b border-gray-300'>
-          <div className='h-full w-full border-4 border-transparent hover:border-gray-300 px-4 py-10'>
+          <div className='h-full w-full border-4 border-transparent hover:border-gray-300 py-10'>
             <Img
               className='w-full h-48 object-cover'
               src={orsonHarbour}
               alt='shoes'
             />
-            <h2 className='pt-4 font-bold uppercase tracking-wide leading-loose'>
+            <h2 className='px-4 pt-4 font-bold uppercase tracking-wide leading-loose'>
               orson harbour
             </h2>
-            <p className='font-light font-sm tracking-wide'>$115</p>
+            <p className='font-light font-sm tracking-wide px-4'>$115</p>
           </div>
         </article>
         <article className='w-1/2 border-r border-b border-gray-300'>
@@ -103,23 +114,23 @@ const Men = () => {
               src={batcombeLord}
               alt='shoes'
             />
-            <h2 className='pt-4 font-bold uppercase tracking-wide leading-loose'>
+            <h2 className='px-4 pt-4 font-bold uppercase tracking-wide leading-loose'>
               Batcombe Lord
             </h2>
-            <p className='font-light font-sm tracking-wide'>$145</p>
+            <p className='font-light font-sm tracking-wide px-4 '>$145</p>
           </div>
         </article>
         <article className='w-1/2 border-b border-gray-300'>
-          <div className='h-full w-full border-4 border-transparent hover:border-gray-200 px-4 py-10'>
+          <div className='h-full w-full border-4 border-transparent hover:border-gray-200 py-10'>
             <Img
               className='w-full h-48 object-cover'
               src={orsonHarbour}
               alt='shoes'
             />
-            <h2 className='pt-4 font-bold uppercase tracking-wide leading-loose'>
+            <h2 className='px-4 pt-4 font-bold uppercase tracking-wide leading-loose'>
               orson harbour
             </h2>
-            <p className='font-light font-sm tracking-wide'>$115</p>
+            <p className='font-light font-sm tracking-wide px-4'>$115</p>
           </div>
         </article>
       </section>
