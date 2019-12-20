@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Img from 'react-image';
 import { ReactComponent as SvgFilter } from '../icons/filter.svg';
 import { ReactComponent as SvgPlus } from '../icons/plus.svg';
@@ -82,64 +83,72 @@ const Products = ({ genre }) => {
       </section>
       <section className='flex flex-wrap w-full'>
         <article className='w-1/2 border-r border-b border-gray-300'>
-          <div className='h-full w-full border-4 border-transparent hover:border-gray-200 py-10'>
-            <Img
-              className='w-full h-48 object-cover'
-              src={batcombeLord}
-              alt='shoes'
-            />
-            <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
-              Batcombe Lord
-            </h2>
-            <p className='font-light font-sm tracking-wide px-4 leading-loose'>
-              $145
-            </p>
-          </div>
+          <Link to='/men/batcombe-lord'>
+            <div className='h-full w-full border-4 border-transparent hover:border-gray-200 py-10'>
+              <Img
+                className='w-full h-48 object-cover'
+                src={batcombeLord}
+                alt='shoes'
+              />
+              <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
+                Batcombe Lord
+              </h2>
+              <p className='font-light font-sm tracking-wide px-4 leading-loose'>
+                $145
+              </p>
+            </div>
+          </Link>
         </article>
         <article className='w-1/2 border-b border-gray-300'>
-          <div className='h-full w-full border-4 border-transparent hover:border-gray-300 py-10'>
-            <Img
-              className='w-full h-48 object-cover'
-              src={orsonHarbour}
-              alt='shoes'
-            />
-            <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
-              orson harbour
-            </h2>
-            <p className='font-light font-sm tracking-wide px-4 leading-loose'>
-              $115
-            </p>
-          </div>
+          <Link to='/men/orson-harbour'>
+            <div className='h-full w-full border-4 border-transparent hover:border-gray-300 py-10'>
+              <Img
+                className='w-full h-48 object-cover'
+                src={orsonHarbour}
+                alt='shoes'
+              />
+              <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
+                orson harbour
+              </h2>
+              <p className='font-light font-sm tracking-wide px-4 leading-loose'>
+                $115
+              </p>
+            </div>
+          </Link>
         </article>
         <article className='w-1/2 border-r border-b border-gray-300'>
-          <div className='h-full w-full border-4 border-transparent hover:border-gray-200 py-10'>
-            <Img
-              className='w-full h-48 object-cover'
-              src={batcombeLord}
-              alt='shoes'
-            />
-            <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
-              Batcombe Lord
-            </h2>
-            <p className='font-light font-sm tracking-wide px-4 leading-loose'>
-              $145
-            </p>
-          </div>
+          <Link to='/men/batcombe-lord'>
+            <div className='h-full w-full border-4 border-transparent hover:border-gray-200 py-10'>
+              <Img
+                className='w-full h-48 object-cover'
+                src={batcombeLord}
+                alt='shoes'
+              />
+              <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
+                Batcombe Lord
+              </h2>
+              <p className='font-light font-sm tracking-wide px-4 leading-loose'>
+                $145
+              </p>
+            </div>
+          </Link>
         </article>
         <article className='w-1/2 border-b border-gray-300'>
-          <div className='h-full w-full border-4 border-transparent hover:border-gray-200 py-10'>
-            <Img
-              className='w-full h-48 object-cover'
-              src={orsonHarbour}
-              alt='shoes'
-            />
-            <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
-              orson harbour
-            </h2>
-            <p className='font-light font-sm tracking-wide px-4 leading-loose'>
-              $115
-            </p>
-          </div>
+          <Link to='/men/orson-harbour'>
+            <div className='h-full w-full border-4 border-transparent hover:border-gray-300 py-10'>
+              <Img
+                className='w-full h-48 object-cover'
+                src={orsonHarbour}
+                alt='shoes'
+              />
+              <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
+                orson harbour
+              </h2>
+              <p className='font-light font-sm tracking-wide px-4 leading-loose'>
+                $115
+              </p>
+            </div>
+          </Link>
         </article>
       </section>
     </>

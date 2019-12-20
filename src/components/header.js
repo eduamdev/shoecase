@@ -28,8 +28,12 @@ const Header = ({ isMenuOpen, handleClick }) => {
             shoecase
           </Link>
           <div className='flex'>
-            <SvgUser className='h-4 w-4 mr-6'></SvgUser>
-            <SvgShoppingBag className='h-4 w-4'></SvgShoppingBag>
+            <button className='active:shadow-outline focus:outline-none focus:shadow-outline p-2 mr-4'>
+              <SvgUser className='h-4 w-4'></SvgUser>
+            </button>
+            <button className='active:shadow-outline focus:outline-none focus:shadow-outline p-2'>
+              <SvgShoppingBag className='h-4 w-4'></SvgShoppingBag>
+            </button>
           </div>
         </div>
       </section>
