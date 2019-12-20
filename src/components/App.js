@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from './header';
 import Home from './home';
-import Women from './women';
-import Men from './men';
+import Products from './products';
+import Product from './product';
 import Footer from './footer';
 import NotFound from './notFound';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
@@ -34,8 +34,15 @@ function App({ history }) {
       <Header isMenuOpen={isMenuOpen} handleClick={toggleMenu}></Header>
       <main>
         <Switch>
-          <Route path='/men' component={Men}></Route>
-          <Route path='/women' component={Women}></Route>
+          <Route path='/men/:id' component={Product}></Route>
+          <Route
+            path='/men'
+            render={props => <Products {...props} genre={'men'} />}
+          ></Route>
+          <Route
+            path='/women'
+            render={props => <Products {...props} genre={'women'} />}
+          ></Route>
           <Route path='/' exact component={Home}></Route>
           <Route path='/not-found' component={NotFound}></Route>
           <Redirect to='/not-found'></Redirect>

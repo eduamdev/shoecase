@@ -8,11 +8,11 @@ import { ReactComponent as SvgMagnifier } from '../icons/magnifier.svg';
 
 const Header = ({ isMenuOpen, handleClick }) => {
   const navClasses = 'w-full border-t border-b border-gray-300';
-  const searchClasses = 'h-12 px-8 py-2';
+  const searchClasses = 'h-12 px-4 py-2';
 
   return (
     <header className='relative w-full bg-white border-t border-b border-gray-300 z-30'>
-      <section className='flex items-center w-full h-12 px-8 py-2 '>
+      <section className='flex items-center w-full h-12 px-4 py-2 '>
         <div className='flex flex-wrap  items-center justify-between w-full '>
           <button
             className='active:shadow-outline focus:outline-none focus:shadow-outline p-2'
@@ -38,7 +38,7 @@ const Header = ({ isMenuOpen, handleClick }) => {
           isMenuOpen ? `${navClasses} visible` : `${navClasses} h-0 invisible`
         }
       >
-        <ul className='w-full h-full px-8'>
+        <ul className='w-full h-full px-4'>
           <li className='flex flex-wrap items-center w-full h-16 border-b border-gray-300'>
             <Link to='/men' className='w-full py-4'>
               MEN
