@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './header';
 import Home from './home';
+import Cart from './cart';
 import Products from './products';
 import Product from './product';
 import Footer from './footer';
@@ -43,6 +44,7 @@ function App({ history }) {
             path='/women'
             render={props => <Products {...props} genre={'women'} />}
           ></Route>
+          <Route path='/cart' component={Cart}></Route>
           <Route path='/' exact component={Home}></Route>
           <Route path='/not-found' component={NotFound}></Route>
           <Redirect to='/not-found'></Redirect>
