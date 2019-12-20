@@ -35,7 +35,7 @@ const Benefits = () => {
         <p className='pt-4 font-bold uppercase leading-loose'>light weight</p>
         <p className=' text-sm tracking-wide'>Lighter than air</p>
       </div>
-      <div className='border-b border-gray-300 p-6 pb-32'>
+      <div className='p-6 pb-32'>
         <Img
           className='w-full h-56 object-cover relative'
           src={customizable}

@@ -5,7 +5,7 @@ import { ReactComponent as SvgInstagram } from '../icons/instagram.svg';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className='border-t border-gray-300'>
       <section className='py-6'>
         <article className='w-full p-6'>
           <p className='capitalize font-medium mb-4'>
