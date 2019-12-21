@@ -7,41 +7,41 @@ import customizable from '../images/customizable.jpg';
 
 const Benefits = () => {
   return (
-    <section className=''>
-      <div className='border-b border-gray-300 p-6'>
+    <section className='flex flex-wrap'>
+      <div className='w-full md:w-1/3 md:border-r border-b border-gray-300 p-6'>
         <Img
-          className='w-full h-40 object-cover'
+          className='w-full h-40 object-cover rounded-sm'
           src={comfort}
           alt='A pair of comfortable shoes'
         />
         <p className='pt-4 font-bold uppercase leading-loose'>comfort</p>
         <p className=' text-sm tracking-wide'>Like walking on the clouds</p>
       </div>
-      <div className='border-b border-gray-300 p-6'>
+      <div className='w-full md:w-1/3 md:border-r border-b border-gray-300 p-6'>
         <Img
-          className='w-full h-40 object-cover'
+          className='w-full h-40 object-cover rounded-sm'
           src={waterproof}
           alt='A pair of waterproof shoes'
         />
         <p className='pt-4 font-bold uppercase leading-loose'>waterproof</p>
         <p className=' text-sm tracking-wide'>No more wet socks</p>
       </div>
-      <div className='border-b border-gray-300 p-6'>
+      <div className='w-full md:w-1/3 border-b border-gray-300 p-6'>
         <Img
-          className='w-full h-40 object-cover'
+          className='w-full h-40 object-cover rounded-sm'
           src={lightWeight}
           alt='very light weight sneakers'
         />
         <p className='pt-4 font-bold uppercase leading-loose'>light weight</p>
         <p className=' text-sm tracking-wide'>As light as air</p>
       </div>
-      <div className='p-6 pb-32'>
+      <div className='w-full p-6 pb-32'>
         <Img
-          className='w-full h-56 object-cover relative'
+          className='w-full h-56 md:h-108 md:pr-40 object-cover relative rounded-sm'
           src={customizable}
           alt='A rack of shoes'
         />
-        <div className='absolute left-0 right-0 -mt-8 mx-auto w-4/6 bg-white p-6 rounded-sm shadow-md'>
+        <div className='absolute left-0 right-0 -mt-8 mx-auto w-64 md:w-72 bg-white p-6 md:right-0 md:left-auto md:-mt-32 md:mr-10 rounded-sm shadow-md'>
           <p className='font-bold uppercase leading-loose'>customizable</p>
           <p className=' text-sm tracking-wide'>Your shoes, your style</p>
         </div>

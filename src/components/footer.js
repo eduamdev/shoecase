@@ -6,8 +6,8 @@ import { ReactComponent as SvgInstagram } from '../icons/instagram.svg';
 const Footer = () => {
   return (
     <footer className='border-t border-gray-300'>
-      <section className='bg-black py-6'>
-        <article className='w-full p-6'>
+      <section className='flex flex-wrap bg-black py-6 lg:px-10 xl:px-24 lg:py-10'>
+        <article className='w-full md:w-1/4 p-6'>
           <p className='capitalize font-medium mb-4 text-gray-300'>
             Sign Up to Our Newsletter
           </p>
@@ -17,7 +17,7 @@ const Footer = () => {
             type='text'
           />
         </article>
-        <article className='inline-block align-top w-1/2 p-6'>
+        <article className='inline-block align-top w-1/2 md:w-1/4 p-6'>
           <p className='capitalize font-medium font-sm mb-4 text-gray-300'>
             store
           </p>
@@ -31,7 +31,7 @@ const Footer = () => {
             about us
           </p>
         </article>
-        <article className='inline-block align-top w-1/2 p-6'>
+        <article className='inline-block align-top w-1/2 md:w-1/4 p-6'>
           <p className='capitalize font-medium font-sm mb-4 text-gray-300'>
             orders
           </p>
@@ -48,7 +48,7 @@ const Footer = () => {
             faq
           </p>
         </article>
-        <article className='w-full p-6'>
+        <article className='w-full md:w-1/4 p-6'>
           <p className='capitalize font-medium font-sm mb-4 text-gray-300'>
             social
           </p>
