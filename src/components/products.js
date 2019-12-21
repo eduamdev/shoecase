@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Img from 'react-image';
 import { ReactComponent as SvgFilter } from '../icons/filter.svg';
 import { ReactComponent as SvgPlus } from '../icons/plus.svg';
 import { ReactComponent as SvgMinus } from '../icons/minus.svg';
+import ProductCard from './productCard';
 import batcombeLord from '../images/products/batcombe-lord.jpg';
 import orsonHarbour from '../images/products/orson-harbour.webp';
 
@@ -82,74 +81,34 @@ const Products = ({ genre }) => {
         </div>
       </section>
       <section className='flex flex-wrap w-full'>
-        <article className='w-1/2 border-r border-b border-gray-300'>
-          <Link to='/men/batcombe-lord'>
-            <div className='h-full w-full border-4 border-transparent hover:border-gray-200 py-10'>
-              <Img
-                className='w-full h-48 object-cover'
-                src={batcombeLord}
-                alt='shoes'
-              />
-              <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
-                Batcombe Lord
-              </h2>
-              <p className='font-light font-sm tracking-wide px-4 leading-loose'>
-                $145
-              </p>
-            </div>
-          </Link>
-        </article>
-        <article className='w-1/2 border-b border-gray-300'>
-          <Link to='/men/orson-harbour'>
-            <div className='h-full w-full border-4 border-transparent hover:border-gray-300 py-10'>
-              <Img
-                className='w-full h-48 object-cover'
-                src={orsonHarbour}
-                alt='shoes'
-              />
-              <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
-                orson harbour
-              </h2>
-              <p className='font-light font-sm tracking-wide px-4 leading-loose'>
-                $115
-              </p>
-            </div>
-          </Link>
-        </article>
-        <article className='w-1/2 border-r border-b border-gray-300'>
-          <Link to='/men/batcombe-lord'>
-            <div className='h-full w-full border-4 border-transparent hover:border-gray-200 py-10'>
-              <Img
-                className='w-full h-48 object-cover'
-                src={batcombeLord}
-                alt='shoes'
-              />
-              <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
-                Batcombe Lord
-              </h2>
-              <p className='font-light font-sm tracking-wide px-4 leading-loose'>
-                $145
-              </p>
-            </div>
-          </Link>
-        </article>
-        <article className='w-1/2 border-b border-gray-300'>
-          <Link to='/men/orson-harbour'>
-            <div className='h-full w-full border-4 border-transparent hover:border-gray-300 py-10'>
-              <Img
-                className='w-full h-48 object-cover'
-                src={orsonHarbour}
-                alt='shoes'
-              />
-              <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
-                orson harbour
-              </h2>
-              <p className='font-light font-sm tracking-wide px-4 leading-loose'>
-                $115
-              </p>
-            </div>
-          </Link>
-        </article>
+        <ProductCard
+          url='/men/batcombe-lord'
+          image={batcombeLord}
+          alt='shoes'
+          title='Batcombe Lord'
+          text='$145'
+        ></ProductCard>
+        <ProductCard
+          url='/men/orson-harbour'
+          image={orsonHarbour}
+          alt='shoes'
+          title='orson harbour'
+          text='$115'
+        ></ProductCard>
+        <ProductCard
+          url='/men/batcombe-lord'
+          image={batcombeLord}
+          alt='shoes'
+          title='Batcombe Lord'
+          text='$145'
+        ></ProductCard>
+        <ProductCard
+          url='/men/orson-harbour'
+          image={orsonHarbour}
+          alt='shoes'
+          title='orson harbour'
+          text='$115'
+        ></ProductCard>
       </section>
     </>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import Img from 'react-image';
+import ImageCard from './imageCard';
 import comfort from '../images/comfort.jpg';
 import waterproof from '../images/waterproof.jpg';
 import lightWeight from '../images/light-weight.jpg';
@@ -8,46 +9,25 @@ import customizable from '../images/customizable.jpg';
 const Benefits = () => {
   return (
     <section className='flex flex-wrap'>
-      <div className='w-full md:w-1/3 md:border-r border-b border-gray-300 p-6 md:p-12'>
-        <Img
-          className='w-full h-40 md:h-56 xl:h-64 object-cover rounded-sm'
-          src={comfort}
-          alt='A pair of comfortable shoes'
-        />
-        <p className='pt-4 font-bold uppercase leading-loose lg:text-2xl lg:tracking-wide'>
-          comfort
-        </p>
-        <p className=' text-sm tracking-wide lg:text-base font-light'>
-          Like walking on the clouds
-        </p>
-      </div>
-      <div className='w-full md:w-1/3 md:border-r border-b border-gray-300 p-6 md:p-12'>
-        <Img
-          className='w-full h-40 md:h-56 xl:h-64 object-cover rounded-sm'
-          src={waterproof}
-          alt='A pair of waterproof shoes'
-        />
-        <p className='pt-4 font-bold uppercase leading-loose lg:text-2xl lg:tracking-wide'>
-          waterproof
-        </p>
-        <p className=' text-sm tracking-wide lg:text-base font-light'>
-          No more wet socks
-        </p>
-      </div>
-      <div className='w-full md:w-1/3 border-b border-gray-300 p-6 md:p-12'>
-        <Img
-          className='w-full h-40 md:h-56 xl:h-64 object-cover rounded-sm'
-          src={lightWeight}
-          alt='very light weight sneakers'
-        />
-        <p className='pt-4 font-bold uppercase leading-loose lg:text-2xl lg:tracking-wide'>
-          light weight
-        </p>
-        <p className=' text-sm tracking-wide lg:text-base font-light'>
-          As light as air
-        </p>
-      </div>
-      <div className='relative w-full lg:w-5/6 p-6 pb-24 md:p-12'>
+      <ImageCard
+        image={comfort}
+        alt='A pair of comfortable shoes'
+        title='comfort'
+        text='Like walking on the clouds'
+      ></ImageCard>
+      <ImageCard
+        image={waterproof}
+        alt='waterproof footwear'
+        title='waterproof'
+        text='No more wet socks'
+      ></ImageCard>
+      <ImageCard
+        image={lightWeight}
+        alt='A pair of light weight sneakers'
+        title='light weight'
+        text='As light as air'
+      ></ImageCard>
+      <article className='relative w-full lg:w-5/6 p-6 pb-24 md:p-12'>
         <Img
           className='w-full h-72 md:h-108 md:pr-40 lg:h-160 lg:p-0 object-cover relative rounded-sm'
           src={customizable}
@@ -61,7 +41,7 @@ const Benefits = () => {
             Your shoes, your style
           </p>
         </div>
-      </div>
+      </article>
     </section>
   );
 };
