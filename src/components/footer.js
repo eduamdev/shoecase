@@ -24,13 +24,13 @@ const Footer = () => {
           <p className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
             store
           </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize leading-loose lg:text-base'>
+          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
             contact us
           </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize leading-loose lg:text-base'>
+          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
             our store
           </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize leading-loose lg:text-base'>
+          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
             about us
           </p>
         </article>
@@ -38,16 +38,16 @@ const Footer = () => {
           <p className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
             orders
           </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize leading-loose lg:text-base'>
+          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-base'>
             delivery & returns
           </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize leading-loose lg:text-base'>
+          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
             my account
           </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize leading-loose lg:text-base'>
+          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-base'>
             collect in store
           </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 uppercase leading-loose'>
+          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 uppercase'>
             faq
           </p>
         </article>
