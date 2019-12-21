@@ -27,7 +27,7 @@ const Benefits = () => {
         title='light weight'
         text='As light as air'
       ></ImageCard>
-      <article className='relative w-full lg:w-5/6 p-6 pb-24 md:p-12'>
+      <article className='relative w-full lg:w-5/6 p-6 pb-24 md:p-12 lg:py-16'>
         <Img
           className='w-full h-72 md:h-108 md:pr-40 lg:h-160 lg:p-0 object-cover relative rounded-sm'
           src={customizable}

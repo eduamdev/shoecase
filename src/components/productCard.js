@@ -4,14 +4,18 @@ import Img from 'react-image';
 
 const ProductCard = ({ url, image, alt, title, text }) => {
   return (
-    <article className='w-1/2 border-r border-b border-gray-300'>
+    <article className='w-1/2 lg:w-1/3 border border-gray-300'>
       <Link to={url}>
-        <div className='h-full w-full border-4 border-transparent hover:border-gray-200 py-10'>
-          <Img className='w-full h-48 object-cover' src={image} alt={alt} />
-          <h2 className='px-4 pt-4 font-bold uppercase tracking-wide'>
+        <div className='h-full w-full border-4 border-transparent hover:border-gray-200 p-6 lg:p-12'>
+          <Img
+            className='w-full md:h-auto object-cover lg:px-10'
+            src={image}
+            alt={alt}
+          />
+          <h2 className='pt-4 md:pt-8 md:pt-10 font-bold  uppercase md:text-xl xl:text-2xl tracking-wide'>
             {title}
           </h2>
-          <p className='font-light font-sm tracking-wide px-4 leading-loose'>
+          <p className='pb-4 font-light tracking-wide text-base xl:text-xl leading-loose'>
             {text}
           </p>
         </div>
