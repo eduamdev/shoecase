@@ -27,13 +27,13 @@ const Benefits = () => {
         title='light weight'
         text='As light as air'
       ></ImageCard>
-      <article className='relative w-full lg:w-5/6 p-6 pb-24 md:p-12 lg:py-16'>
+      <article className='relative w-full lg:w-5/6 p-6 pb-32 md:p-12 lg:py-16'>
         <Img
           className='w-full h-72 md:h-108 md:pr-40 lg:h-160 lg:p-0 object-cover relative rounded-sm'
           src={customizable}
           alt='A rack of shoes'
         />
-        <div className='absolute left-0 right-0 -mt-8 mx-auto w-64 md:w-72 lg:w-84 md:right-0 md:left-auto md:-mt-32 md:bottom-0 md:mb-24  p-8  md:p-10 lg:px-12 lg:-mr-16 bg-white rounded-sm shadow-md'>
+        <div className='absolute left-0 right-0 -mt-8 mx-auto w-64 md:w-72 lg:w-84 md:right-0 md:left-auto md:-mt-32 md:bottom-0 md:mb-24  p-8  md:p-10 lg:px-12 lg:-mr-16 bg-white rounded-sm shadow-lg'>
           <p className='font-bold uppercase leading-loose lg:text-2xl lg:tracking-wide'>
             customizable
           </p>
