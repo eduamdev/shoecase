@@ -13,7 +13,7 @@ const Header = ({ isMenuOpen, handleClick }) => {
   const searchClasses = 'h-12 px-4 py-2';
 
   function showModal() {
-    alert('clicked');
+    console.log('show modal');
   }
 
   return (
@@ -131,7 +131,7 @@ const Header = ({ isMenuOpen, handleClick }) => {
       </header>
 
       {/* Modal */}
-      <div className='z-40 fixed top-0 right-0 h-screen bg-white w-2/6 px-10 py-12 shadow-2xl'>
+      <div className='z-40 fixed top-0 right-0 h-screen bg-white w-2/6 px-10 py-12 shadow-2xl hidden'>
         <button className='active:shadow-outline focus:outline-none focus:shadow-outline p-2 absolute top-0 right-0 mr-10 mt-6'>
           <SvgClose className='h-4 w-4'></SvgClose>
         </button>
