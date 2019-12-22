@@ -2,27 +2,30 @@ import React from 'react';
 import { ReactComponent as SvgFilter } from '../icons/filter.svg';
 import { ReactComponent as SvgPlus } from '../icons/plus.svg';
 import { ReactComponent as SvgMinus } from '../icons/minus.svg';
+import { ReactComponent as SvgArrowUp } from '../icons/arrow-up.svg';
+import { ReactComponent as SvgArrowDown } from '../icons/arrow-down.svg';
 
 const ProductFilter = () => {
   return (
     <>
-      <section className='w-full h-12 border-b border-gray-300'>
-        <div className='flex flex-wrap items-center justify-between w-full h-full'>
-          <p className='text-left capitalize font-bold pl-4'>
+      <section className='w-full h-12 border-b border-gray-300 md:h-auto'>
+        <div className='flex flex-wrap items-center justify-between w-full h-full '>
+          <p className='text-left capitalize font-bold pl-4 lg:pl-6 xl:pl-8'>
             All shoes{' '}
-            <span className='text-sm font-light tracking-wide'>
+            <span className='text-sm font-light tracking-wider lg:ml-3 text-gray-800 lg:font-thin'>
               ( 4 Products)
             </span>
           </p>
-          <div className='w-32 h-full border-l border-gray-300'>
-            <button className='flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none border-transparent focus:outline-none focus:border-black pr-4'>
-              <SvgFilter className='h-4 w-4 mr-2'></SvgFilter>
-              <p className='text-sm tracking-wide'>Filters</p>
+          <div className='w-32 md:w-40 xl:w-48 h-full border-l border-gray-300 '>
+            <button className='flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none border-transparent focus:outline-none focus:border-black pr-4 py-2 md:py-4 lg:py-6 px-4 lg:px-6 xl:px-8'>
+              <SvgFilter className='h-4 w-4 md:h-5 md:w-5 mr-2 lg:mr-4'></SvgFilter>
+              <p className='text-base md:text-lg tracking-wide'>Filters</p>
             </button>
           </div>
         </div>
       </section>
-      <section className='w-full h-full border-b border-gray-300'>
+      {/* Small devices */}
+      <section className='w-full h-full border-b border-gray-300 md:hidden'>
         <div className='w-full h-12 px-4'>
           <div className='flex flex-wrap items-center justify-between w-full h-12 border-b border-gray-300'>
             <p className='text-left text-sm uppercase tracking-wide font-bold'>
@@ -71,6 +74,42 @@ const ProductFilter = () => {
             <div className='h-8 w-8 bg-gray-100 mr-3 border-2 border-gray-200 shadow-outline'></div>
           </div>
         </div>
+      </section>
+
+      {/* Medium+ devices */}
+      <section className='hidden md:flex flex-wrap w-full h-full border border-gray-300 '>
+        <div className='w-1/2 border-r border-gray-300 py-2 md:py-6 lg:py-8'>
+          <div className='flex flex-wrap justify-between w-full px-4 lg:px-6 xl:px-8'>
+            <h2 className='font-bold tracking-wide uppercase'>categories</h2>
+            <button className='capitalize underline'>reset</button>
+          </div>
+          <div className='w-full px-4 lg:px-6 xl:px-8 mt-6'>
+            <ul>
+              <li className='leading-loose mb-3'>Sport</li>
+              <li className='leading-loose mb-3'>Formal</li>
+              <li className='leading-loose mb-3'>Casual</li>
+            </ul>
+          </div>
+        </div>
+        <div className='w-1/2 py-2 md:py-6 lg:py-8 px-4 lg:px-6 xl:px-8'>
+          <div className='flex flex-wrap justify-between w-full '>
+            <h2 className='font-bold tracking-wide uppercase'>colors</h2>
+            <button className='capitalize underline'>reset</button>
+          </div>
+          <div className='mt-6'>
+            <button className='w-8 h-8 border border-white bg-red-400 mr-3 active:outline-none focus:outline-none focus:shadow-outline active:shadow-outline'></button>
+            <button className='w-8 h-8 border border-white bg-blue-400 mr-3 active:outline-none focus:outline-none focus:shadow-outline active:shadow-outline'></button>
+            <button className='w-8 h-8 border border-white bg-yellow-400 mr-3 active:outline-none focus:outline-none focus:shadow-outline active:shadow-outline'></button>
+          </div>
+        </div>
+        <button className='flex flex-wrap items-center w-full border border-gray-300 py-2 md:py-4 focus:outline-none focus:shadow-outline active:outline-none active:shadow-outline'>
+          <div className='w-32 m-auto'>
+            <SvgArrowUp className='h-4 w-4 text-gray-800 fill-current inline mr-4'></SvgArrowUp>{' '}
+            <p className='leading-loose text-center capitalize inline'>
+              hide filters
+            </p>
+          </div>
+        </button>
       </section>
     </>
   );

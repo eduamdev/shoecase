@@ -15,7 +15,7 @@ const Footer = () => {
             Sign Up to Our Newsletter
           </p>
           <input
-            className='w-full px-4 py-3 md:px-6 md:py-4 bg-gray-900 text-gray-400 border-none outline-none text-sm tracking-wider rounded-sm'
+            className='w-full px-4 py-3 md:px-6 md:py-4 bg-gray-900 text-gray-400 border-none outline-none text-sm tracking-widest rounded-sm'
             placeholder='ENTER YOUR EMAIL'
             type='text'
           />

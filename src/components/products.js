@@ -7,8 +7,8 @@ import orsonHarbour from '../images/products/orson-harbour.webp';
 const Products = ({ genre }) => {
   return (
     <>
-      <section className='flex flex-wrap items-center justify-center w-full h-12 px-4 py-2 border-b border-gray-300'>
-        <h1 className='text-center tracking-wide text-gray-800 font-bold uppercase'>
+      <section className='flex flex-wrap items-center justify-center w-full h-12 md:h-auto py-2 md:py-4 px-4 lg:px-6 xl:px-8 border-b border-gray-300'>
+        <h1 className='text-center tracking-wide text-gray-800 font-bold uppercase md:text-xl lg:font-extrabold xl:text-2xl'>
           {genre}
         </h1>
       </section>

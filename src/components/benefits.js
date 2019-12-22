@@ -33,7 +33,7 @@ const Benefits = () => {
           src={customizable}
           alt='A rack of shoes'
         />
-        <div className='absolute left-0 right-0 -mt-8 mx-auto w-64 md:w-72 lg:w-84 md:right-0 md:left-auto md:-mt-32 md:bottom-0 md:mb-24 md:p-10 lg:-mr-16 bg-white p-6 rounded-sm shadow-md'>
+        <div className='absolute left-0 right-0 -mt-8 mx-auto w-64 md:w-72 lg:w-84 md:right-0 md:left-auto md:-mt-32 md:bottom-0 md:mb-24  p-8  md:p-10 lg:px-12 lg:-mr-16 bg-white rounded-sm shadow-md'>
           <p className='font-bold uppercase leading-loose lg:text-2xl lg:tracking-wide'>
             customizable
           </p>
