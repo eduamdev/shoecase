@@ -1,6 +1,6 @@
 import React from 'react';
 import Img from 'react-image';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ReactComponent as SvgMenu } from '../icons/menu.svg';
 import { ReactComponent as SvgClose } from '../icons/close.svg';
 import { ReactComponent as SvgUser } from '../icons/user.svg';
@@ -55,14 +55,14 @@ const Header = ({ isMenuOpen, handleClick }) => {
           >
             <ul className='w-full h-full px-4'>
               <li className='flex flex-wrap items-center w-full h-16 border-b border-gray-300'>
-                <Link to='/men' className='w-full py-4 uppercase'>
+                <NavLink to='/men' className='w-full py-4 uppercase'>
                   men
-                </Link>
+                </NavLink>
               </li>
               <li className='flex flex-wrap items-center w-full h-16'>
-                <Link to='/women' className='w-full py-4 uppercase '>
+                <NavLink to='/women' className='w-full py-4 uppercase '>
                   women
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </nav>
@@ -92,16 +92,16 @@ const Header = ({ isMenuOpen, handleClick }) => {
               shoecase
             </Link>
             <nav className=''>
-              <ul className='flex flex-wrap items-stretch w-40'>
-                <li className='flex flex-wrap items-center h-full border-b border-transparent hover:border-black px-2 mr-4'>
-                  <Link className='uppercase py-4' to='/men'>
+              <ul className='flex flex-wrap items-stretch w-40 '>
+                <li className='flex flex-wrap items-center h-full mr-4'>
+                  <NavLink className='uppercase py-4 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black' activeClassName="border-b border-black" exact to='/men'>
                     men
-                  </Link>
+                  </NavLink>
                 </li>
-                <li className='flex flex-wrap items-center h-full border-b border-transparent hover:border-black px-2'>
-                  <Link className='uppercase py-4' to='/women'>
+                <li className='flex flex-wrap items-center h-full'>
+                  <NavLink className='uppercase py-4 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black' activeClassName="border-b border-black" exact to='/women'>
                     women
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </nav>

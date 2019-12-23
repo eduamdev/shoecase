@@ -81,20 +81,36 @@ const ProductFilter = () => {
         <div className='w-1/2 border-r border-gray-300 py-2 md:py-6 lg:py-8'>
           <div className='flex flex-wrap justify-between w-full px-4 lg:px-6 xl:px-8'>
             <h2 className='font-bold tracking-wide uppercase'>categories</h2>
-            <button className='capitalize underline'>reset</button>
+            <button className='capitalize underline active:outline-none focus:outline-none'>
+              reset
+            </button>
           </div>
           <div className='w-full px-4 lg:px-6 xl:px-8 mt-6'>
             <ul>
-              <li className='leading-loose mb-3'>Sport</li>
-              <li className='leading-loose mb-3'>Formal</li>
-              <li className='leading-loose mb-3'>Casual</li>
+              <li className='leading-loose mb-3'>
+                <button className='capitalize active:outline-none focus:outline-none pr-4'>
+                  sport
+                </button>
+              </li>
+              <li className='leading-loose mb-3'>
+                <button className='capitalize active:outline-none focus:outline-none pr-4'>
+                  formal
+                </button>
+              </li>
+              <li className='leading-loose mb-3'>
+                <button className='capitalize active:outline-none focus:outline-none pr-4'>
+                  casual
+                </button>
+              </li>
             </ul>
           </div>
         </div>
         <div className='w-1/2 py-2 md:py-6 lg:py-8 px-4 lg:px-6 xl:px-8'>
           <div className='flex flex-wrap justify-between w-full '>
             <h2 className='font-bold tracking-wide uppercase'>colors</h2>
-            <button className='capitalize underline'>reset</button>
+            <button className='capitalize underline active:outline-none focus:outline-none'>
+              reset
+            </button>
           </div>
           <div className='mt-6'>
             <button className='w-8 h-8 border border-white bg-red-400 mr-3 active:outline-none focus:outline-none focus:shadow-outline active:shadow-outline'></button>
@@ -102,12 +118,12 @@ const ProductFilter = () => {
             <button className='w-8 h-8 border border-white bg-yellow-400 mr-3 active:outline-none focus:outline-none focus:shadow-outline active:shadow-outline'></button>
           </div>
         </div>
-        <button className='flex flex-wrap items-center w-full border border-gray-300 py-2 md:py-4 focus:outline-none focus:shadow-outline active:outline-none active:shadow-outline'>
+        <button className='close-filters flex flex-wrap items-center w-full border border-gray-300 py-2 md:py-4 focus:outline-none active:outline-none'>
           <div className='w-32 m-auto'>
             <SvgArrowUp className='h-4 w-4 text-gray-800 fill-current inline mr-4'></SvgArrowUp>{' '}
-            <p className='leading-loose text-center capitalize inline'>
+            <span className='close-filters__label leading-loose text-center capitalize inline'>
               hide filters
-            </p>
+            </span>
           </div>
         </button>
       </section>

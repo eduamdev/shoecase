@@ -5,6 +5,7 @@ import Cart from './cart';
 import Products from './products';
 import Product from './product';
 import Footer from './footer';
+import ScrollToTop from './common/scrollToTop';
 import NotFound from './notFound';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
@@ -34,6 +35,7 @@ function App({ history }) {
       </div>
       <Header isMenuOpen={isMenuOpen} handleClick={toggleMenu}></Header>
       <main>
+        <ScrollToTop />
         <Switch>
           <Route path='/men/:id' component={Product}></Route>
           <Route

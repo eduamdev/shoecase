@@ -69,4 +69,8 @@
   font-family: 'Poppins', sans-serif;
 }
 
+.close-filters:hover .close-filters__label {
+  text-decoration: underline;
+}
+
 @tailwind utilities;
