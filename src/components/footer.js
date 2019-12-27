@@ -65,7 +65,24 @@ const Footer = () => {
 
       <section className='bg-black px-6 py-10'>
         <p className='text-gray-200 text-sm tracking-wider font-thin text-center leading-loose'>
-          Design & built by Eduardo Rodriguez, twitter & github
+          Design & built by Eduardo Rodriguez,{' '}
+          <a
+            href='https://twitter.com/edroamz'
+            rel='noreferrer noopener nofollow'
+            aria-label='twitter account'
+            className='text-blue-100 font-medium underline hover:no-underline'
+          >
+            twitter
+          </a>{' '}
+          &{' '}
+          <a
+            href='https://github.com/edroamz'
+            rel='noreferrer noopener nofollow'
+            aria-label='github account'
+            className='text-blue-100 font-medium underline hover:no-underline'
+          >
+            github
+          </a>
         </p>
       </section>
     </footer>
