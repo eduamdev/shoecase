@@ -6,6 +6,7 @@ import Products from './products';
 import Product from './product';
 import Footer from './footer';
 import ScrollToTop from './common/scrollToTop';
+import SuccessfulOrder from './successfulOrder';
 import NotFound from './notFound';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import useWindowSize from '../hooks/useWindowSize';
@@ -74,7 +75,7 @@ function App({ history }) {
         ></span>
       )}
       <div className='relative w-full text-center bg-red-100 border-b border-gray-300 py-2 text-sm text-gray-800 font-light tracking-wider z-30'>
-        Free ships worldwide!
+        Free shipping worldwide!
       </div>
       <Header
         isMenuOpen={isMenuOpen}
@@ -110,6 +111,7 @@ function App({ history }) {
             )}
           ></Route>
           <Route path='/cart' component={Cart}></Route>
+          <Route path='/successful-order' component={SuccessfulOrder}></Route>
           <Route path='/' exact component={Home}></Route>
           <Route path='/not-found' component={NotFound}></Route>
           <Redirect to='/not-found'></Redirect>
