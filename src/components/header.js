@@ -168,23 +168,26 @@ const Header = ({
             <span className='ml-2 text-base font-light'>(1)</span>
           </h1>
           <div className='w-full'>
-            <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-300'>
+            <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-200'>
               <Img src={image} className='h-24 object-cover'></Img>
               <p className='w-1/2 uppercase'>batcombe lord</p>
               <p className=''>$1,680.00</p>
             </div>
-            <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-300'>
+            <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-200'>
               <Img src={image} className='h-24 object-cover'></Img>
               <p className='w-1/2 uppercase'>batcombe lord</p>
               <p className=''>$1,680.00</p>
             </div>
-            <div className='flex flex-wrap justify-between items-center py-12 border-t border-gray-300'>
+            <div className='flex flex-wrap justify-between items-center py-12 border-t border-gray-200'>
               <p className='font-bold text-xl uppercase'>total</p>
               <p className='font-bold text-xl'>$1,680.00</p>
             </div>
-            <button className='w-full bg-black tracking-wider font-light text-base text-white text-center py-5 rounded-sm shadow-md'>
+            <Link
+              to='/cart'
+              className='block w-full bg-black tracking-wider font-light text-base text-white text-center py-5 rounded-sm shadow-md'
+            >
               View your Shopping Bag
-            </button>
+            </Link>
           </div>
         </div>
       )}
