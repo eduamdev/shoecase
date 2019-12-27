@@ -70,7 +70,7 @@ const Footer = () => {
             href='https://twitter.com/edroamz'
             rel='noreferrer noopener nofollow'
             aria-label='twitter account'
-            className='text-blue-100 font-medium underline hover:no-underline'
+            className=' font-normal tracking-widest underline hover:no-underline'
           >
             twitter
           </a>{' '}
@@ -79,7 +79,7 @@ const Footer = () => {
             href='https://github.com/edroamz'
             rel='noreferrer noopener nofollow'
             aria-label='github account'
-            className='text-blue-100 font-medium underline hover:no-underline'
+            className=' font-normal tracking-widest underline hover:no-underline'
           >
             github
           </a>
