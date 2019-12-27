@@ -15,9 +15,9 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
         className={`relative bg-white w-full h-12 border-b border-gray-300 md:h-auto z-20`}
       >
         <div className='flex flex-wrap items-center justify-between w-full h-full '>
-          <p className='text-left capitalize font-bold pl-4 lg:pl-6 xl:pl-8'>
+          <p className='text-left capitalize font-bold pl-4 lg:pl-6 xl:pl-8 md:text-lg'>
             All shoes{' '}
-            <span className='text-sm font-light tracking-wider lg:ml-3 text-gray-800 lg:font-thin'>
+            <span className='text-sm font-light tracking-wider lg:ml-3 text-gray-800 lg:font-light'>
               ( 4 Products)
             </span>
           </p>
