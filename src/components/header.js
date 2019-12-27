@@ -93,7 +93,7 @@ const Header = ({
 
         {/* Medium+ devices */}
         <section className='relative bg-white w-full hidden md:flex md:flex-1 md:px-4 xl:px-8 border-b border-gray-300 z-30'>
-          <article className='flex flex-wrap items-center w-1/2'>
+          <article className='flex flex-wrap items-center w-1/2 '>
             <Link
               to='/'
               className='font-bold uppercase text-center text-xl mr-20'
@@ -104,7 +104,7 @@ const Header = ({
               <ul className='flex flex-wrap items-stretch w-40 '>
                 <li className='flex flex-wrap items-center h-full mr-4'>
                   <NavLink
-                    className='uppercase py-4 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black'
+                    className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black'
                     activeClassName='border-b border-black'
                     exact
                     to='/men'
@@ -114,7 +114,7 @@ const Header = ({
                 </li>
                 <li className='flex flex-wrap items-center h-full'>
                   <NavLink
-                    className='uppercase py-4 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black'
+                    className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black'
                     activeClassName='border-b border-black'
                     exact
                     to='/women'
@@ -126,7 +126,7 @@ const Header = ({
             </nav>
           </article>
           <article className='flex flex-wrap items-center justify-end w-1/2'>
-            <div className='flex items-center md:w-48 lg:w-64 xl:w-72 h-8 relative bg-gray-200 py-2 px-4 rounded-sm mr-8'>
+            <div className='flex items-center md:w-56 lg:w-84 xl:w-108 h-8 lg:h-10 relative bg-gray-200 py-2 px-4 rounded-sm mr-8'>
               <input
                 className='ml-8 w-full border-none bg-transparent outline-none text-sm tracking-wide'
                 placeholder='Products...'
