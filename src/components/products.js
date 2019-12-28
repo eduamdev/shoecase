@@ -27,8 +27,8 @@ const Products = ({ genre, areFiltersShowing, handleFiltersClick }) => {
                 url={`${product.genre}/${product.slug}`}
                 slug={product.slug}
                 alt={product.description}
-                title={product.name}
-                text={`$${product.price}`}
+                name={product.name}
+                price={`$${product.price}`}
               ></ProductCard>
             ))}
       </section>

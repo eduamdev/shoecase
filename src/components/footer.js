@@ -9,9 +9,9 @@ const Footer = () => {
         style={{ maxWidth: '1440px' }}
       >
         <article className='w-full md:w-1/4 lg:w-2/6 p-6'>
-          <p className='capitalize font-medium mb-4 md:mb-6 text-gray-300'>
+          <h3 className='capitalize font-medium mb-4 md:mb-6 text-gray-300'>
             Sign Up to Our Newsletter
-          </p>
+          </h3>
           <input
             className='w-full px-4 py-3 md:px-6 md:py-4 bg-gray-900 text-gray-400 border-none outline-none text-sm tracking-widest rounded-sm'
             placeholder='ENTER YOUR EMAIL'
@@ -19,40 +19,40 @@ const Footer = () => {
           />
         </article>
         <article className='inline-block align-top w-1/2 md:w-1/4 lg:w-1/6 p-6'>
-          <p className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
+          <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
             store
-          </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
+          </h3>
+          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
             contact us
-          </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
+          </span>
+          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
             our store
-          </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
+          </span>
+          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
             about us
-          </p>
+          </span>
         </article>
         <article className='inline-block align-top w-1/2 md:w-1/4 lg:w-1/6 p-6'>
-          <p className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
+          <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
             orders
-          </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-base'>
+          </h3>
+          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-base'>
             delivery & returns
-          </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
+          </span>
+          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
             my account
-          </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-base'>
+          </span>
+          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-base'>
             collect in store
-          </p>
-          <p className='text-sm tracking-wider font-light leading-loose text-gray-400 uppercase'>
+          </span>
+          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 uppercase'>
             faq
-          </p>
+          </span>
         </article>
         <article className='w-full md:w-1/4 lg:w-1/6 p-6'>
-          <p className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
+          <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
             social
-          </p>
+          </h3>
           <div className='flex mb-4 text-gray-400 fill-current'>
             <Icon type='facebook' classes='h-4 w-4 mr-6'></Icon>
             <Icon type='twitter' classes='h-4 w-4 mr-6'></Icon>
