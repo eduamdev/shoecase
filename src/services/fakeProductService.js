@@ -6,7 +6,7 @@ const products = [
     _id: '5b21ca3eeb7f6fbccd471815',
     sku: '1A586V',
     price: 2470,
-    name: 'CALLA ROSE',
+    name: 'calla rose',
     slug: 'calla-rose',
     description:
       "Crafted from black calf leather and patent Monogram canvas, the Janet ankle boot features a sharp, slim shape and a shifted-back stiletto heel. One of the statements of Louis Vuitton's Spring-Summer 2019 collection, this assertive, feminine style is complemented by angular buckles and an LV-engraved closure in silver-tone metal.",
@@ -78,6 +78,10 @@ export function getProducts() {
 
 export function getProduct(id) {
   return products.find(m => m._id === id);
+}
+
+export function getProductBySlug(slug) {
+  return products.find(m => m.slug === slug);
 }
 
 export function saveProduct(product) {
