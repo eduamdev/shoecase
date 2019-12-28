@@ -1,9 +1,10 @@
 import React from 'react';
 import ProductCard from './productCard';
-import shoe1 from '../images/products/batcombe-lord.jpg';
-import shoe2 from '../images/products/calla-rose.webp';
+import { getProducts } from '../services/fakeProductService';
 
 const FeaturedProducts = () => {
+  const products = getProducts();
+
   return (
     <section className='flex flex-wrap w-full'>
       <div className='w-full border border-gray-300 p-8'>
@@ -11,20 +12,19 @@ const FeaturedProducts = () => {
           featured products
         </h2>
       </div>
-      <ProductCard
-        url='/men/batcombe-lord'
-        image={shoe1}
-        alt='shoes'
-        title='Batcombe Lord'
-        text='$145'
-      ></ProductCard>
-      <ProductCard
-        url='/men/orson-harbour'
-        image={shoe2}
-        alt='shoes'
-        title='orson harbour'
-        text='$115'
-      ></ProductCard>
+      {products &&
+        products
+          .filter(p => p.featured)
+          .map(product => (
+            <ProductCard
+              key={product._id}
+              url={`${product.genre}/${product.slug}`}
+              slug={product.slug}
+              alt={product.description}
+              title={product.name}
+              text={`$${product.price}`}
+            ></ProductCard>
+          ))}
     </section>
   );
 };

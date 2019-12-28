@@ -4,5 +4,15 @@
     "md": 768,
     "lg": 1024,
     "xl": 1280
-  }
+  },
+  "navLinks": [
+    {
+      "url": "/men",
+      "label": "men"
+    },
+    {
+      "url": "/women",
+      "label": "women"
+    }
+  ]
 }

@@ -1,13 +1,9 @@
 import React from 'react';
-import Img from 'react-image';
 import { Link, NavLink } from 'react-router-dom';
-import { breakpoints } from '../config.json';
-import { ReactComponent as SvgMenu } from '../icons/menu.svg';
-import { ReactComponent as SvgClose } from '../icons/close.svg';
-import { ReactComponent as SvgUser } from '../icons/user.svg';
-import { ReactComponent as SvgShoppingBag } from '../icons/shopping-bag.svg';
-import { ReactComponent as SvgMagnifier } from '../icons/magnifier.svg';
-import image from '../images/products/batcombe-lord.jpg';
+import Icon from './common/icon';
+import SearchBox from './common/searchBox';
+import ShoppingBag from './shoppingBag';
+import { breakpoints, navLinks } from '../config.json';
 
 const Header = ({
   isMenuOpen,
@@ -18,11 +14,10 @@ const Header = ({
 }) => {
   const navClasses = 'w-full border-t border-b border-gray-300';
   const searchClasses = 'h-12 px-4 py-2';
-  const iconClasses = 'h-4 w-4';
 
-  return (
-    <>
-      <header>
+  function renderHeader() {
+    return (
+      <>
         {/* Small devices */}
         <section className='relative bg-white w-full bg-white z-30 md:hidden border-b border-gray-300'>
           <article className='flex items-center w-full h-12 px-4 py-2 '>
@@ -32,9 +27,9 @@ const Header = ({
                 onClick={handleMenuClick}
               >
                 {isMenuOpen ? (
-                  <SvgClose className={iconClasses}></SvgClose>
+                  <Icon type='close'></Icon>
                 ) : (
-                  <SvgMenu className={iconClasses}></SvgMenu>
+                  <Icon type='menu'></Icon>
                 )}
               </button>
               <Link to='/' className='font-bold uppercase text-center'>
@@ -42,13 +37,13 @@ const Header = ({
               </Link>
               <div className='flex'>
                 <button className='active:shadow-outline focus:outline-none focus:shadow-outline p-2 mr-4'>
-                  <SvgUser className={iconClasses}></SvgUser>
+                  <Icon type='user'></Icon>
                 </button>
                 <Link
                   to='/cart'
                   className='active:shadow-outline focus:outline-none focus:shadow-outline p-2'
                 >
-                  <SvgShoppingBag className={iconClasses}></SvgShoppingBag>
+                  <Icon type='shoppingBag'></Icon>
                 </Link>
               </div>
             </div>
@@ -61,16 +56,17 @@ const Header = ({
             }
           >
             <ul className='w-full h-full px-4'>
-              <li className='flex flex-wrap items-center w-full h-16 border-b border-gray-300'>
-                <NavLink to='/men' className='w-full py-4 uppercase'>
-                  men
-                </NavLink>
-              </li>
-              <li className='flex flex-wrap items-center w-full h-16'>
-                <NavLink to='/women' className='w-full py-4 uppercase '>
-                  women
-                </NavLink>
-              </li>
+              {navLinks &&
+                navLinks.map((link, index) => (
+                  <li
+                    key={index}
+                    className='flex flex-wrap items-center w-full h-16 border-b border-gray-300'
+                  >
+                    <NavLink to={link.url} className='w-full py-4 uppercase'>
+                      {link.label}
+                    </NavLink>
+                  </li>
+                ))}
             </ul>
           </nav>
           <article
@@ -78,14 +74,8 @@ const Header = ({
           >
             <div className='flex flex-wrap items-center justify-between w-full'>
               <div className='flex items-center w-full h-8 relative bg-gray-200 py-2 px-4 rounded-sm'>
-                <input
-                  className='ml-8 w-full border-none bg-transparent outline-none text-sm tracking-wide'
-                  placeholder='Products...'
-                  type='text'
-                />
-                <SvgMagnifier
-                  className={`${iconClasses} absolute`}
-                ></SvgMagnifier>
+                <SearchBox placeholder='Products...'></SearchBox>
+                <Icon type='magnifier' classes='h-4 w-4 absolute'></Icon>
               </div>
             </div>
           </article>
@@ -100,96 +90,55 @@ const Header = ({
             >
               shoecase
             </Link>
-            <nav className=''>
+            <nav>
               <ul className='flex flex-wrap items-stretch w-40 '>
-                <li className='flex flex-wrap items-center h-full mr-4'>
-                  <NavLink
-                    className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black'
-                    activeClassName='border-b border-black'
-                    exact
-                    to='/men'
-                  >
-                    men
-                  </NavLink>
-                </li>
-                <li className='flex flex-wrap items-center h-full'>
-                  <NavLink
-                    className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black'
-                    activeClassName='border-b border-black'
-                    exact
-                    to='/women'
-                  >
-                    women
-                  </NavLink>
-                </li>
+                {navLinks &&
+                  navLinks.map((link, index) => (
+                    <li
+                      key={index}
+                      className='flex flex-wrap items-center h-full mr-4'
+                    >
+                      <NavLink
+                        to={link.url}
+                        exact
+                        className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black'
+                        activeClassName='border-b border-black'
+                      >
+                        {link.label}
+                      </NavLink>
+                    </li>
+                  ))}
               </ul>
             </nav>
           </article>
           <article className='flex flex-wrap items-center justify-end w-1/2'>
             <div className='flex items-center md:w-56 lg:w-84 xl:w-108 h-8 lg:h-10 relative bg-gray-200 py-2 px-4 rounded-sm mr-8'>
-              <input
-                className='ml-8 w-full border-none bg-transparent outline-none text-sm tracking-wide'
-                placeholder='Products...'
-                type='text'
-              />
-              <SvgMagnifier
-                className={`${iconClasses} absolute`}
-              ></SvgMagnifier>
+              <SearchBox placeholder='Products...'></SearchBox>
+              <Icon type='magnifier' classes='h-4 w-4 absolute'></Icon>
             </div>
             <div className='flex'>
               <button className='active:shadow-outline focus:outline-none focus:shadow-outline p-2 mr-4'>
-                <SvgUser className={iconClasses}></SvgUser>
+                <Icon type='user'></Icon>
               </button>
               <button
                 onClick={handleShoppingBagClick}
                 className='active:shadow-outline focus:outline-none focus:shadow-outline p-2'
               >
-                <SvgShoppingBag className={iconClasses}></SvgShoppingBag>
+                <Icon type='shoppingBag'></Icon>
               </button>
             </div>
           </article>
         </section>
-      </header>
+      </>
+    );
+  }
 
-      {/* Modal */}
+  return (
+    <>
+      <header>{renderHeader()}</header>
+
       {isShoppingBagOpen && viewportSize.width > breakpoints.md && (
-        <div
-          className='z-50 fixed top-0 right-0 h-screen bg-white w-2/6 px-10 py-12 shadow-2xl'
-          style={{ minWidth: '600px' }}
-        >
-          <button
-            onClick={handleShoppingBagClick}
-            className='active:shadow-outline focus:outline-none focus:shadow-outline p-2 absolute top-0 right-0 mr-10 mt-6'
-          >
-            <SvgClose className={iconClasses}></SvgClose>
-          </button>
-          <h1 className='uppercase text-2xl font-bold tracking-wide mb-8'>
-            your shopping bag{' '}
-            <span className='ml-2 text-base font-light'>(1)</span>
-          </h1>
-          <div className='w-full'>
-            <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-200'>
-              <Img src={image} className='h-24 object-cover'></Img>
-              <p className='w-1/2 uppercase'>batcombe lord</p>
-              <p className=''>$1,680.00</p>
-            </div>
-            <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-200'>
-              <Img src={image} className='h-24 object-cover'></Img>
-              <p className='w-1/2 uppercase'>batcombe lord</p>
-              <p className=''>$1,680.00</p>
-            </div>
-            <div className='flex flex-wrap justify-between items-center py-12 border-t border-gray-200'>
-              <p className='font-bold text-xl uppercase'>total</p>
-              <p className='font-bold text-xl'>$1,680.00</p>
-            </div>
-            <Link
-              to='/cart'
-              className='block w-full bg-black tracking-wider font-light text-base text-white text-center py-5 rounded-sm shadow-md'
-            >
-              View your Shopping Bag
-            </Link>
-          </div>
-        </div>
+        <ShoppingBag handleClick={handleShoppingBagClick}></ShoppingBag>
       )}
     </>
   );

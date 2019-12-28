@@ -87,7 +87,7 @@ function App({ history }) {
       <main>
         <ScrollToTop />
         <Switch>
-          <Route path='/men/:id' component={Product}></Route>
+          <Route path={['/men/:id', '/women/:id']} component={Product}></Route>
           <Route
             path='/men'
             render={props => (

@@ -1,10 +1,11 @@
 import React from 'react';
 import ProductFilter from './productFilter';
 import ProductCard from './productCard';
-import batcombeLord from '../images/products/batcombe-lord.jpg';
-import orsonHarbour from '../images/products/orson-harbour.webp';
+import { getProducts } from '../services/fakeProductService';
 
 const Products = ({ genre, areFiltersShowing, handleFiltersClick }) => {
+  const products = getProducts();
+
   return (
     <>
       <section className='relative bg-white flex flex-wrap items-center justify-center w-full h-12 md:h-auto py-2 md:py-4 px-4 lg:px-6 xl:px-8 border-b border-gray-300 z-20'>
@@ -17,34 +18,19 @@ const Products = ({ genre, areFiltersShowing, handleFiltersClick }) => {
         handleFiltersClick={handleFiltersClick}
       ></ProductFilter>
       <section className='flex flex-wrap w-full'>
-        <ProductCard
-          url='/men/batcombe-lord'
-          image={batcombeLord}
-          alt='shoes'
-          title='Batcombe Lord'
-          text='$145'
-        ></ProductCard>
-        <ProductCard
-          url='/men/orson-harbour'
-          image={orsonHarbour}
-          alt='shoes'
-          title='orson harbour'
-          text='$115'
-        ></ProductCard>
-        <ProductCard
-          url='/men/batcombe-lord'
-          image={batcombeLord}
-          alt='shoes'
-          title='Batcombe Lord'
-          text='$145'
-        ></ProductCard>
-        <ProductCard
-          url='/men/orson-harbour'
-          image={orsonHarbour}
-          alt='shoes'
-          title='orson harbour'
-          text='$115'
-        ></ProductCard>
+        {products &&
+          products
+            .filter(p => p.genre === genre)
+            .map(product => (
+              <ProductCard
+                key={product._id}
+                url={`${product.genre}/${product.slug}`}
+                slug={product.slug}
+                alt={product.description}
+                title={product.name}
+                text={`$${product.price}`}
+              ></ProductCard>
+            ))}
       </section>
     </>
   );
