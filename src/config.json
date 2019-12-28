@@ -14,5 +14,31 @@
       "url": "/women",
       "label": "women"
     }
+  ],
+  "benefits": [
+    {
+      "key": "benefit1",
+      "title": "comfort",
+      "text": "Like walking on the clouds",
+      "alt": "A pair of comfortable shoes"
+    },
+    {
+      "key": "benefit2",
+      "title": "waterproof",
+      "text": "No more wet socks",
+      "alt": "waterproof footwear"
+    },
+    {
+      "key": "benefit3",
+      "title": "light weight",
+      "text": "As light as air",
+      "alt": "A pair of light weight sneakers"
+    },
+    {
+      "key": "benefit4",
+      "title": "customizable",
+      "text": "Your shoes, your style",
+      "alt": "A rack of shoes"
+    }
   ]
 }

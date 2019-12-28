@@ -57,9 +57,9 @@ const Header = ({
           >
             <ul className='w-full h-full px-4'>
               {navLinks &&
-                navLinks.map((link, index) => (
+                navLinks.map(link => (
                   <li
-                    key={index}
+                    key={link.label}
                     className='flex flex-wrap items-center w-full h-16 border-b border-gray-300'
                   >
                     <NavLink to={link.url} className='w-full py-4 uppercase'>
@@ -93,9 +93,9 @@ const Header = ({
             <nav>
               <ul className='flex flex-wrap items-stretch w-40 '>
                 {navLinks &&
-                  navLinks.map((link, index) => (
+                  navLinks.map(link => (
                     <li
-                      key={index}
+                      key={link.label}
                       className='flex flex-wrap items-center h-full mr-4'
                     >
                       <NavLink
