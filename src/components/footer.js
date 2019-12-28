@@ -1,7 +1,5 @@
 import React from 'react';
-import { ReactComponent as SvgFacebook } from '../icons/facebook.svg';
-import { ReactComponent as SvgTwitter } from '../icons/twitter.svg';
-import { ReactComponent as SvgInstagram } from '../icons/instagram.svg';
+import Icon from './common/icon';
 
 const Footer = () => {
   return (
@@ -56,9 +54,9 @@ const Footer = () => {
             social
           </p>
           <div className='flex mb-4 text-gray-400 fill-current'>
-            <SvgFacebook className='h-4 w-4 mr-6'></SvgFacebook>
-            <SvgTwitter className='h-4 w-4 mr-6'></SvgTwitter>
-            <SvgInstagram className='h-4 w-4'></SvgInstagram>
+            <Icon type='facebook' classes='h-4 w-4 mr-6'></Icon>
+            <Icon type='twitter' classes='h-4 w-4 mr-6'></Icon>
+            <Icon type='instagram'></Icon>
           </div>
         </article>
       </section>
