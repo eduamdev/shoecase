@@ -22,13 +22,13 @@ const Footer = () => {
           <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
             store
           </h3>
-          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
+          <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-sm mb-2'>
             contact us
           </span>
-          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
+          <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-sm mb-2'>
             our store
           </span>
-          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
+          <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-sm mb-2'>
             about us
           </span>
         </article>
@@ -36,16 +36,16 @@ const Footer = () => {
           <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
             orders
           </h3>
-          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-base'>
+          <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-sm mb-2'>
             delivery & returns
           </span>
-          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-base'>
+          <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 capitalize  lg:text-sm mb-2'>
             my account
           </span>
-          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-base'>
+          <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-sm mb-2'>
             collect in store
           </span>
-          <span className='text-sm tracking-wider font-light leading-loose text-gray-400 uppercase'>
+          <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 uppercase'>
             faq
           </span>
         </article>
