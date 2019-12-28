@@ -12,7 +12,7 @@ const Product = ({ match }) => {
     <section className='flex flex-wrap'>
       <section className='w-full lg:w-2/3 border-b border-gray-300 py-6'>
         <div className='max-w-sm lg:max-w-lg mx-auto'>
-          <Image slug={slug} alt={description} classes='max-w-sm lg:max-w-lg' />
+          <Image slug={slug} alt={description} classes='max-w-full' />
         </div>
       </section>
       <section className='w-full lg:w-1/3 md:px-20 lg:px-4 xl:px-10 py-10 lg:py-12 border-l border-gray-300'>
