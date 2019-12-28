@@ -40,5 +40,55 @@
       "text": "Your shoes, your style",
       "alt": "A rack of shoes"
     }
-  ]
+  ],
+  "footer": {
+    "articles": [
+      {
+        "title": "Sign Up To Our Newsletter",
+        "input": {
+          "placeholder": "ENTER YOUR EMAIL"
+        }
+      },
+      {
+        "title": "store",
+        "sections": ["contact us", "our store", "about us"]
+      },
+      {
+        "title": "orders",
+        "sections": [
+          "delivery & returns",
+          "my account",
+          "collect in store",
+          "FAQ"
+        ]
+      },
+      {
+        "title": "social",
+        "icons": [
+          {
+            "type": "facebook",
+            "classes": "h-4 w-4 mr-6"
+          },
+          {
+            "type": "twitter",
+            "classes": "h-4 w-4 mr-6"
+          },
+          {
+            "type": "instagram",
+            "classes": "h-4 w-4 mr-6"
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "name": "github",
+        "url": "https://github.com/edroamz"
+      },
+      {
+        "name": "twitter",
+        "url": "https://twitter.com/edroamz"
+      }
+    ]
+  }
 }
