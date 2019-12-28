@@ -45,7 +45,7 @@ const Footer = () => {
           <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-sm mb-2'>
             collect in store
           </span>
-          <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 uppercase'>
+          <span className='block text-xs tracking-wider font-light leading-loose text-gray-400 uppercase lg:text-sm mb-2'>
             faq
           </span>
         </article>

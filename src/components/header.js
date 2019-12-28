@@ -32,7 +32,10 @@ const Header = ({
                   <Icon type='menu'></Icon>
                 )}
               </button>
-              <Link to='/' className='font-bold uppercase text-center'>
+              <Link
+                to='/'
+                className='font-bold uppercase text-center tracking-wider'
+              >
                 shoecase
               </Link>
               <div className='flex'>
@@ -86,7 +89,7 @@ const Header = ({
           <article className='flex flex-wrap items-center w-1/2 '>
             <Link
               to='/'
-              className='font-bold uppercase text-center text-xl mr-20'
+              className='font-bold uppercase text-xl mr-20 tracking-wider'
             >
               shoecase
             </Link>
@@ -101,8 +104,8 @@ const Header = ({
                       <NavLink
                         to={link.url}
                         exact
-                        className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b border-transparent hover:border-black'
-                        activeClassName='border-b border-black'
+                        className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b-2 border-transparent '
+                        activeClassName='border-b-2 border-black'
                       >
                         {link.label}
                       </NavLink>

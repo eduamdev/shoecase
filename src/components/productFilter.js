@@ -6,8 +6,8 @@ import { ReactComponent as SvgArrowUp } from '../icons/arrow-up.svg';
 
 const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
   const btnFilterClasses = areFiltersShowing
-    ? 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-black pr-4 py-2 md:py-4 lg:py-6 px-4 lg:px-6 xl:px-8'
-    : 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-transparent  pr-4 py-2 md:py-4 lg:py-6 px-4 lg:px-6 xl:px-8';
+    ? 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-black py-2 md:py-4 lg:py-6 px-10 lg:px-12 xl:px-16'
+    : 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-transparent  py-2 md:py-4 lg:py-6 px-10 lg:px-12 xl:px-16';
 
   return (
     <>
@@ -15,16 +15,16 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
         className={`relative bg-white w-full h-12 border-b border-gray-300 md:h-auto z-20`}
       >
         <div className='flex flex-wrap items-center justify-between w-full h-full '>
-          <p className='text-left capitalize font-bold pl-4 lg:pl-6 xl:pl-8 md:text-lg'>
+          <p className='text-left capitalize font-bold pl-4 lg:pl-6 xl:pl-8 md:text-lg tracking-wide'>
             All shoes{' '}
             <span className='text-sm font-light tracking-wider lg:ml-3 text-gray-800 lg:font-light'>
               ( 4 Products)
             </span>
           </p>
-          <div className='w-32 md:w-40 xl:w-48 h-full border-l border-gray-300 '>
+          <div className='h-full border-l border-gray-300'>
             <button onClick={handleFiltersClick} className={btnFilterClasses}>
-              <SvgFilter className='h-4 w-4 md:h-5 md:w-5 mr-2 lg:mr-4'></SvgFilter>
-              <p className='text-base md:text-lg tracking-wide'>Filters</p>
+              <SvgFilter className='h-4 w-4 mr-2 lg:mr-3'></SvgFilter>
+              <p className='text-sm lg:text-base tracking-wide'>Filters</p>
             </button>
           </div>
         </div>
