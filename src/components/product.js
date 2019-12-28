@@ -15,8 +15,8 @@ const Product = ({ match }) => {
           <Image slug={slug} alt={description} classes='max-w-full' />
         </div>
       </section>
-      <section className='w-full lg:w-1/3 md:px-20 lg:px-4 xl:px-10 py-10 lg:py-12 border-l border-gray-300'>
-        <article className='w-full border-b border-gray-300 py-16 px-4'>
+      <section className='w-full lg:w-1/3 md:px-20 lg:px-4 xl:px-10 py-6 lg:py-12 border-l border-gray-300'>
+        <article className='w-full border-b border-gray-300 py-10 lg:py-16 px-4'>
           <span className='text-sm tracking-widest'>{sku}</span>
           <h1 className='text-3xl lg:text-4xl font-extrabold lg:font-bold uppercase tracking-wide lg:tracking-wider'>
             {name}
