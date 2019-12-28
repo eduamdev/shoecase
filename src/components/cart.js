@@ -110,7 +110,7 @@ const Cart = () => {
           payment details
         </h2>
         <article className='w-full bg-white rounded-sm'>
-          <div className=' py-6 lg:py-0 px-4 border-b border-gray-300 tracking-wide leading-loose px-10 lg:border-none'>
+          <div className=' py-6 lg:py-0 px-4 lg:px-10 border-b border-gray-300 tracking-wide leading-loose lg:border-none'>
             <h2 className='text-xl lg:text-2xl font-bold uppercase tracking-wide mb-4 hidden lg:block lg:pt-16 lg:pb-8'>
               payment details
             </h2>
