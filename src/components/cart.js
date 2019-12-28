@@ -114,14 +114,14 @@ const Cart = () => {
             <h2 className='text-xl lg:text-2xl font-bold uppercase tracking-wide mb-4 hidden lg:block lg:pt-16 lg:pb-8'>
               payment details
             </h2>
-            <div className='w-full text-left text-xs lg:text-sm capitalize mb-2'>
+            <div className='w-full text-left text-xs lg:text-sm capitalize mb-1 lg:mb-2'>
               email *
             </div>
-            <input className='w-full mb-6 lg:mb-8 lg:py-1 border border-gray-300 rounded-sm' />
-            <div className='w-full text-left text-xs lg:text-sm capitalize mb-2'>
+            <input className='w-full mb-8 lg:py-1 border border-gray-300 rounded-sm' />
+            <div className='w-full text-left text-xs lg:text-sm capitalize mb-1 lg:mb-2'>
               credit card *
             </div>
-            <input className='w-full mb-6 lg:mb-8 lg:py-1 border border-gray-300 rounded-sm' />
+            <input className='w-full mb-8 lg:py-1 border border-gray-300 rounded-sm' />
             <button className='w-full bg-black tracking-wider font-light text-xs lg:text-sm lg:text-base text-white text-center py-3 lg:py-4 rounded-sm mt-10 mb-6'>
               Pay with Credit Card
             </button>
