@@ -6,8 +6,8 @@ import { ReactComponent as SvgArrowUp } from '../icons/arrow-up.svg';
 
 const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
   const btnFilterClasses = areFiltersShowing
-    ? 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-black py-2 md:py-4 lg:py-6 px-10 lg:px-12 xl:px-16'
-    : 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-transparent  py-2 md:py-4 lg:py-6 px-10 lg:px-12 xl:px-16';
+    ? 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-black py-2 md:py-4 lg:py-6 px-4 md:px-6 lg:px-12'
+    : 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-transparent  py-2 md:py-4 lg:py-6 px-4 md:px-6 lg:px-12';
 
   return (
     <>
@@ -15,9 +15,9 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
         className={`relative bg-white w-full h-12 border-b border-gray-300 md:h-auto z-20`}
       >
         <div className='flex flex-wrap items-center justify-between w-full h-full '>
-          <p className='text-left capitalize font-bold pl-4 lg:pl-6 xl:pl-8 md:text-lg tracking-wide'>
+          <p className='text-left capitalize font-bold pl-4 md:pl-6 lg:pl-12 md:text-lg tracking-wide'>
             All shoes{' '}
-            <span className='text-sm font-light tracking-wider lg:ml-3 text-gray-800 lg:font-light'>
+            <span className='text-xs lg:text-sm font-light tracking-wider lg:ml-2 text-gray-800'>
               ( 4 Products)
             </span>
           </p>
@@ -87,7 +87,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
           {/* Medium+ devices */}
           <section className='relative bg-white hidden md:flex flex-wrap w-full h-full border border-gray-300 z-20'>
             <div className='w-1/2 border-r border-gray-300 py-2 md:py-6 lg:py-8'>
-              <div className='flex flex-wrap justify-between w-full px-4 lg:px-6 xl:px-8'>
+              <div className='flex flex-wrap justify-between w-full px-4 md:px-6 lg:px-12'>
                 <h2 className='font-bold tracking-wide uppercase'>
                   categories
                 </h2>
@@ -95,7 +95,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                   reset
                 </button>
               </div>
-              <div className='w-full px-4 lg:px-6 xl:px-8 mt-6'>
+              <div className='w-full px-4 md:px-6 lg:px-12 mt-6'>
                 <ul>
                   <li className='leading-loose mb-3'>
                     <button className='capitalize active:outline-none focus:outline-none pr-4'>
@@ -115,7 +115,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                 </ul>
               </div>
             </div>
-            <div className='w-1/2 py-2 md:py-6 lg:py-8 px-4 lg:px-6 xl:px-8'>
+            <div className='w-1/2 py-2 md:py-6 lg:py-8 px-4 md:px-6 lg:px-12'>
               <div className='flex flex-wrap justify-between w-full '>
                 <h2 className='font-bold tracking-wide uppercase'>colors</h2>
                 <button className='capitalize underline active:outline-none focus:outline-none'>

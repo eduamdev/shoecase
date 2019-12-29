@@ -5,10 +5,7 @@ import { footer } from '../config.json';
 const Footer = () => {
   return (
     <footer className='bg-black border-t border-gray-300'>
-      <section
-        className='flex flex-wrap py-6 lg:px-12 md:justify-between md:py-16 xl:py-24 lg:text-lg mx-auto'
-        style={{ maxWidth: '1440px' }}
-      >
+      <section className='flex flex-wrap md:justify-between lg:text-lg py-6'>
         {footer &&
           footer.articles.map(article => {
             let footerArticle = null;
@@ -17,7 +14,7 @@ const Footer = () => {
               footerArticle = (
                 <article
                   key={article.title}
-                  className='w-full md:w-1/4 lg:w-2/6 p-6'
+                  className='w-full md:w-1/4 xl:w-2/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 lg:py-24'
                 >
                   <h3 className='capitalize font-medium mb-4 md:mb-6 text-gray-300'>
                     {article.title}
@@ -33,7 +30,7 @@ const Footer = () => {
               footerArticle = (
                 <article
                   key={article.title}
-                  className='inline-block align-top w-1/2 md:w-1/4 lg:w-1/6 p-6'
+                  className='inline-block align-top w-1/2 md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 lg:py-24'
                 >
                   <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
                     {article.title}
@@ -42,7 +39,7 @@ const Footer = () => {
                     article.sections.map(sub => (
                       <span
                         key={sub}
-                        className='block text-xs tracking-wider font-light leading-loose text-gray-400 capitalize lg:text-sm mb-2'
+                        className='block text-xs lg:text-sm tracking-wider font-light leading-loose lg:leading-relaxed text-gray-400 capitalize mb-2 lg:mb-4'
                       >
                         {sub}
                       </span>
@@ -53,7 +50,7 @@ const Footer = () => {
               footerArticle = (
                 <article
                   key={article.title}
-                  className='w-full md:w-1/4 lg:w-1/6 p-6'
+                  className='w-full md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 lg:py-24'
                 >
                   <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
                     {article.title}

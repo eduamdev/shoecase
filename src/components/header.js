@@ -85,7 +85,7 @@ const Header = ({
         </section>
 
         {/* Medium+ devices */}
-        <section className='relative bg-white w-full hidden md:flex md:flex-1 md:px-4 xl:px-8 border-b border-gray-300 z-30'>
+        <section className='relative bg-white w-full hidden md:flex md:flex-1 md:px-6 lg:px-12 border-b border-gray-300 z-30'>
           <article className='flex flex-wrap items-center w-1/2 '>
             <Link
               to='/'

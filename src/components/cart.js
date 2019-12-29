@@ -6,7 +6,7 @@ import { ReactComponent as SvgTrashCan } from '../icons/trash-can.svg';
 const Cart = () => {
   return (
     <div className='flex flex-wrap bg-gray-200 lg:items-stretch'>
-      <section className='w-full lg:w-4/6 max-w-4xl mx-auto pt-12 px-4 lg:py-16'>
+      <section className='w-full lg:w-4/6 xl:max-w-4xl mx-auto pt-12 lg:py-16 px-4 md:px-6 lg:px-12'>
         <h2 className='text-xl  lg:text-2xl font-bold uppercase tracking-wide mb-4 lg:mb-8'>
           your shopping bag{' '}
           <span className='font-light text-sm text-gray-800 ml-2'>(2)</span>
@@ -14,16 +14,16 @@ const Cart = () => {
 
         {/* Small */}
         <article className='w-full bg-white rounded-sm mb-12 lg:hidden'>
-          <div className='py-6 px-4 border-b border-gray-300'>
+          <div className='py-6 px-4 md:px-6 lg:px-12 border-b border-gray-300'>
             <div className='flex flex-wrap w-full'>
-              <div className='w-1/2'>
+              <div className='w-1/2 md:w-auto'>
                 <Img
                   className='w-24 object-cover'
                   src={batcombeLord}
                   alt='Shoe'
                 ></Img>
               </div>
-              <div className='w-1/2'>
+              <div className='w-1/2 md:ml-32'>
                 <div className='flex content-between flex-wrap h-full'>
                   <h3 className='w-full uppercase font-medium tracking-wide'>
                     batcombe lord
@@ -42,7 +42,7 @@ const Cart = () => {
               Color: Noir
             </span>
           </div>
-          <div className='flex flex-wrap items-center justify-between py-6 px-4'>
+          <div className='flex flex-wrap items-center justify-between py-6 px-4 md:px-6 lg:px-12'>
             <div className='border border-black'>
               <button className='bg-gray-100 px-4 py-2'>-</button>
               <input className='w-12 px-4 py-2' type='text' value='1' />
@@ -54,7 +54,7 @@ const Cart = () => {
         </article>
 
         {/* Large sizes */}
-        <article className='w-full bg-white rounded-sm mb-12 lg:p-10 hidden lg:block'>
+        <article className='w-full bg-white rounded-sm mb-12 lg:p-10 hidden lg:block px-4 md:px-6 lg:px-12 lg:shadow'>
           <div className='flex flex-wrap items-start justify-between'>
             <div className=''>
               <Img
@@ -88,8 +88,8 @@ const Cart = () => {
           </div>
         </article>
 
-        <article className='w-full bg-white rounded-sm'>
-          <div className='flex flex-wrap items-center justify-between py-6 px-4 lg:p-10 border-b border-gray-300 tracking-wide leading-loose'>
+        <article className='w-full bg-white rounded-sm px-4 md:px-6 lg:px-12 py-6 lg:py-10 lg:shadow'>
+          <div className='flex flex-wrap items-center justify-between  tracking-wide leading-loose'>
             <div className='w-1/2 text-left capitalize mb-4 lg:mb-6'>
               subtotal :
             </div>
@@ -105,13 +105,13 @@ const Cart = () => {
           </div>
         </article>
       </section>
-      <section className='w-full lg:w-2/6 bg-gray-200 py-12 px-4 lg:p-0 lg:bg-white '>
+      <section className='w-full lg:w-2/6 bg-gray-200 pt-12 lg:py-16 px-4 md:px-6 lg:px-12 lg:bg-white '>
         <h2 className='text-xl font-bold uppercase tracking-wide mb-4 lg:hidden'>
           payment details
         </h2>
-        <article className='w-full bg-white rounded-sm'>
-          <div className=' py-6 lg:py-0 px-4 lg:px-10 border-b border-gray-300 tracking-wide leading-loose lg:border-none'>
-            <h2 className='text-xl lg:text-2xl font-bold uppercase tracking-wide mb-4 hidden lg:block lg:pt-16 lg:pb-8'>
+        <article className='w-full bg-white rounded-sm px-4 md:px-6 lg:px-0'>
+          <div className=' py-6 lg:py-0 border-b border-gray-300 tracking-wide lg:border-none'>
+            <h2 className='text-xl lg:text-2xl font-bold uppercase tracking-wide mb-4 hidden lg:block lg:pb-8'>
               payment details
             </h2>
             <div className='w-full text-left text-xs lg:text-sm capitalize mb-1 lg:mb-2'>

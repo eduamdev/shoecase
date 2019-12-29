@@ -20,7 +20,7 @@ const Benefits = () => {
         ))}
 
       {last && (
-        <article className='relative w-full lg:w-5/6 p-6 pb-32 md:p-12 lg:py-16'>
+        <article className='relative w-full lg:w-5/6 py-6 pb-32 md:py-12 lg:py-16 px-4 md:px-6 lg:px-12'>
           <Image
             slug={last.key}
             alt={last.alt}
