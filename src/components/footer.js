@@ -14,9 +14,9 @@ const Footer = () => {
               footerArticle = (
                 <article
                   key={article.title}
-                  className='w-full md:w-1/4 xl:w-2/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 lg:py-24'
+                  className='w-full md:w-1/4 xl:w-2/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '
                 >
-                  <h3 className='capitalize font-medium mb-4 md:mb-6 text-gray-300'>
+                  <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
                     {article.title}
                   </h3>
                   <input
@@ -30,7 +30,7 @@ const Footer = () => {
               footerArticle = (
                 <article
                   key={article.title}
-                  className='inline-block align-top w-1/2 md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 lg:py-24'
+                  className='inline-block align-top w-1/2 md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '
                 >
                   <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
                     {article.title}
@@ -50,7 +50,7 @@ const Footer = () => {
               footerArticle = (
                 <article
                   key={article.title}
-                  className='w-full md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 lg:py-24'
+                  className='w-full md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '
                 >
                   <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
                     {article.title}

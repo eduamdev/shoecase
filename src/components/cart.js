@@ -1,7 +1,7 @@
 import React from 'react';
-import Img from 'react-image';
-import batcombeLord from '../images/products/batcombe-lord.jpg';
-import { ReactComponent as SvgTrashCan } from '../icons/trash-can.svg';
+import Input from './common/input';
+import Icon from './common/icon';
+import Image from './common/image';
 
 const Cart = () => {
   return (
@@ -14,14 +14,14 @@ const Cart = () => {
 
         {/* Small */}
         <article className='w-full bg-white rounded-sm mb-12 lg:hidden'>
-          <div className='py-6 px-4 md:px-6 lg:px-12 border-b border-gray-300'>
+          <div className='py-10 px-4 md:px-6 lg:px-12 border-b border-gray-300'>
             <div className='flex flex-wrap w-full'>
               <div className='w-1/2 md:w-auto'>
-                <Img
-                  className='w-24 object-cover'
-                  src={batcombeLord}
-                  alt='Shoe'
-                ></Img>
+                <Image
+                  slug='batcombe-lord'
+                  alt='shoe'
+                  classes='w-24 object-cover'
+                ></Image>
               </div>
               <div className='w-1/2 md:ml-32'>
                 <div className='flex content-between flex-wrap h-full'>
@@ -29,7 +29,7 @@ const Cart = () => {
                     batcombe lord
                   </h3>
                   <button className='border py-2 px-4 border-gray-300 rounded-sm'>
-                    <SvgTrashCan className='w-4 h-4'></SvgTrashCan>
+                    <Icon type='trashCan'></Icon>
                   </button>
                 </div>
               </div>
@@ -48,7 +48,6 @@ const Cart = () => {
               <input className='w-12 px-4 py-2' type='text' value='1' />
               <button className='bg-gray-100 px-4 py-2'>+</button>
             </div>
-
             <span className='font-medium'>$ 1,680.00</span>
           </div>
         </article>
@@ -56,12 +55,12 @@ const Cart = () => {
         {/* Large sizes */}
         <article className='w-full bg-white rounded-sm mb-12 lg:p-10 hidden lg:block px-4 md:px-6 lg:px-12 lg:shadow'>
           <div className='flex flex-wrap items-start justify-between'>
-            <div className=''>
-              <Img
-                className='w-16 object-cover'
-                src={batcombeLord}
-                alt='Shoe'
-              ></Img>
+            <div>
+              <Image
+                slug='batcombe-lord'
+                alt='shoe'
+                classes='w-16 object-cover'
+              ></Image>
             </div>
             <div className='w-2/6'>
               <h3 className='w-full uppercase text-lg tracking-wide font-semibold'>
@@ -74,10 +73,10 @@ const Cart = () => {
                 Color: Noir
               </p>
               <button className='border py-2 px-4 border-gray-300 rounded-sm mt-8'>
-                <SvgTrashCan className='w-4 h-4'></SvgTrashCan>
+                <Icon type='trashCan'></Icon>
               </button>
             </div>
-            <div className=''>
+            <div>
               <div className='border border-black'>
                 <button className='bg-gray-100 px-4 py-2'>-</button>
                 <input className='w-12 px-4 py-2' type='text' value='1' />
@@ -88,7 +87,7 @@ const Cart = () => {
           </div>
         </article>
 
-        <article className='w-full bg-white rounded-sm px-4 md:px-6 lg:px-12 py-6 lg:py-10 lg:shadow'>
+        <article className='w-full bg-white rounded-sm px-4 md:px-6 lg:px-12 py-10 lg:py-10 lg:shadow'>
           <div className='flex flex-wrap items-center justify-between  tracking-wide leading-loose'>
             <div className='w-1/2 text-left capitalize mb-4 lg:mb-6'>
               subtotal :
@@ -105,23 +104,26 @@ const Cart = () => {
           </div>
         </article>
       </section>
-      <section className='w-full lg:w-2/6 bg-gray-200 pt-12 lg:py-16 px-4 md:px-6 lg:px-12 lg:bg-white '>
+      <section className='w-full lg:w-2/6 bg-gray-200 py-12 lg:py-16 px-4 md:px-6 lg:px-12 lg:bg-white '>
         <h2 className='text-xl font-bold uppercase tracking-wide mb-4 lg:hidden'>
           payment details
         </h2>
         <article className='w-full bg-white rounded-sm px-4 md:px-6 lg:px-0'>
-          <div className=' py-6 lg:py-0 border-b border-gray-300 tracking-wide lg:border-none'>
+          <div className=' py-10 lg:py-0 border-b border-gray-300 tracking-wide lg:border-none'>
             <h2 className='text-xl lg:text-2xl font-bold uppercase tracking-wide mb-4 hidden lg:block lg:pb-8'>
               payment details
             </h2>
-            <div className='w-full text-left text-xs lg:text-sm capitalize mb-1 lg:mb-2'>
-              email *
-            </div>
-            <input className='w-full mb-8 lg:py-1 border border-gray-300 rounded-sm' />
-            <div className='w-full text-left text-xs lg:text-sm capitalize mb-1 lg:mb-2'>
-              credit card *
-            </div>
-            <input className='w-full mb-8 lg:py-1 border border-gray-300 rounded-sm' />
+            <Input
+              name='email'
+              label='email *'
+              placeholder='email@domain.com'
+            ></Input>
+            <Input
+              name='creditCard'
+              label='credit card *'
+              placeholder=''
+            ></Input>
+
             <button className='w-full bg-black tracking-wider font-light text-xs lg:text-sm lg:text-base text-white text-center py-3 lg:py-4 rounded-sm mt-10 mb-6'>
               Pay with Credit Card
             </button>

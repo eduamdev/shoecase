@@ -7,6 +7,7 @@ import { ReactComponent as SvgMagnifier } from '../../icons/magnifier.svg';
 import { ReactComponent as SvgFacebook } from '../../icons/facebook.svg';
 import { ReactComponent as SvgTwitter } from '../../icons/twitter.svg';
 import { ReactComponent as SvgInstagram } from '../../icons/instagram.svg';
+import { ReactComponent as SvgTrashCan } from '../../icons/trash-can.svg';
 
 const Icon = ({ type, classes = 'h-4 w-4' }) => {
   const icons = {
@@ -18,6 +19,7 @@ const Icon = ({ type, classes = 'h-4 w-4' }) => {
     facebook: () => <SvgFacebook className={classes}></SvgFacebook>,
     twitter: () => <SvgTwitter className={classes}></SvgTwitter>,
     instagram: () => <SvgInstagram className={classes}></SvgInstagram>,
+    trashCan: () => <SvgTrashCan className={classes}></SvgTrashCan>,
     default: () => null
   };
   return (icons[type] || icons['default'])();
