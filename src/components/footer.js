@@ -1,6 +1,13 @@
 import React from 'react';
 import Icon from './common/icon';
+import Input from './common/input';
 import { footer } from '../config.json';
+
+const renderTitle = title => (
+  <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
+    {title}
+  </h3>
+);
 
 const Footer = () => {
   return (
@@ -16,14 +23,12 @@ const Footer = () => {
                   key={article.title}
                   className='w-full md:w-1/4 xl:w-2/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '
                 >
-                  <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
-                    {article.title}
-                  </h3>
-                  <input
-                    className='w-full px-4 py-3 md:px-6 md:py-4 bg-gray-900 text-gray-400 border-none outline-none text-sm tracking-widest rounded-sm'
+                  {renderTitle(article.title)}
+                  <Input
+                    name={article.name}
                     placeholder={article.input.placeholder}
-                    type='text'
-                  />
+                    dark
+                  ></Input>
                 </article>
               );
             else if (article.sections)
@@ -32,9 +37,7 @@ const Footer = () => {
                   key={article.title}
                   className='inline-block align-top w-1/2 md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '
                 >
-                  <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
-                    {article.title}
-                  </h3>
+                  {renderTitle(article.title)}
                   {article.sections &&
                     article.sections.map(sub => (
                       <span
@@ -52,9 +55,7 @@ const Footer = () => {
                   key={article.title}
                   className='w-full md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '
                 >
-                  <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
-                    {article.title}
-                  </h3>
+                  {renderTitle(article.title)}
                   <div className='flex mb-4 text-gray-400 fill-current'>
                     {article.icons &&
                       article.icons.map(icon => (

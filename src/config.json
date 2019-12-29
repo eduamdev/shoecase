@@ -46,6 +46,7 @@
       {
         "title": "Sign Up To Our Newsletter",
         "input": {
+          "name": "newsletter",
           "placeholder": "ENTER YOUR EMAIL"
         }
       },
