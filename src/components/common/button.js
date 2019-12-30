@@ -14,7 +14,7 @@ const Button = ({
     default:
       'active:shadow-outline focus:outline-none focus:shadow-outline p-2',
     reset:
-      'text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0',
+      'text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0',
     color:
       'w-8 h-8 border border-gray-400 mr-3 active:outline-none focus:outline-none focus:shadow-outline active:shadow-outline hover:shadow-outline',
     block: 'w-full h-full focus:outline-none text-left'
@@ -28,7 +28,7 @@ const Button = ({
 
   const categories = {
     color: () => `${classes.color} ${colors[bgColor]}`,
-    reset: () => `${classes.default} ${classes.reset}`,
+    reset: () => classes.reset,
     block: () => classes.block,
     default: () => classes.default
   };
