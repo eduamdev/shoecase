@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Input = ({ name, label, placeholder, dark = false }) => {
+  const defaultClasses =
+    'w-full px-4 py-3 border outline-none text-sm tracking-wider lg:tracking-widest mb-10 rounded-sm';
+
   return (
     <>
       {label && (
@@ -14,10 +17,10 @@ const Input = ({ name, label, placeholder, dark = false }) => {
       <input
         id={name}
         name={name}
-        class={
+        className={
           dark
-            ? 'w-full px-4 py-3 bg-gray-900 text-gray-400 border-none outline-none text-sm tracking-wider lg:tracking-widest tracking-widest rounded-sm'
-            : 'w-full px-4 py-3 border border-gray-300 outline-none text-sm tracking-wider lg:tracking-widest mb-10 rounded-sm'
+            ? `${defaultClasses} border-gray-900 bg-gray-900 text-gray-400`
+            : `${defaultClasses} border-gray-300`
         }
         placeholder={placeholder}
         type='text'

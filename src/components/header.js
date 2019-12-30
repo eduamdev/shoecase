@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Icon from './common/icon';
+import Button from './common/button';
 import SearchBox from './common/searchBox';
 import ShoppingBag from './shoppingBag';
 import { breakpoints, navLinks } from '../config.json';
@@ -22,26 +23,23 @@ const Header = ({
         <section className='relative bg-white w-full bg-white z-30 md:hidden border-b border-gray-300'>
           <article className='flex items-center w-full h-12 px-4 py-2 '>
             <div className='flex flex-wrap  items-center justify-between w-full '>
-              <button
-                className='active:shadow-outline focus:outline-none focus:shadow-outline p-2'
-                onClick={handleMenuClick}
-              >
+              <Button handleClick={handleMenuClick}>
                 {isMenuOpen ? (
                   <Icon type='close'></Icon>
                 ) : (
                   <Icon type='menu'></Icon>
                 )}
-              </button>
+              </Button>
               <Link
                 to='/'
                 className='font-bold uppercase text-center tracking-wider'
               >
                 shoecase
               </Link>
-              <div className='flex'>
-                <button className='active:shadow-outline focus:outline-none focus:shadow-outline p-2 mr-4'>
+              <div className='flex flex-wrap justify-between w-20'>
+                <Button>
                   <Icon type='user'></Icon>
-                </button>
+                </Button>
                 <Link
                   to='/cart'
                   className='active:shadow-outline focus:outline-none focus:shadow-outline p-2'
@@ -76,10 +74,7 @@ const Header = ({
             className={isMenuOpen ? `${searchClasses} hidden` : searchClasses}
           >
             <div className='flex flex-wrap items-center justify-between w-full'>
-              <div className='flex items-center w-full h-8 relative bg-gray-200 py-2 px-4 rounded-sm'>
-                <SearchBox placeholder='Products...'></SearchBox>
-                <Icon type='magnifier' classes='h-4 w-4 absolute'></Icon>
-              </div>
+              <SearchBox placeholder='Products...'></SearchBox>
             </div>
           </article>
         </section>
@@ -115,20 +110,14 @@ const Header = ({
             </nav>
           </article>
           <article className='flex flex-wrap items-center justify-end w-1/2'>
-            <div className='flex items-center md:w-56 lg:w-84 xl:w-108 h-8 lg:h-10 relative bg-gray-200 py-2 px-4 rounded-sm mr-8'>
-              <SearchBox placeholder='Products...'></SearchBox>
-              <Icon type='magnifier' classes='h-4 w-4 absolute'></Icon>
-            </div>
-            <div className='flex'>
-              <button className='active:shadow-outline focus:outline-none focus:shadow-outline p-2 mr-4'>
+            <SearchBox placeholder='Products...'></SearchBox>
+            <div className='flex flex-wrap justify-between w-20'>
+              <Button>
                 <Icon type='user'></Icon>
-              </button>
-              <button
-                onClick={handleShoppingBagClick}
-                className='active:shadow-outline focus:outline-none focus:shadow-outline p-2'
-              >
+              </Button>
+              <Button handleClick={handleShoppingBagClick}>
                 <Icon type='shoppingBag'></Icon>
-              </button>
+              </Button>
             </div>
           </article>
         </section>

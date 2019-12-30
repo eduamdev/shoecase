@@ -8,6 +8,10 @@ import { ReactComponent as SvgFacebook } from '../../icons/facebook.svg';
 import { ReactComponent as SvgTwitter } from '../../icons/twitter.svg';
 import { ReactComponent as SvgInstagram } from '../../icons/instagram.svg';
 import { ReactComponent as SvgTrashCan } from '../../icons/trash-can.svg';
+import { ReactComponent as SvgFilter } from '../../icons/filter.svg';
+import { ReactComponent as SvgPlus } from '../../icons/plus.svg';
+import { ReactComponent as SvgMinus } from '../../icons/minus.svg';
+import { ReactComponent as SvgArrowUp } from '../../icons/arrow-up.svg';
 
 const Icon = ({ type, classes = 'h-4 w-4' }) => {
   const icons = {
@@ -20,6 +24,10 @@ const Icon = ({ type, classes = 'h-4 w-4' }) => {
     twitter: () => <SvgTwitter className={classes}></SvgTwitter>,
     instagram: () => <SvgInstagram className={classes}></SvgInstagram>,
     trashCan: () => <SvgTrashCan className={classes}></SvgTrashCan>,
+    filter: () => <SvgFilter className={classes}></SvgFilter>,
+    plus: () => <SvgPlus className={classes}></SvgPlus>,
+    minus: () => <SvgMinus className={classes}></SvgMinus>,
+    arrowUp: () => <SvgArrowUp className={classes}></SvgArrowUp>,
     default: () => null
   };
   return (icons[type] || icons['default'])();

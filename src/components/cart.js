@@ -25,7 +25,7 @@ const Cart = () => {
               </div>
               <div className='w-1/2 md:ml-32'>
                 <div className='flex content-between flex-wrap h-full'>
-                  <h3 className='w-full uppercase font-medium tracking-wide'>
+                  <h3 className='w-full uppercase font-medium md:text-lg tracking-wide'>
                     batcombe lord
                   </h3>
                   <button className='border py-2 px-4 border-gray-300 rounded-sm'>
@@ -89,18 +89,24 @@ const Cart = () => {
 
         <article className='w-full bg-white rounded-sm px-4 md:px-6 lg:px-12 py-10 lg:py-10 lg:shadow'>
           <div className='flex flex-wrap items-center justify-between  tracking-wide leading-loose'>
-            <div className='w-1/2 text-left capitalize mb-4 lg:mb-6'>
+            <div className='w-1/2 text-left text-sm md:text-base capitalize mb-4 lg:mb-6'>
               subtotal :
             </div>
-            <div className='w-1/2 text-right mb-4 lg:mb-6'>$ 2,470.00</div>
-            <div className='w-1/2 text-left capitalize mb-4 lg:mb-6'>
+            <div className='w-1/2 text-right text-sm md:text-base mb-4 lg:mb-6'>
+              $ 2,470.00
+            </div>
+            <div className='w-1/2 text-left text-sm md:text-base capitalize mb-4 lg:mb-6'>
               shipping :
             </div>
-            <div className='w-1/2 text-right mb-4 lg:mb-6'>$0.00</div>
-            <div className='w-1/2 text-left font-bold capitalize text-xl'>
+            <div className='w-1/2 text-right text-sm md:text-base mb-4 lg:mb-6'>
+              $0.00
+            </div>
+            <div className='w-1/2 text-left font-bold capitalize text-lg md:text-xl'>
               total :
             </div>
-            <div className='w-1/2 text-right font-bold text-xl'>2, 470.00</div>
+            <div className='w-1/2 text-right font-bold text-lg md:text-xl'>
+              2, 470.00
+            </div>
           </div>
         </article>
       </section>
