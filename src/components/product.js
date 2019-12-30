@@ -1,4 +1,5 @@
 import React from 'react';
+import FeaturedProducts from './featuredProducts';
 import Image from './common/image';
 import { getProductBySlug } from '../services/fakeProductService';
 
@@ -46,6 +47,7 @@ const Product = ({ match }) => {
           </ul>
         </article>
       </section>
+      <FeaturedProducts title='you may also like'></FeaturedProducts>
     </section>
   );
 };

@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <Banner></Banner>
       <Features></Features>
-      <FeaturedProducts></FeaturedProducts>
+      <FeaturedProducts title='featured products'></FeaturedProducts>
     </>
   );
 };
