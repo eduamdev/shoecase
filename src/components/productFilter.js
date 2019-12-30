@@ -83,7 +83,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                       key={category._id}
                       className='flex flex-wrap items-center  w-full h-12 text-left text-sm capitalize font-light tracking-wide'
                     >
-                      {category.name}
+                      <Button category='block'>{category.name}</Button>
                     </li>
                   ))}
               </ul>
@@ -143,8 +143,8 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                 <ul>
                   {categories &&
                     categories.map(category => (
-                      <li key={category._id} className='leading-loose mb-3'>
-                        {category.name}
+                      <li key={category._id} className='leading-loose mb-1'>
+                        <Button category='block'>{category.name}</Button>
                       </li>
                     ))}
                 </ul>
@@ -157,7 +157,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                   Reset
                 </Button>
               </div>
-              <span className='block mt-8 h-6 capitalize text-sm tracking-wide text-gray-800 font-semibold'>
+              <span className='block mt-6 h-6 capitalize text-sm tracking-wide text-gray-800 font-semibold'>
                 {currentColor}
               </span>
               <div className='mt-2'>
