@@ -87,9 +87,15 @@ function App({ history }) {
       <main>
         <ScrollToTop />
         <Switch>
-          <Route path={['/men/:id', '/women/:id']} component={Product}></Route>
+          <Route exact path='/' component={Home}></Route>
+          <Route
+            exact
+            path={['/men/:id', '/women/:id']}
+            component={Product}
+          ></Route>
           <Route
             path='/men'
+            exact
             render={props => (
               <Products
                 {...props}
@@ -101,6 +107,7 @@ function App({ history }) {
           ></Route>
           <Route
             path='/women'
+            exact
             render={props => (
               <Products
                 {...props}
@@ -112,7 +119,6 @@ function App({ history }) {
           ></Route>
           <Route path='/cart' component={Cart}></Route>
           <Route path='/successful-order' component={SuccessfulOrder}></Route>
-          <Route path='/' exact component={Home}></Route>
           <Route path='/not-found' component={NotFound}></Route>
           <Redirect to='/not-found'></Redirect>
         </Switch>
