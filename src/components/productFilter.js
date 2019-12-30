@@ -9,6 +9,10 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
   const [colors, setColors] = useState([]);
   const [currentColor, setCurrentColor] = useState('');
 
+  const btnFilterClasses = areFiltersShowing
+    ? 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-black py-2 md:py-4 lg:py-6 px-4 md:px-6 lg:px-12'
+    : 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-transparent hover:border-gray-400 py-2 md:py-4 lg:py-6 px-4 md:px-6 lg:px-12';
+
   useEffect(() => {
     const fetchData = () => {
       setColors(getColors());
@@ -25,10 +29,6 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
   function handleColorMouseLeave() {
     setCurrentColor('');
   }
-
-  const btnFilterClasses = areFiltersShowing
-    ? 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-black py-2 md:py-4 lg:py-6 px-4 md:px-6 lg:px-12'
-    : 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-transparent hover:border-gray-400 py-2 md:py-4 lg:py-6 px-4 md:px-6 lg:px-12';
 
   return (
     <>

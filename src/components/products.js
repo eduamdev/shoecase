@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ProductFilter from './productFilter';
 import ProductCard from './productCard';
 import { getProducts } from '../services/fakeProductService';
 
 const Products = ({ genre, areFiltersShowing, handleFiltersClick }) => {
-  const products = getProducts();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    setProducts(getProducts());
+  }, []);
 
   return (
     <>
