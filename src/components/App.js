@@ -88,11 +88,7 @@ function App({ history }) {
         <ScrollToTop />
         <Switch>
           <Route exact path='/' component={Home}></Route>
-          <Route
-            exact
-            path={['/men/:id', '/women/:id']}
-            component={Product}
-          ></Route>
+          <Route exact path='/products/:id' component={Product}></Route>
           <Route
             path='/men'
             exact
