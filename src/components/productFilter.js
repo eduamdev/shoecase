@@ -172,6 +172,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                     return (
                       <Button
                         key={_id}
+                        name={name}
                         category='color'
                         bgColor={name}
                         handleMouseEnter={handleColorMouseEnter}
