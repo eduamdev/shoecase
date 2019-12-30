@@ -1,13 +1,13 @@
 import React from 'react';
 import Banner from './banner';
-import Benefits from './benefits';
+import Features from './features';
 import FeaturedProducts from './featuredProducts';
 
 const Home = () => {
   return (
     <>
       <Banner></Banner>
-      <Benefits></Benefits>
+      <Features></Features>
       <FeaturedProducts></FeaturedProducts>
     </>
   );

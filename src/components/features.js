@@ -1,21 +1,21 @@
 import React from 'react';
 import Image from './common/image';
 import ImageCard from './imageCard';
-import { benefits } from '../config.json';
+import { features } from '../config.json';
 
-let last = benefits.pop();
+let last = features.pop();
 
-const Benefits = () => {
+const Features = () => {
   return (
     <section className='flex flex-wrap'>
-      {benefits &&
-        benefits.map(benefit => (
+      {features &&
+        features.map(feature => (
           <ImageCard
-            key={benefit.key}
-            slug={benefit.key}
-            alt={benefit.title}
-            title={benefit.title}
-            text={benefit.text}
+            key={feature.key}
+            slug={feature.key}
+            alt={feature.title}
+            title={feature.title}
+            text={feature.text}
           ></ImageCard>
         ))}
 
@@ -40,4 +40,4 @@ const Benefits = () => {
   );
 };
 
-export default Benefits;
+export default Features;

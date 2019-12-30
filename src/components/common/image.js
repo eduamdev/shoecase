@@ -1,10 +1,10 @@
 import React from 'react';
 import Img from 'react-image';
 import banner from '../../images/banner.jpg';
-import benefit1 from '../../images/comfort.jpg';
-import benefit2 from '../../images/waterproof.jpg';
-import benefit3 from '../../images/light-weight.jpg';
-import benefit4 from '../../images/customizable.jpg';
+import feature1 from '../../images/comfort.jpg';
+import feature2 from '../../images/waterproof.jpg';
+import feature3 from '../../images/light-weight.jpg';
+import feature4 from '../../images/customizable.jpg';
 import batcombeLord from '../../images/products/batcombe-lord.jpg';
 import callaRose from '../../images/products/calla-rose.webp';
 import milaMyth from '../../images/products/mila-myth.webp';
@@ -19,17 +19,17 @@ const Image = ({
     banner: () => (
       <Img className={noClass ? '' : classes} src={banner} alt={alt} />
     ),
-    benefit1: () => (
-      <Img className={noClass ? '' : classes} src={benefit1} alt={alt} />
+    feature1: () => (
+      <Img className={noClass ? '' : classes} src={feature1} alt={alt} />
     ),
-    benefit2: () => (
-      <Img className={noClass ? '' : classes} src={benefit2} alt={alt} />
+    feature2: () => (
+      <Img className={noClass ? '' : classes} src={feature2} alt={alt} />
     ),
-    benefit3: () => (
-      <Img className={noClass ? '' : classes} src={benefit3} alt={alt} />
+    feature3: () => (
+      <Img className={noClass ? '' : classes} src={feature3} alt={alt} />
     ),
-    benefit4: () => (
-      <Img className={noClass ? '' : classes} src={benefit4} alt={alt} />
+    feature4: () => (
+      <Img className={noClass ? '' : classes} src={feature4} alt={alt} />
     ),
     'calla-rose': () => (
       <Img className={noClass ? '' : classes} src={callaRose} alt={alt} />
