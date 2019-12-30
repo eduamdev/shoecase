@@ -157,7 +157,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                   Reset
                 </Button>
               </div>
-              <span className='block mt-6 h-6 capitalize text-sm tracking-wide text-gray-800 font-semibold'>
+              <span className='block mt-8 h-6 capitalize text-sm tracking-wide text-gray-800 font-semibold'>
                 {currentColor}
               </span>
               <div className='mt-2'>
