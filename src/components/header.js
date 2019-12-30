@@ -99,7 +99,7 @@ const Header = ({
                       <NavLink
                         to={link.url}
                         exact
-                        className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b-2 border-transparent '
+                        className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b-2 border-transparent hover:border-gray-400 '
                         activeClassName='border-b-2 border-black'
                       >
                         {link.label}
