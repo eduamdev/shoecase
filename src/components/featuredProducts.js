@@ -22,7 +22,7 @@ const FeaturedProducts = ({ title }) => {
           .map(product => (
             <ProductCard
               key={product._id}
-              url={`${product.genre}/${product.slug}`}
+              url={`/${product.genre}/${product.slug}`}
               slug={product.slug}
               alt={product.description}
               name={product.name}
