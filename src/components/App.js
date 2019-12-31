@@ -74,9 +74,7 @@ function App({ history }) {
           className='fixed top-0 left-0 h-screen w-screen max-h-full max-w-full bg-black opacity-75 z-40'
         ></span>
       )}
-      <div className='relative w-full text-center bg-red-100 border-b border-gray-300 py-2 text-sm text-gray-800 font-light tracking-wider z-30'>
-        Free shipping worldwide!
-      </div>
+
       <Header
         isMenuOpen={isMenuOpen}
         handleMenuClick={toggleMenu}

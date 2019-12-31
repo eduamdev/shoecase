@@ -4,6 +4,7 @@ import Icon from './common/icon';
 import Button from './common/button';
 import SearchBox from './common/searchBox';
 import ShoppingBag from './shoppingBag';
+import useStateWithLocalStorage from '../hooks/useStateWithLocalStorage';
 import { breakpoints, navLinks } from '../config.json';
 
 const Header = ({
@@ -16,9 +17,30 @@ const Header = ({
   const navClasses = 'w-full border-t border-b border-gray-300';
   const searchClasses = 'h-12 px-4 py-2';
 
+  const [isNoticeShowing, setIsNoticeShowing] = useStateWithLocalStorage(
+    'isNoticeShowing',
+    true
+  );
+
+  function renderNotice() {
+    return (
+      <div className='relative w-full text-center bg-red-100 border-b border-gray-300 py-2 text-sm text-gray-800 font-light tracking-wider z-30'>
+        <span>Free shipping worldwide!</span>
+        <button onClick={() => setIsNoticeShowing(false)}>
+          <Icon
+            type='close'
+            className='w-4 h-4 absolute right-0 mr-4 md:mr-6 lg:mr-12 top-0 mt-2'
+          ></Icon>
+        </button>
+      </div>
+    );
+  }
+
   function renderHeader() {
     return (
       <>
+        {isNoticeShowing && renderNotice()}
+
         {/* Small devices */}
         <section className='relative bg-white w-full bg-white z-30 md:hidden border-b border-gray-300'>
           <article className='flex items-center w-full h-12 px-4 py-2 '>
