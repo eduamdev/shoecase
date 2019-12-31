@@ -29,7 +29,7 @@ const Header = ({
         <button onClick={() => setIsNoticeShowing(false)}>
           <Icon
             type='close'
-            className='w-3 h-3 lg:w-4 lg:h-4 absolute right-0 mr-4 md:mr-6 lg:mr-12 top-0 mt-2'
+            className='w-3 h-3 absolute right-0 mr-4 md:mr-6 lg:mr-12 top-0 mt-2'
           ></Icon>
         </button>
       </div>
