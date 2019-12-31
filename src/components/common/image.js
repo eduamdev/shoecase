@@ -11,34 +11,34 @@ import milaMyth from '../../images/products/mila-myth.webp';
 
 const Image = ({
   slug,
-  alt,
   classes = 'w-full max-w-md mx-auto md:h-auto object-cover lg:px-10',
-  noClass = false
+  noClass = false,
+  ...rest
 }) => {
   const images = {
     banner: () => (
-      <Img className={noClass ? '' : classes} src={banner} alt={alt} />
+      <Img className={noClass ? '' : classes} src={banner} {...rest} />
     ),
-    feature1: () => (
-      <Img className={noClass ? '' : classes} src={feature1} alt={alt} />
+    comfort: () => (
+      <Img className={noClass ? '' : classes} src={feature1} {...rest} />
     ),
-    feature2: () => (
-      <Img className={noClass ? '' : classes} src={feature2} alt={alt} />
+    waterproof: () => (
+      <Img className={noClass ? '' : classes} src={feature2} {...rest} />
     ),
-    feature3: () => (
-      <Img className={noClass ? '' : classes} src={feature3} alt={alt} />
+    'light-weight': () => (
+      <Img className={noClass ? '' : classes} src={feature3} {...rest} />
     ),
-    feature4: () => (
-      <Img className={noClass ? '' : classes} src={feature4} alt={alt} />
+    customizable: () => (
+      <Img className={noClass ? '' : classes} src={feature4} {...rest} />
     ),
     'calla-rose': () => (
-      <Img className={noClass ? '' : classes} src={callaRose} alt={alt} />
+      <Img className={noClass ? '' : classes} src={callaRose} {...rest} />
     ),
     'batcombe-lord': () => (
-      <Img className={noClass ? '' : classes} src={batcombeLord} alt={alt} />
+      <Img className={noClass ? '' : classes} src={batcombeLord} {...rest} />
     ),
     'mila-myth': () => (
-      <Img className={noClass ? '' : classes} src={milaMyth} alt={alt} />
+      <Img className={noClass ? '' : classes} src={milaMyth} {...rest} />
     ),
     default: () => null
   };

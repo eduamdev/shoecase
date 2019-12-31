@@ -17,34 +17,43 @@
   ],
   "features": [
     {
-      "key": "feature1",
+      "image": {
+        "name": "comfort",
+        "alt": "A pair of comfortable shoes"
+      },
       "title": "comfort",
-      "text": "Like walking on the clouds",
-      "alt": "A pair of comfortable shoes"
+      "content": "Like walking on the clouds"
     },
     {
-      "key": "feature2",
+      "image": {
+        "name": "waterproof",
+        "alt": "waterproof footwear"
+      },
       "title": "waterproof",
-      "text": "No more wet socks",
-      "alt": "waterproof footwear"
+      "content": "No more wet socks"
     },
     {
-      "key": "feature3",
+      "image": {
+        "name": "light-weight",
+        "alt": "A pair of light weight sneakers"
+      },
       "title": "light weight",
-      "text": "As light as air",
-      "alt": "A pair of light weight sneakers"
+      "content": "As light as air"
     },
     {
-      "key": "feature4",
+      "image": {
+        "name": "customizable",
+        "alt": "A rack of shoes"
+      },
       "title": "customizable",
-      "text": "Your shoes, your style",
-      "alt": "A rack of shoes"
+      "content": "Your shoes, your style"
     }
   ],
   "footer": {
     "articles": [
       {
         "title": "Sign Up To Our Newsletter",
+        "type": "input",
         "input": {
           "name": "newsletter",
           "placeholder": "ENTER YOUR EMAIL"
@@ -52,11 +61,13 @@
       },
       {
         "title": "store",
-        "sections": ["contact us", "our store", "about us"]
+        "type": "categories",
+        "categories": ["contact us", "our store", "about us"]
       },
       {
         "title": "orders",
-        "sections": [
+        "type": "categories",
+        "categories": [
           "delivery & returns",
           "my account",
           "collect in store",
@@ -65,18 +76,19 @@
       },
       {
         "title": "social",
+        "type": "icons",
         "icons": [
           {
             "type": "facebook",
-            "classes": "h-4 w-4 mr-6"
+            "className": "h-4 w-4 mr-6"
           },
           {
             "type": "twitter",
-            "classes": "h-4 w-4 mr-6"
+            "className": "h-4 w-4 mr-6"
           },
           {
             "type": "instagram",
-            "classes": "h-4 w-4"
+            "className": "h-4 w-4"
           }
         ]
       }

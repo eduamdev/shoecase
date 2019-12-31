@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({ name, label, placeholder, dark = false }) => {
+const Input = ({ name, label, dark = false, ...rest }) => {
   const defaultClasses =
     'w-full px-4 py-3 border outline-none text-sm tracking-wider lg:tracking-widest mb-10 rounded-sm';
 
@@ -15,14 +15,13 @@ const Input = ({ name, label, placeholder, dark = false }) => {
         </label>
       )}
       <input
-        id={name}
         name={name}
         className={
           dark
             ? `${defaultClasses} border-gray-900 bg-gray-900 text-gray-400`
             : `${defaultClasses} border-gray-300`
         }
-        placeholder={placeholder}
+        {...rest}
         type='text'
       />
     </>

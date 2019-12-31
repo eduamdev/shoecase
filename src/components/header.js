@@ -45,8 +45,8 @@ const Header = ({
                   className='active:shadow-outline focus:outline-none focus:shadow-outline p-2'
                 >
                   <Icon type='shoppingBag'></Icon>
-                  <span className='absolute top-0 rounded-full bg-gray-900 text-white w-4 h-4 border-1 border-white ml-4 mt-2 text-xxs text-center' >
-                    1
+                  <span className='absolute top-0 rounded-full bg-gray-900 text-white w-4 h-4 border-1 border-white ml-4 mt-2 text-xxs text-center'>
+                    0
                   </span>
                 </Link>
               </div>
@@ -77,7 +77,9 @@ const Header = ({
             className={isMenuOpen ? `${searchClasses} hidden` : searchClasses}
           >
             <div className='flex flex-wrap items-center justify-between w-full'>
-              <SearchBox placeholder='Products...'></SearchBox>
+              <SearchBox placeholder='Products...'>
+                <Icon type='magnifier' className='h-4 w-4 absolute'></Icon>
+              </SearchBox>
             </div>
           </article>
         </section>
@@ -113,15 +115,17 @@ const Header = ({
             </nav>
           </article>
           <article className='flex flex-wrap items-center justify-end w-1/2'>
-            <SearchBox placeholder='Products...'></SearchBox>
+            <SearchBox placeholder='Products...'>
+              <Icon type='magnifier' className='h-4 w-4 absolute'></Icon>
+            </SearchBox>
             <div className='flex flex-wrap justify-between w-20'>
               <Button>
                 <Icon type='user'></Icon>
               </Button>
               <Button handleClick={handleShoppingBagClick}>
                 <Icon type='shoppingBag'></Icon>
-                <span className='absolute top-0 rounded-full bg-gray-900 text-white w-5 h-5 border-2 border-white ml-1 -mt-1 text-xxs text-center' >
-                  1
+                <span className='absolute top-0 rounded-full bg-gray-900 text-white w-5 h-5 border-2 border-white ml-1 -mt-1 text-xxs text-center'>
+                  0
                 </span>
               </Button>
             </div>

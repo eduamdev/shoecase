@@ -44,7 +44,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
           </h2>
           <div className='h-full border-l border-gray-300'>
             <button onClick={handleFiltersClick} className={btnFilterClasses}>
-              <Icon type='filter' classes='h-4 w-4 mr-2 lg:mr-3'></Icon>
+              <Icon type='filter' className='h-4 w-4 mr-2 lg:mr-3'></Icon>
               <span className='text-sm lg:text-base tracking-wide'>
                 Filters
               </span>
@@ -69,7 +69,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                   <Button>
                     <Icon
                       type='plus'
-                      classes='h-4 w-4 text-gray-800 fill-current'
+                      className='h-4 w-4 text-gray-800 fill-current'
                     ></Icon>
                   </Button>
                 </div>
@@ -100,7 +100,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                   <Button>
                     <Icon
                       type='minus'
-                      classes='h-4 w-4 text-gray-800 fill-current'
+                      className='h-4 w-4 text-gray-800 fill-current'
                     ></Icon>
                   </Button>
                 </div>
@@ -189,7 +189,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
               <div className='w-32 m-auto'>
                 <Icon
                   type='arrowUp'
-                  classes='h-4 w-4 text-gray-800 fill-current inline mr-4'
+                  className='h-4 w-4 text-gray-800 fill-current inline mr-4'
                 ></Icon>{' '}
                 <span className='close-filters__label leading-loose text-center capitalize inline'>
                   hide filters
