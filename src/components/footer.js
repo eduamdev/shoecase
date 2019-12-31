@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from './common/icon';
 import Input from './common/input';
+import AnchorLink from './common/anchorLink';
 import { footer } from '../config.json';
 
 const articles = {
@@ -81,15 +82,7 @@ const Footer = () => {
             footer.links &&
             footer.links.map(link => (
               <span key={link.name}>
-                ,{' '}
-                <a
-                  href={link.url}
-                  rel='noreferrer noopener nofollow'
-                  aria-label={`${link.name} account`}
-                  className=' font-normal tracking-wider underline hover:no-underline'
-                >
-                  {link.name}
-                </a>
+                , <AnchorLink url={link.url}>{link.name}</AnchorLink>
               </span>
             ))}
         </p>
