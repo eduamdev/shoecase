@@ -12,7 +12,7 @@ const Button = ({
 }) => {
   const classes = {
     default:
-      'active:shadow-outline focus:outline-none focus:shadow-outline p-2',
+      'relative active:shadow-outline focus:outline-none focus:shadow-outline p-2',
     reset:
       'text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0',
     color:

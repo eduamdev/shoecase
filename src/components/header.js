@@ -45,6 +45,9 @@ const Header = ({
                   className='active:shadow-outline focus:outline-none focus:shadow-outline p-2'
                 >
                   <Icon type='shoppingBag'></Icon>
+                  <span className='absolute top-0 rounded-full bg-gray-900 text-white w-4 h-4 border-1 border-white ml-4 mt-2 text-xxs text-center' >
+                    1
+                  </span>
                 </Link>
               </div>
             </div>
@@ -117,6 +120,9 @@ const Header = ({
               </Button>
               <Button handleClick={handleShoppingBagClick}>
                 <Icon type='shoppingBag'></Icon>
+                <span className='absolute top-0 rounded-full bg-gray-900 text-white w-5 h-5 border-2 border-white ml-1 -mt-1 text-xxs text-center' >
+                  1
+                </span>
               </Button>
             </div>
           </article>
