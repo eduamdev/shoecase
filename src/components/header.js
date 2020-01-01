@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Icon from './common/icon';
 import Button from './common/button';
 import SearchBox from './common/searchBox';
 import ShoppingBag from './shoppingBag';
-import useStateWithLocalStorage from '../hooks/useStateWithLocalStorage';
+import Notice from './notice';
 import { breakpoints, navLinks } from '../config.json';
 
 const Header = ({
@@ -14,38 +14,34 @@ const Header = ({
   handleShoppingBagClick,
   viewportSize
 }) => {
-  const navClasses = 'w-full border-t border-b border-gray-300';
-  const searchClasses = 'h-12 px-4 py-2';
+  const [isNoticeShowing, setIsNoticeShowing] = useState(true);
 
-  const [isNoticeShowing, setIsNoticeShowing] = useStateWithLocalStorage(
-    'isNoticeShowing',
-    true
-  );
+  const navClassName = 'w-full border-t border-b border-gray-300';
+  const searchClassName = 'h-12 px-4 py-2';
 
-  function renderNotice() {
-    return (
-      <div className='relative w-full text-center bg-red-100 border-b border-gray-300 py-2 text-sm text-gray-800 font-light tracking-wider z-30'>
-        <span>Free shipping worldwide!</span>
-        <button onClick={() => setIsNoticeShowing(false)}>
-          <Icon
-            type='close'
-            className='w-3 h-3 absolute right-0 mr-4 md:mr-6 lg:mr-12 top-0 mt-2'
-          ></Icon>
-        </button>
-      </div>
-    );
+  function handleNoticeClose() {
+    setIsNoticeShowing(false);
   }
 
   function renderHeader() {
     return (
       <>
-        {isNoticeShowing && renderNotice()}
+        {isNoticeShowing && (
+          <Notice text='Free shipping worldwide!' hide={isMenuOpen}>
+            <button onClick={handleNoticeClose}>
+              <Icon
+                type='close'
+                className='absolute w-3 h-3 right-0 top-0'
+              ></Icon>
+            </button>
+          </Notice>
+        )}
 
         {/* Small devices */}
         <section className='relative bg-white w-full bg-white z-30 md:hidden border-b border-gray-300'>
           <article className='flex items-center w-full h-12 px-4 py-2 '>
             <div className='flex flex-wrap  items-center justify-between w-full '>
-              <Button handleClick={handleMenuClick}>
+              <Button onClick={handleMenuClick}>
                 {isMenuOpen ? (
                   <Icon type='close'></Icon>
                 ) : (
@@ -77,8 +73,8 @@ const Header = ({
           <nav
             className={
               isMenuOpen
-                ? `${navClasses} visible`
-                : `${navClasses} h-0 invisible`
+                ? `${navClassName} visible`
+                : `${navClassName} h-0 invisible`
             }
           >
             <ul className='w-full h-full px-4'>
@@ -96,7 +92,9 @@ const Header = ({
             </ul>
           </nav>
           <article
-            className={isMenuOpen ? `${searchClasses} hidden` : searchClasses}
+            className={
+              isMenuOpen ? `${searchClassName} hidden` : searchClassName
+            }
           >
             <div className='flex flex-wrap items-center justify-between w-full'>
               <SearchBox placeholder='Products...'>
@@ -144,7 +142,7 @@ const Header = ({
               <Button>
                 <Icon type='user'></Icon>
               </Button>
-              <Button handleClick={handleShoppingBagClick}>
+              <Button onClick={handleShoppingBagClick}>
                 <Icon type='shoppingBag'></Icon>
                 <span className='absolute top-0 rounded-full bg-gray-900 text-white w-5 h-5 border-2 border-white ml-1 -mt-1 text-xxs text-center'>
                   0
@@ -162,7 +160,7 @@ const Header = ({
       <header>{renderHeader()}</header>
 
       {isShoppingBagOpen && viewportSize.width > breakpoints.md && (
-        <ShoppingBag handleClick={handleShoppingBagClick}></ShoppingBag>
+        <ShoppingBag onClick={handleShoppingBagClick}></ShoppingBag>
       )}
     </>
   );

@@ -1,15 +1,6 @@
 import React from 'react';
 
-const Button = ({
-  category,
-  type = 'button',
-  bgColor,
-  children,
-  handleClick,
-  handleMouseEnter,
-  handleMouseLeave,
-  ...rest
-}) => {
+const Button = ({ category, type = 'button', bgColor, children, ...rest }) => {
   const classes = {
     default:
       'relative active:shadow-outline focus:outline-none focus:shadow-outline p-2',
@@ -37,12 +28,9 @@ const Button = ({
 
   return (
     <button
-      {...rest}
       className={(categories[category] || categories['default'])()}
       type={type}
-      onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      {...rest}
     >
       {children}
     </button>

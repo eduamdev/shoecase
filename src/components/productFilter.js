@@ -9,7 +9,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
   const [colors, setColors] = useState([]);
   const [currentColor, setCurrentColor] = useState('');
 
-  const btnFilterClasses = areFiltersShowing
+  const btnFiltersClassName = areFiltersShowing
     ? 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-black py-2 md:py-4 lg:py-6 px-4 md:px-6 lg:px-12'
     : 'flex flex-wrap items-center justify-end w-full h-full border-b-2 outline-none focus:outline-none border-transparent hover:border-gray-400 py-2 md:py-4 lg:py-6 px-4 md:px-6 lg:px-12';
 
@@ -22,11 +22,11 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
     fetchData();
   }, []);
 
-  function handleColorMouseEnter(e) {
+  function handleMouseEnter(e) {
     setCurrentColor(e.currentTarget.name);
   }
 
-  function handleColorMouseLeave() {
+  function handleMouseLeave() {
     setCurrentColor('');
   }
 
@@ -43,7 +43,10 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
             </span>
           </h2>
           <div className='h-full border-l border-gray-300'>
-            <button onClick={handleFiltersClick} className={btnFilterClasses}>
+            <button
+              onClick={handleFiltersClick}
+              className={btnFiltersClassName}
+            >
               <Icon type='filter' className='h-4 w-4 mr-2 lg:mr-3'></Icon>
               <span className='text-sm lg:text-base tracking-wide'>
                 Filters
@@ -175,8 +178,8 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                         name={name}
                         category='color'
                         bgColor={name}
-                        handleMouseEnter={handleColorMouseEnter}
-                        handleMouseLeave={handleColorMouseLeave}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
                       ></Button>
                     );
                   })}
