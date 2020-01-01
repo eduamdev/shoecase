@@ -2,6 +2,8 @@ import React from 'react';
 import Input from './common/input';
 import Icon from './common/icon';
 import Image from './common/image';
+import MainButton from './mainButton';
+import IconButton from './iconButton';
 
 const Cart = () => {
   return (
@@ -28,9 +30,10 @@ const Cart = () => {
                   <h3 className='w-full uppercase font-medium md:text-lg tracking-wide'>
                     batcombe lord
                   </h3>
-                  <button className='border py-2 px-4 border-gray-300 rounded-sm'>
-                    <Icon type='trashCan'></Icon>
-                  </button>
+                  <IconButton
+                    className='border py-2 px-4 border-gray-300 rounded-sm'
+                    icon={<Icon type='trashCan' />}
+                  />
                 </div>
               </div>
             </div>
@@ -130,9 +133,7 @@ const Cart = () => {
               placeholder=''
             ></Input>
 
-            <button className='w-full bg-black tracking-wider font-light text-xs lg:text-sm lg:text-base text-white text-center py-3 lg:py-4 rounded-sm mt-10 mb-6'>
-              Pay with Credit Card
-            </button>
+            <MainButton>Pay with Credit Card</MainButton>
           </div>
         </article>
       </section>

@@ -2,6 +2,7 @@ import React from 'react';
 import Img from 'react-image';
 import { Link } from 'react-router-dom';
 import Icon from './common/icon';
+import MainButton from './mainButton';
 import image from '../images/products/batcombe-lord.jpg';
 
 const ShoppingBag = ({ ...rest }) => {
@@ -34,11 +35,8 @@ const ShoppingBag = ({ ...rest }) => {
           <p className='font-bold text-xl uppercase'>total</p>
           <p className='font-bold text-xl'>$1,680.00</p>
         </div>
-        <Link
-          to='/cart'
-          className='block w-full bg-black tracking-wider font-light text-base text-white text-center py-5 rounded-sm shadow-md'
-        >
-          View your Shopping Bag
+        <Link to='/cart'>
+          <MainButton hoverable>View your Shopping Bag</MainButton>
         </Link>
       </div>
     </div>

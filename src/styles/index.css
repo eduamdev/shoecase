@@ -73,4 +73,18 @@
   text-decoration: underline;
 }
 
+/* Placeholder italic */
+.placeholder-italic::-webkit-input-placeholder {
+  font-style: italic;
+}
+.placeholder-italic:-moz-placeholder {
+  font-style: italic;
+}
+.placeholder-italic::-moz-placeholder {
+  font-style: italic;
+}
+.placeholder-italic:-ms-input-placeholder {
+  font-style: italic;
+}
+
 @tailwind utilities;

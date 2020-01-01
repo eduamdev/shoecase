@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Button from './common/button';
 import Icon from './common/icon';
+import ColorButton from './colorButton';
+import TextButton from './textButton';
+import IconButton from './iconButton';
 import { getCategories } from '../services/fakeCategoryService';
 import { getColors } from '../services/fakeColorService';
 
@@ -43,7 +46,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
             </span>
           </h2>
           <div className='h-full border-l border-gray-300'>
-            <button
+            <Button
               onClick={handleFiltersClick}
               className={btnFiltersClassName}
             >
@@ -51,7 +54,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
               <span className='text-sm lg:text-base tracking-wide'>
                 Filters
               </span>
-            </button>
+            </Button>
           </div>
         </div>
       </section>
@@ -66,15 +69,20 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                   categories
                 </h2>
                 <div className='flex flex-wrap items-center'>
-                  <Button category='reset' type='reset'>
-                    Reset
-                  </Button>
-                  <Button>
-                    <Icon
-                      type='plus'
-                      className='h-4 w-4 text-gray-800 fill-current'
-                    ></Icon>
-                  </Button>
+                  <TextButton
+                    text='reset'
+                    type='reset'
+                    className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                  ></TextButton>
+                  <IconButton
+                    focusable
+                    icon={
+                      <Icon
+                        type='plus'
+                        className='h-4 w-4 text-gray-800 fill-current'
+                      />
+                    }
+                  ></IconButton>
                 </div>
               </div>
             </div>
@@ -86,7 +94,9 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                       key={category._id}
                       className='flex flex-wrap items-center  w-full h-12 text-left text-sm capitalize font-light tracking-wide'
                     >
-                      <Button category='block'>{category.name}</Button>
+                      <Button className='w-full h-full focus:outline-none text-left'>
+                        {category.name}
+                      </Button>
                     </li>
                   ))}
               </ul>
@@ -97,15 +107,20 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                   colors
                 </h2>
                 <div className='flex flex-wrap items-center'>
-                  <Button category='reset' type='reset'>
-                    Reset
-                  </Button>
-                  <Button>
-                    <Icon
-                      type='minus'
-                      className='h-4 w-4 text-gray-800 fill-current'
-                    ></Icon>
-                  </Button>
+                  <TextButton
+                    text='reset'
+                    type='reset'
+                    className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                  ></TextButton>
+                  <IconButton
+                    focusable
+                    icon={
+                      <Icon
+                        type='minus'
+                        className='h-4 w-4 text-gray-800 fill-current'
+                      />
+                    }
+                  ></IconButton>
                 </div>
               </div>
             </div>
@@ -119,13 +134,7 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                       .toLowerCase()
                       .trim();
 
-                    return (
-                      <Button
-                        key={_id}
-                        category='color'
-                        bgColor={name}
-                      ></Button>
-                    );
+                    return <ColorButton key={_id} color={name}></ColorButton>;
                   })}
               </div>
             </div>
@@ -138,16 +147,20 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                 <h2 className='font-bold tracking-wide uppercase'>
                   categories
                 </h2>
-                <Button category='reset' type='reset'>
-                  Reset
-                </Button>
+                <TextButton
+                  text='reset'
+                  type='reset'
+                  className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                ></TextButton>
               </div>
               <div className='w-full px-4 md:px-6 lg:px-12 mt-6'>
                 <ul>
                   {categories &&
                     categories.map(category => (
                       <li key={category._id} className='leading-loose mb-1'>
-                        <Button category='block'>{category.name}</Button>
+                        <Button className='w-full h-full focus:outline-none text-left'>
+                          {category.name}
+                        </Button>
                       </li>
                     ))}
                 </ul>
@@ -156,9 +169,11 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
             <div className='w-1/2 py-2 md:py-6 lg:py-8 px-4 md:px-6 lg:px-12'>
               <div className='flex flex-wrap justify-between w-full '>
                 <h2 className='font-bold tracking-wide uppercase'>colors</h2>
-                <Button category='reset' type='reset'>
-                  Reset
-                </Button>
+                <TextButton
+                  text='reset'
+                  type='reset'
+                  className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                ></TextButton>
               </div>
               <span className='block mt-8 h-6 capitalize text-sm tracking-wide text-gray-800 font-semibold'>
                 {currentColor}
@@ -173,14 +188,13 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
                       .trim();
 
                     return (
-                      <Button
+                      <ColorButton
                         key={_id}
                         name={name}
-                        category='color'
-                        bgColor={name}
+                        color={name}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
-                      ></Button>
+                      ></ColorButton>
                     );
                   })}
               </div>

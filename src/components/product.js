@@ -1,5 +1,6 @@
 import React from 'react';
 import FeaturedProducts from './featuredProducts';
+import MainButton from './mainButton';
 import Image from './common/image';
 import { getProductBySlug } from '../services/fakeProductService';
 
@@ -25,9 +26,7 @@ const Product = ({ match }) => {
           <span className='block text-lg lg:text-xl font-bold tracking-wide mt-10 mb-4'>
             $ {price}
           </span>
-          <button className='w-full bg-black tracking-wider font-light text-sm text-white text-center py-4 rounded-sm'>
-            Place in Cart
-          </button>
+          <MainButton>Place in Cart</MainButton>
         </article>
         <article className='w-full py-12 lg:py-24 px-4 md:px-6 lg:px-12'>
           <p className='tracking-wide leading-loose mb-10 font-light text-gray-700 text-sm xl:text-base'>

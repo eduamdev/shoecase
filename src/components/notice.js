@@ -8,7 +8,7 @@ const Notice = ({ text, children, hide }) => {
       }`}
     >
       <div className='relative'>
-        <i className='text-sm text-gray-800 font-light tracking-wider not-italic'>
+        <i className='text-xs text-gray-800 font-light tracking-widest'>
           {text}
         </i>
         {children}
