@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from './common/button';
+import Input from './common/input';
 
 const ProductQuantity = ({
   quantity,
@@ -8,18 +10,24 @@ const ProductQuantity = ({
 }) => {
   return (
     <>
-      <button className='bg-gray-100 px-4 py-2' onClick={handleDecrement}>
+      <Button
+        className='px-4 py-2 hover:bg-gray-200 focus:bg-gray-300 focus:outline-none'
+        onClick={handleDecrement}
+      >
         -
-      </button>
-      <input
-        className='w-12 px-2 py-2'
+      </Button>
+      <Input
+        className='w-12 px-2 py-2 focus:outline-none border-r border-l border-transparent focus:border-gray-400'
         type='text'
         value={quantity}
         onChange={handleQuantityChange}
       />
-      <button className='bg-gray-100 px-4 py-2' onClick={handleIncrement}>
+      <Button
+        className='px-4 py-2 hover:bg-gray-200 focus:bg-gray-300 focus:outline-none'
+        onClick={handleIncrement}
+      >
         +
-      </button>
+      </Button>
     </>
   );
 };
