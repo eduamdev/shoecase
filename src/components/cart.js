@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './common/input';
+import InputWithLabel from './InputWithLabel';
 import Icon from './common/icon';
 import Image from './common/image';
 import MainButton from './mainButton';
@@ -122,16 +122,16 @@ const Cart = () => {
             <h2 className='text-xl lg:text-2xl font-bold uppercase tracking-wide mb-4 hidden lg:block lg:pb-8'>
               payment details
             </h2>
-            <Input
-              name='email'
+            <InputWithLabel
               label='email *'
+              name='email'
               placeholder='email@domain.com'
-            ></Input>
-            <Input
-              name='creditCard'
+            ></InputWithLabel>
+            <InputWithLabel
               label='credit card *'
+              name='creditCard'
               placeholder=''
-            ></Input>
+            ></InputWithLabel>
 
             <MainButton>Pay with Credit Card</MainButton>
           </div>

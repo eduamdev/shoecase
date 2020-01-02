@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './common/input';
+import NewsletterInput from './newsletterInput';
 import Icon from './common/icon';
 
 const articles = {
@@ -9,7 +9,7 @@ const articles = {
   default: () => null
 };
 
-const Title = ({ children }) => (
+const ArticleTitle = ({ children }) => (
   <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
     {children}
   </h3>
@@ -17,14 +17,17 @@ const Title = ({ children }) => (
 
 const ArticleInput = ({ title, name, input }) => (
   <article className='w-full md:w-1/4 xl:w-2/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '>
-    <Title>{title}</Title>
-    <Input name={name} placeholder={input.placeholder} dark></Input>
+    <ArticleTitle>{title}</ArticleTitle>
+    <NewsletterInput
+      name={name}
+      placeholder={input.placeholder}
+    ></NewsletterInput>
   </article>
 );
 
 const ArticleCategories = ({ title, categories }) => (
   <article className='inline-block align-top w-1/2 md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '>
-    <Title>{title}</Title>
+    <ArticleTitle>{title}</ArticleTitle>
     {categories &&
       categories.map(c => (
         <span
@@ -39,7 +42,7 @@ const ArticleCategories = ({ title, categories }) => (
 
 const ArticleIcons = ({ title, icons }) => (
   <article className='w-full md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '>
-    <Title>{title}</Title>
+    <ArticleTitle>{title}</ArticleTitle>
     <div className='flex mb-4 text-gray-400 fill-current'>
       {icons &&
         icons.map(i => (

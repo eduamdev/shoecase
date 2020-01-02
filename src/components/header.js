@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Icon from './common/icon';
 import BadgeCounter from './common/badgeCounter';
-import SearchBox from './common/searchBox';
+import SearchBox from './searchBox';
 import LogoLink from './logoLink';
 import IconButton from './iconButton';
 import IconLink from './iconLink';
