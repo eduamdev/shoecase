@@ -3,9 +3,9 @@ import Input from './common/input';
 import Icon from './common/icon';
 
 const articles = {
-  input: article => renderInput(article),
-  categories: article => renderCategories(article),
-  icons: article => renderIcons(article),
+  input: article => <ArticleInput {...article}></ArticleInput>,
+  categories: article => <ArticleCategories {...article}></ArticleCategories>,
+  icons: article => <ArticleIcons {...article}></ArticleIcons>,
   default: () => null
 };
 
@@ -15,14 +15,14 @@ const Title = ({ children }) => (
   </h3>
 );
 
-const renderInput = ({ title, name, input }) => (
+const ArticleInput = ({ title, name, input }) => (
   <article className='w-full md:w-1/4 xl:w-2/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '>
     <Title>{title}</Title>
     <Input name={name} placeholder={input.placeholder} dark></Input>
   </article>
 );
 
-const renderCategories = ({ title, categories }) => (
+const ArticleCategories = ({ title, categories }) => (
   <article className='inline-block align-top w-1/2 md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '>
     <Title>{title}</Title>
     {categories &&
@@ -37,7 +37,7 @@ const renderCategories = ({ title, categories }) => (
   </article>
 );
 
-const renderIcons = ({ title, icons }) => (
+const ArticleIcons = ({ title, icons }) => (
   <article className='w-full md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '>
     <Title>{title}</Title>
     <div className='flex mb-4 text-gray-400 fill-current'>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import Icon from './common/icon';
 import BadgeCounter from './common/badgeCounter';
 import SearchBox from './common/searchBox';
+import LogoLink from './logoLink';
 import IconButton from './iconButton';
 import IconLink from './iconLink';
+import Nav from './nav';
 import ShoppingBag from './shoppingBag';
 import Notice from './notice';
 import { breakpoints, navLinks } from '../config.json';
@@ -22,9 +23,20 @@ const Header = ({
     setIsNoticeShowing(false);
   }
 
-  function renderHeader() {
-    return (
-      <>
+  return (
+    <>
+      {isNoticeShowing && (
+        <Notice text='Free shipping worldwide!' hide={isMenuOpen}>
+          <IconButton
+            style={{ position: 'unset' }}
+            icon={
+              <Icon type='close' className='absolute w-3 h-3 right-0 top-0' />
+            }
+            onClick={handleNoticeCloseClick}
+          />
+        </Notice>
+      )}
+      <header>
         {/* Small devices */}
         <section className='relative bg-white w-full bg-white z-30 md:hidden border-b border-gray-300'>
           <article className='flex items-center w-full h-12 px-4 py-2 '>
@@ -34,12 +46,7 @@ const Header = ({
                 icon={isMenuOpen ? <Icon type='close' /> : <Icon type='menu' />}
                 onClick={handleMenuClick}
               />
-              <Link
-                to='/'
-                className='font-bold uppercase text-center tracking-wider'
-              >
-                shoecase
-              </Link>
+              <LogoLink to='/'>shoecase</LogoLink>
               <div className='flex flex-wrap justify-between w-20'>
                 <IconButton focusable icon={<Icon type='user' />} />
                 <IconLink
@@ -52,27 +59,7 @@ const Header = ({
               </div>
             </div>
           </article>
-          <nav
-            className={
-              isMenuOpen
-                ? `w-full border-t border-b border-gray-300 visible`
-                : `w-full border-t border-b border-gray-300 h-0 invisible`
-            }
-          >
-            <ul className='w-full h-full px-4'>
-              {navLinks &&
-                navLinks.map(link => (
-                  <li
-                    key={link.label}
-                    className='flex flex-wrap items-center w-full h-16 border-b border-gray-300'
-                  >
-                    <NavLink to={link.url} className='w-full py-4 uppercase'>
-                      {link.label}
-                    </NavLink>
-                  </li>
-                ))}
-            </ul>
-          </nav>
+          <Nav navLinks={navLinks} isMenuOpen={isMenuOpen}></Nav>
           <article
             className={isMenuOpen ? 'px-4 pt-2 pb-4 hidden' : 'px-4 pt-2 pb-4'}
           >
@@ -88,32 +75,8 @@ const Header = ({
         {/* Medium+ devices */}
         <section className='relative bg-white w-full hidden md:flex md:flex-1 md:px-6 lg:px-12 border-b border-gray-300 z-30'>
           <article className='flex flex-wrap items-center w-1/2 '>
-            <Link
-              to='/'
-              className='font-bold uppercase text-xl mr-20 tracking-wider'
-            >
-              shoecase
-            </Link>
-            <nav>
-              <ul className='flex flex-wrap items-stretch w-40 '>
-                {navLinks &&
-                  navLinks.map(link => (
-                    <li
-                      key={link.label}
-                      className='flex flex-wrap items-center h-full mr-4'
-                    >
-                      <NavLink
-                        to={link.url}
-                        exact
-                        className='uppercase py-4 lg:py-6 font-medium text-sm text-gray-800 tracking-wider px-2 border-b-2 border-transparent hover:border-gray-400 '
-                        activeClassName='border-b-2 border-black'
-                      >
-                        {link.label}
-                      </NavLink>
-                    </li>
-                  ))}
-              </ul>
-            </nav>
+            <LogoLink to='/'>shoecase</LogoLink>
+            <Nav navLinks={navLinks} isMenuOpen={isMenuOpen} size='md+'></Nav>
           </article>
           <article className='flex flex-wrap items-center justify-end w-1/2'>
             <SearchBox
@@ -135,24 +98,7 @@ const Header = ({
             </div>
           </article>
         </section>
-      </>
-    );
-  }
-
-  return (
-    <>
-      {isNoticeShowing && (
-        <Notice text='Free shipping worldwide!' hide={isMenuOpen}>
-          <IconButton
-            style={{ position: 'unset' }}
-            icon={
-              <Icon type='close' className='absolute w-3 h-3 right-0 top-0' />
-            }
-            onClick={handleNoticeCloseClick}
-          />
-        </Notice>
-      )}
-      <header>{renderHeader()}</header>
+      </header>
       {isShoppingBagOpen && viewportSize.width > breakpoints.md && (
         <ShoppingBag onClick={handleShoppingBagClick}></ShoppingBag>
       )}
