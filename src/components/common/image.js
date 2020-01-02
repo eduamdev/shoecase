@@ -9,40 +9,85 @@ import batcombeLord from '../../images/products/batcombe-lord.jpg';
 import callaRose from '../../images/products/calla-rose.webp';
 import milaMyth from '../../images/products/mila-myth.webp';
 
-const Image = ({
-  slug,
-  classes = 'w-full max-w-md mx-auto md:h-auto object-cover lg:px-10',
-  noClass = false,
-  ...rest
-}) => {
-  const images = {
-    banner: () => (
-      <Img className={noClass ? '' : classes} src={banner} {...rest} />
-    ),
-    comfort: () => (
-      <Img className={noClass ? '' : classes} src={feature1} {...rest} />
-    ),
-    waterproof: () => (
-      <Img className={noClass ? '' : classes} src={feature2} {...rest} />
-    ),
-    'light-weight': () => (
-      <Img className={noClass ? '' : classes} src={feature3} {...rest} />
-    ),
-    customizable: () => (
-      <Img className={noClass ? '' : classes} src={feature4} {...rest} />
-    ),
-    'calla-rose': () => (
-      <Img className={noClass ? '' : classes} src={callaRose} {...rest} />
-    ),
-    'batcombe-lord': () => (
-      <Img className={noClass ? '' : classes} src={batcombeLord} {...rest} />
-    ),
-    'mila-myth': () => (
-      <Img className={noClass ? '' : classes} src={milaMyth} {...rest} />
-    ),
-    default: () => null
+const Image = ({ name, type, ...rest }) => {
+  const classNames = {
+    banner: 'w-full h-56 md:h-84 object-cover lg:h-108',
+    feature: 'w-full h-56 lg:h-72 object-cover rounded-sm',
+    featureAlt:
+      'w-full h-72 md:h-108 md:pr-40 lg:h-160 lg:p-0 object-cover relative rounded-sm',
+    shoppingBag: '',
+    cart: 'w-24 lg:w-16 object-cover',
+    product: 'w-full max-w-md mx-auto md:h-auto object-cover lg:px-10',
+    singleProduct: 'max-w-full w-full'
   };
-  return (images[slug] || images['default'])();
+
+  const images = {
+    banner: (
+      <Img
+        name={name}
+        className={classNames[type] || ''}
+        src={banner}
+        {...rest}
+      />
+    ),
+    comfort: (
+      <Img
+        name={name}
+        className={classNames[type] || ''}
+        src={feature1}
+        {...rest}
+      />
+    ),
+    waterproof: (
+      <Img
+        name={name}
+        className={classNames[type] || ''}
+        src={feature2}
+        {...rest}
+      />
+    ),
+    'light-weight': (
+      <Img
+        name={name}
+        className={classNames[type] || ''}
+        src={feature3}
+        {...rest}
+      />
+    ),
+    customizable: (
+      <Img
+        name={name}
+        className={classNames[type] || ''}
+        src={feature4}
+        {...rest}
+      />
+    ),
+    'calla-rose': (
+      <Img
+        name={name}
+        className={classNames[type] || ''}
+        src={callaRose}
+        {...rest}
+      />
+    ),
+    'batcombe-lord': (
+      <Img
+        name={name}
+        className={classNames[type] || ''}
+        src={batcombeLord}
+        {...rest}
+      />
+    ),
+    'mila-myth': (
+      <Img
+        name={name}
+        className={classNames[type] || ''}
+        src={milaMyth}
+        {...rest}
+      />
+    )
+  };
+  return images[name] || null;
 };
 
 export default Image;

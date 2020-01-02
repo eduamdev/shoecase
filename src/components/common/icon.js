@@ -15,22 +15,24 @@ import { ReactComponent as SvgArrowUp } from '../../icons/arrow-up.svg';
 
 const Icon = ({ type, className = 'h-4 w-4', ...rest }) => {
   const icons = {
-    close: () => <SvgClose  className={className} {...rest}></SvgClose>,
-    menu: () => <SvgMenu  className={className} {...rest}></SvgMenu>,
-    user: () => <SvgUser  className={className} {...rest}></SvgUser>,
-    shoppingBag: () => <SvgShoppingBag  className={className} {...rest}></SvgShoppingBag>,
-    magnifier: () => <SvgMagnifier  className={className} {...rest}></SvgMagnifier>,
-    facebook: () => <SvgFacebook  className={className} {...rest}></SvgFacebook>,
-    twitter: () => <SvgTwitter  className={className} {...rest}></SvgTwitter>,
-    instagram: () => <SvgInstagram  className={className} {...rest}></SvgInstagram>,
-    trashCan: () => <SvgTrashCan  className={className} {...rest}></SvgTrashCan>,
-    filter: () => <SvgFilter  className={className} {...rest}></SvgFilter>,
-    plus: () => <SvgPlus  className={className} {...rest}></SvgPlus>,
-    minus: () => <SvgMinus  className={className} {...rest}></SvgMinus>,
-    arrowUp: () => <SvgArrowUp  className={className} {...rest}></SvgArrowUp>,
-    default: () => null
+    close: <SvgClose className={className} {...rest}></SvgClose>,
+    menu: <SvgMenu className={className} {...rest}></SvgMenu>,
+    user: <SvgUser className={className} {...rest}></SvgUser>,
+    shoppingBag: (
+      <SvgShoppingBag className={className} {...rest}></SvgShoppingBag>
+    ),
+    magnifier: <SvgMagnifier className={className} {...rest}></SvgMagnifier>,
+    facebook: <SvgFacebook className={className} {...rest}></SvgFacebook>,
+    twitter: <SvgTwitter className={className} {...rest}></SvgTwitter>,
+    instagram: <SvgInstagram className={className} {...rest}></SvgInstagram>,
+    trashCan: <SvgTrashCan className={className} {...rest}></SvgTrashCan>,
+    filter: <SvgFilter className={className} {...rest}></SvgFilter>,
+    plus: <SvgPlus className={className} {...rest}></SvgPlus>,
+    minus: <SvgMinus className={className} {...rest}></SvgMinus>,
+    arrowUp: <SvgArrowUp className={className} {...rest}></SvgArrowUp>,
+    default: null
   };
-  return (icons[type] || icons['default'])();
+  return icons[type] || icons['default'];
 };
 
 export default Icon;

@@ -19,11 +19,7 @@ const Cart = () => {
           <div className='py-10 px-4 md:px-6 lg:px-12 border-b border-gray-300'>
             <div className='flex flex-wrap w-full'>
               <div className='w-1/2 md:w-auto'>
-                <Image
-                  slug='batcombe-lord'
-                  alt='shoe'
-                  classes='w-24 object-cover'
-                ></Image>
+                <Image name='batcombe-lord' alt='shoe' type='cart'></Image>
               </div>
               <div className='w-1/2 md:ml-32'>
                 <div className='flex content-between flex-wrap h-full'>
@@ -59,11 +55,7 @@ const Cart = () => {
         <article className='w-full bg-white rounded-sm mb-12 lg:p-10 hidden lg:block px-4 md:px-6 lg:px-12 lg:shadow'>
           <div className='flex flex-wrap items-start justify-between'>
             <div>
-              <Image
-                slug='batcombe-lord'
-                alt='shoe'
-                classes='w-16 object-cover'
-              ></Image>
+              <Image name='batcombe-lord' alt='shoe' type='cart'></Image>
             </div>
             <div className='w-2/6'>
               <h3 className='w-full uppercase text-lg tracking-wide font-semibold'>
