@@ -1,9 +1,8 @@
 import React from 'react';
-import Img from 'react-image';
 import { Link } from 'react-router-dom';
 import Icon from './common/icon';
+import Image from './common/image';
 import MainButton from './mainButton';
-import image from '../images/products/batcombe-lord.jpg';
 
 const ShoppingBag = ({ ...rest }) => {
   return (
@@ -22,12 +21,12 @@ const ShoppingBag = ({ ...rest }) => {
       </h1>
       <div className='w-full'>
         <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-200'>
-          <Img src={image} className='h-24 object-cover'></Img>
+          <Image name='batcombe-lord' type='shoppingBag'></Image>
           <p className='w-1/2 uppercase'>batcombe lord</p>
           <p className=''>$1,680.00</p>
         </div>
         <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-200'>
-          <Img src={image} className='h-24 object-cover'></Img>
+          <Image name='batcombe-lord' type='shoppingBag'></Image>
           <p className='w-1/2 uppercase'>batcombe lord</p>
           <p className=''>$1,680.00</p>
         </div>

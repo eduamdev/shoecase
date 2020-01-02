@@ -10,7 +10,9 @@ const ColorButton = ({ color, ...rest }) => {
 
   const className = `w-8 h-8 border border-gray-400 mr-3 active:outline-none focus:outline-none focus:shadow-outline active:shadow-outline hover:shadow-outline ${colors[color]}`;
 
-  return <Button className={className} {...rest}></Button>;
+  return colors[color] ? (
+    <Button className={className} {...rest}></Button>
+  ) : null;
 };
 
 export default ColorButton;

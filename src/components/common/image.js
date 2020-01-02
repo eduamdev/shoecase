@@ -15,7 +15,7 @@ const Image = ({ name, type, ...rest }) => {
     feature: 'w-full h-56 lg:h-72 object-cover rounded-sm',
     featureAlt:
       'w-full h-72 md:h-108 md:pr-40 lg:h-160 lg:p-0 object-cover relative rounded-sm',
-    shoppingBag: '',
+    shoppingBag: 'h-24 object-cover',
     cart: 'w-24 lg:w-16 object-cover',
     product: 'w-full max-w-md mx-auto md:h-auto object-cover lg:px-10',
     singleProduct: 'max-w-full w-full'
