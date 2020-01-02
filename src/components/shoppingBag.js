@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from './common/icon';
 import Image from './common/image';
+import IconButton from './iconButton';
 import MainButton from './mainButton';
 
 const ShoppingBag = ({ ...rest }) => {
@@ -10,12 +11,11 @@ const ShoppingBag = ({ ...rest }) => {
       className='z-50 fixed top-0 right-0 h-screen bg-white w-2/6 px-4 md:px-6 lg:px-12 py-12 shadow-2xl'
       style={{ minWidth: '600px' }}
     >
-      <button
+      <IconButton
+        icon={<Icon type='close' />}
         {...rest}
-        className='active:shadow-outline focus:outline-none focus:shadow-outline p-2 absolute top-0 right-0 mr-10 mt-6'
-      >
-        <Icon type='close'></Icon>
-      </button>
+        position='absolute top-0 right-0 mr-10 mt-6'
+      />
       <h1 className='uppercase text-2xl font-bold tracking-wide mb-8'>
         your shopping bag <span className='ml-2 text-base font-light'>(1)</span>
       </h1>
