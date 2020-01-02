@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from './common/icon';
-import Image from './common/image';
 import IconButton from './iconButton';
 import MainButton from './mainButton';
+import ShoppingBagProduct from './shoppingBagProduct';
+import ShoppingBagTotal from './shoppingBagTotal';
 
 const ShoppingBag = ({ ...rest }) => {
   return (
@@ -20,20 +21,8 @@ const ShoppingBag = ({ ...rest }) => {
         your shopping bag <span className='ml-2 text-base font-light'>(1)</span>
       </h1>
       <div className='w-full'>
-        <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-200'>
-          <Image name='batcombe-lord' type='shoppingBag'></Image>
-          <span className='w-1/2 uppercase'>batcombe lord</span>
-          <span className=''>$1,680.00</span>
-        </div>
-        <div className='flex flex-wrap justify-between items-center py-5 border-t border-b border-gray-200'>
-          <Image name='batcombe-lord' type='shoppingBag'></Image>
-          <span className='w-1/2 uppercase'>batcombe lord</span>
-          <span className=''>$1,680.00</span>
-        </div>
-        <div className='flex flex-wrap justify-between items-center py-12 border-t border-gray-200'>
-          <span className='font-bold text-xl uppercase'>total</span>
-          <span className='font-bold text-xl'>$1,680.00</span>
-        </div>
+        <ShoppingBagProduct></ShoppingBagProduct>
+        <ShoppingBagTotal></ShoppingBagTotal>
         <Link to='/cart'>
           <MainButton hoverable>View your Shopping Bag</MainButton>
         </Link>
