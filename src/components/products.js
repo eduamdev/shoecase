@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProductFilter from './productFilter';
 import ProductCard from './productCard';
 import { getProducts } from '../services/fakeProductService';
+import { NumberUtils } from '../utils';
 
 const Products = ({ genre, areFiltersShowing, handleFiltersClick }) => {
   const [products, setProducts] = useState([]);
@@ -31,7 +32,7 @@ const Products = ({ genre, areFiltersShowing, handleFiltersClick }) => {
                 url={`products/${product.slug}`}
                 image={{ name: product.slug, alt: product.description }}
                 name={product.name}
-                price={`$${product.price}`}
+                price={`$${NumberUtils.formatCurrency(product.price, 2)}`}
               ></ProductCard>
             ))}
       </section>

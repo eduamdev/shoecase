@@ -5,6 +5,7 @@ import IconButton from './iconButton';
 import MainButton from './mainButton';
 import ShoppingBagProduct from './shoppingBagProduct';
 import ShoppingBagTotal from './shoppingBagTotal';
+import { NumberUtils } from '../utils';
 
 const ShoppingBag = ({ products, totalProducts, totalPrice, ...rest }) => {
   return (
@@ -23,7 +24,9 @@ const ShoppingBag = ({ products, totalProducts, totalPrice, ...rest }) => {
       </h1>
       <div className='w-full'>
         <ShoppingBagProduct products={products}></ShoppingBagProduct>
-        <ShoppingBagTotal totalPrice={totalPrice}></ShoppingBagTotal>
+        <ShoppingBagTotal
+          totalPrice={NumberUtils.formatCurrency(totalPrice, 2)}
+        ></ShoppingBagTotal>
         <Link to='/cart'>
           <MainButton hoverable>View your Shopping Bag</MainButton>
         </Link>

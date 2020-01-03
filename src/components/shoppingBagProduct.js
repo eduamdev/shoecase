@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from './common/image';
+import { NumberUtils } from '../utils';
 
 const ShoppingBagProduct = ({ products }) => {
   return products.map(product => (
@@ -9,7 +10,7 @@ const ShoppingBagProduct = ({ products }) => {
     >
       <Image name={product.slug} type='shoppingBag'></Image>
       <span className='w-1/2 uppercase'>{product.name}</span>
-      <span className=''>${product.price}</span>
+      <span className=''>${NumberUtils.formatCurrency(product.price, 2)}</span>
     </div>
   ));
 };

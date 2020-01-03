@@ -4,6 +4,7 @@ import Icon from './common/icon';
 import Image from './common/image';
 import IconButton from './iconButton';
 import ProductQuantity from './productQuantity';
+import { NumberUtils } from '../utils';
 
 const CartShoppingBag = ({ products, totalProducts, totalPrice }) => {
   const [quantity, setQuantity] = useState(1);
@@ -92,7 +93,9 @@ const CartShoppingBag = ({ products, totalProducts, totalPrice }) => {
                           handleDecrement={handleDecrement}
                         ></ProductQuantity>
                       </div>
-                      <span className='font-medium'>$ {product.price}</span>
+                      <span className='font-medium'>
+                        $ {NumberUtils.formatCurrency(product.price, 2)}
+                      </span>
                     </div>
                   </article>
 
@@ -126,7 +129,9 @@ const CartShoppingBag = ({ products, totalProducts, totalPrice }) => {
                           ></ProductQuantity>
                         </div>
                       </div>
-                      <div className='font-medium '>$ {product.price}</div>
+                      <div className='font-medium '>
+                        $ {NumberUtils.formatCurrency(product.price, 2)}
+                      </div>
                     </div>
                   </article>
                 </Fragment>
@@ -139,7 +144,7 @@ const CartShoppingBag = ({ products, totalProducts, totalPrice }) => {
                 subtotal :
               </div>
               <div className='w-1/2 text-right text-sm md:text-base mb-4 lg:mb-6'>
-                $ {totalPrice}
+                $ {NumberUtils.formatCurrency(totalPrice, 2)}
               </div>
               <div className='w-1/2 text-left text-sm md:text-base capitalize mb-4 lg:mb-6'>
                 shipping :
@@ -151,7 +156,7 @@ const CartShoppingBag = ({ products, totalProducts, totalPrice }) => {
                 total :
               </div>
               <div className='w-1/2 text-right font-bold text-lg md:text-xl'>
-                {totalPrice}
+                {NumberUtils.formatCurrency(totalPrice, 2)}
               </div>
             </div>
           </article>
