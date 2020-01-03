@@ -3,6 +3,7 @@ import FeaturedProducts from './featuredProducts';
 import MainButton from './mainButton';
 import Image from './common/image';
 import { getProductBySlug } from '../services/fakeProductService';
+import { NumberUtils } from '../utils';
 
 const Product = ({ match }) => {
   const slug = match.params.id;
@@ -24,7 +25,7 @@ const Product = ({ match }) => {
             {name}
           </h1>
           <span className='block text-lg lg:text-xl font-bold tracking-wide mt-10 mb-4'>
-            $ {price}
+            $ {NumberUtils.formatCurrency(price, 2)}
           </span>
           <MainButton>Place in Cart</MainButton>
         </article>
