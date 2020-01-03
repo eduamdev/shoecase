@@ -56,7 +56,7 @@ const Header = ({
                   focusable
                   icon={<Icon type='shoppingBag' />}
                 >
-                  <BadgeCounter count={0}></BadgeCounter>
+                  <BadgeCounter count={cartState.totalProducts}></BadgeCounter>
                 </IconLink>
               </div>
             </div>
