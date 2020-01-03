@@ -60,9 +60,9 @@ const CartShoppingBag = ({
       ) : (
         <>
           {products &&
-            products.map(product => {
+            products.map((product, index) => {
               return (
-                <Fragment key={product._id}>
+                <Fragment key={index}>
                   {/* Small */}
                   <article className='w-full bg-white rounded-sm mb-12 lg:hidden'>
                     <div className='py-10 px-4 md:px-6 lg:px-12 border-b border-gray-300'>
@@ -79,7 +79,8 @@ const CartShoppingBag = ({
                               className='border py-2 px-4 border-gray-300 rounded-sm'
                               onClick={() =>
                                 cartDispatch({
-                                  type: 'REMOVE_PRODUCT_FROM_CART'
+                                  type: 'REMOVE_PRODUCT_FROM_CART',
+                                  product
                                 })
                               }
                               icon={<Icon type='trashCan' />}
@@ -129,7 +130,8 @@ const CartShoppingBag = ({
                           <Icon
                             onClick={() =>
                               cartDispatch({
-                                type: 'REMOVE_PRODUCT_FROM_CART'
+                                type: 'REMOVE_PRODUCT_FROM_CART',
+                                product
                               })
                             }
                             type='trashCan'

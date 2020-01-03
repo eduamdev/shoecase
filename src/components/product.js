@@ -32,7 +32,8 @@ const Product = ({ match }) => {
           <MainButton
             onClick={() =>
               cartDispatch({
-                type: 'ADD_PRODUCT_TO_CART'
+                type: 'ADD_PRODUCT_TO_CART',
+                product
               })
             }
           >

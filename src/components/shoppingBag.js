@@ -10,7 +10,7 @@ import { NumberUtils } from '../utils';
 const ShoppingBag = ({ products, totalProducts, totalPrice, ...rest }) => {
   return (
     <div
-      className='z-50 fixed top-0 right-0 h-screen bg-white w-2/6 px-4 md:px-6 lg:px-12 py-12 shadow-2xl'
+      className='z-50 fixed top-0 right-0 h-screen bg-white w-2/6 px-4 md:px-6 lg:px-12 py-12 shadow-2xl overflow-x-auto'
       style={{ minWidth: '600px' }}
     >
       <IconButton

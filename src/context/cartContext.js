@@ -12,27 +12,80 @@ const initialState = {
 function cartReducer(state, action) {
   switch (action.type) {
     case 'ADD_PRODUCT_TO_CART': {
+      let newProducts = [];
+
+      if (state.products && state.products.length > 0) {
+        if (state.products.some(p => p._id === action.product._id)) {
+          // Product already exist in cart, increment quantity
+          const product = state.products.find(
+            p => p._id === action.product._id
+          );
+          const rest = state.products.filter(p => p._id !== action.product._id);
+          product.quantity++;
+
+          newProducts = [...rest, product];
+        } else {
+          // Product doesnt exist in cart, add
+          newProducts = [...state.products, action.product];
+        }
+      } else {
+        newProducts.push(action.product);
+      }
+
+      const newTotalPrice =
+        newProducts.length > 0
+          ? newProducts.reduce(
+              (accumulator, currentValue) =>
+                parseFloat(accumulator) +
+                parseFloat(currentValue.price) *
+                  parseInt(currentValue.quantity),
+              0
+            )
+          : 0;
+
+      const newTotalProducts = state.totalProducts
+        ? parseInt(state.totalProducts) + 1
+        : 1;
+
       return {
-        products: [
-          {
-            _id: '5b21ca3eeb7f6fbccd471815',
-            sku: '1A586V',
-            name: 'calla rose',
-            slug: 'calla-rose',
-            color: {
-              _id: '5b21ca3eeb7f6fbccd471818',
-              name: 'Black'
-            },
-            price: 2470,
-            quantity: 1
-          }
-        ],
-        totalProducts: 1,
-        totalPrice: 2470
+        products: newProducts,
+        totalProducts: newTotalProducts,
+        totalPrice: newTotalPrice
       };
     }
     case 'REMOVE_PRODUCT_FROM_CART': {
-      return { products: [], totalProducts: 0, totalPrice: 0 };
+      let newProducts = [];
+
+      console.log(action.product);
+
+      if (state.products && state.products.length > 1) {
+        newProducts = state.products.filter(p => p._id !== action.product._id);
+      } else {
+        newProducts = [];
+      }
+
+      console.log(newProducts);
+
+      const newTotalPrice =
+        newProducts.length > 0
+          ? newProducts.reduce(
+              (accumulator, currentValue) =>
+                parseFloat(accumulator) +
+                parseFloat(currentValue.price) *
+                  parseInt(currentValue.quantity),
+              0
+            )
+          : 0;
+
+      const newTotalProducts = state.totalProducts
+        ? parseInt(state.totalProducts) - 1
+        : 0;
+
+      return {
+        products: newProducts,
+        totalProducts: newTotalProducts,
+        totalPrice: newTotalPrice
+      };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
