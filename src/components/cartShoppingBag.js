@@ -6,7 +6,12 @@ import IconButton from './iconButton';
 import ProductQuantity from './productQuantity';
 import { NumberUtils } from '../utils';
 
-const CartShoppingBag = ({ products, totalProducts, totalPrice }) => {
+const CartShoppingBag = ({
+  products,
+  totalProducts,
+  totalPrice,
+  cartDispatch
+}) => {
   const [quantity, setQuantity] = useState(1);
 
   function handleQuantityChange(e) {
@@ -72,6 +77,11 @@ const CartShoppingBag = ({ products, totalProducts, totalPrice }) => {
                             </h3>
                             <IconButton
                               className='border py-2 px-4 border-gray-300 rounded-sm'
+                              onClick={() =>
+                                cartDispatch({
+                                  type: 'REMOVE_PRODUCT_FROM_CART'
+                                })
+                              }
                               icon={<Icon type='trashCan' />}
                             />
                           </div>
@@ -116,7 +126,14 @@ const CartShoppingBag = ({ products, totalProducts, totalPrice }) => {
                           Color: {product.color.name}
                         </p>
                         <button className='border py-2 px-4 border-gray-300 rounded-sm mt-8'>
-                          <Icon type='trashCan'></Icon>
+                          <Icon
+                            onClick={() =>
+                              cartDispatch({
+                                type: 'REMOVE_PRODUCT_FROM_CART'
+                              })
+                            }
+                            type='trashCan'
+                          ></Icon>
                         </button>
                       </div>
                       <div>

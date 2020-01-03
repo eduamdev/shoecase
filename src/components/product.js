@@ -3,12 +3,14 @@ import FeaturedProducts from './featuredProducts';
 import MainButton from './mainButton';
 import Image from './common/image';
 import { getProductBySlug } from '../services/fakeProductService';
+import { useCart } from '../context/cartContext';
 import { NumberUtils } from '../utils';
 
 const Product = ({ match }) => {
+  const [cartState, cartDispatch] = useCart();
+
   const slug = match.params.id;
   const product = getProductBySlug(slug);
-
   const { sku, name, price, description, features } = product;
 
   return (
@@ -27,7 +29,15 @@ const Product = ({ match }) => {
           <span className='block text-lg lg:text-xl font-bold tracking-wide mt-10 mb-4'>
             $ {NumberUtils.formatCurrency(price, 2)}
           </span>
-          <MainButton>Place in Cart</MainButton>
+          <MainButton
+            onClick={() =>
+              cartDispatch({
+                type: 'ADD_PRODUCT_TO_CART'
+              })
+            }
+          >
+            Place in Cart
+          </MainButton>
         </article>
         <article className='w-full py-12 lg:py-24 px-4 md:px-6 lg:px-12'>
           <p className='tracking-wide leading-loose mb-10 font-light text-gray-700 text-sm xl:text-base'>
