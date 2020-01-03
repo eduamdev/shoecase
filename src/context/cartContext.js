@@ -4,22 +4,9 @@ const CartStateContext = createContext();
 const CartDispatchContext = createContext();
 
 const initialState = {
-  products: [
-    {
-      _id: '5b21ca3eeb7f6fbccd471815',
-      sku: '1A586V',
-      name: 'calla rose',
-      slug: 'calla-rose',
-      color: {
-        _id: '5b21ca3eeb7f6fbccd471818',
-        name: 'Black'
-      },
-      price: 2470,
-      quantity: 1
-    }
-  ],
-  totalProducts: 1,
-  totalPrice: 2470
+  products: [],
+  totalProducts: 0,
+  totalPrice: 0
 };
 
 function cartReducer(state, action) {
