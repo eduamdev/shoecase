@@ -1,17 +1,18 @@
 import React from 'react';
-import { ReactComponent as SvgMenu } from '../../icons/menu.svg';
-import { ReactComponent as SvgClose } from '../../icons/close.svg';
-import { ReactComponent as SvgUser } from '../../icons/user.svg';
-import { ReactComponent as SvgShoppingBag } from '../../icons/shopping-bag.svg';
-import { ReactComponent as SvgMagnifier } from '../../icons/magnifier.svg';
-import { ReactComponent as SvgFacebook } from '../../icons/facebook.svg';
-import { ReactComponent as SvgTwitter } from '../../icons/twitter.svg';
-import { ReactComponent as SvgInstagram } from '../../icons/instagram.svg';
-import { ReactComponent as SvgTrashCan } from '../../icons/trash-can.svg';
-import { ReactComponent as SvgFilter } from '../../icons/filter.svg';
-import { ReactComponent as SvgPlus } from '../../icons/plus.svg';
-import { ReactComponent as SvgMinus } from '../../icons/minus.svg';
-import { ReactComponent as SvgArrowUp } from '../../icons/arrow-up.svg';
+import { ReactComponent as SvgMenu } from '../../assets/icons/menu.svg';
+import { ReactComponent as SvgClose } from '../../assets/icons/close.svg';
+import { ReactComponent as SvgUser } from '../../assets/icons/user.svg';
+import { ReactComponent as SvgShoppingBag } from '../../assets/icons/shopping-bag.svg';
+import { ReactComponent as SvgMagnifier } from '../../assets/icons/magnifier.svg';
+import { ReactComponent as SvgFacebook } from '../../assets/icons/facebook.svg';
+import { ReactComponent as SvgTwitter } from '../../assets/icons/twitter.svg';
+import { ReactComponent as SvgInstagram } from '../../assets/icons/instagram.svg';
+import { ReactComponent as SvgTrashCan } from '../../assets/icons/trash-can.svg';
+import { ReactComponent as SvgFilter } from '../../assets/icons/filter.svg';
+import { ReactComponent as SvgPlus } from '../../assets/icons/plus.svg';
+import { ReactComponent as SvgMinus } from '../../assets/icons/minus.svg';
+import { ReactComponent as SvgArrowUp } from '../../assets/icons/arrow-up.svg';
+import { ReactComponent as SvgCheckMark } from '../../assets/icons/check-mark.svg';
 
 const Icon = ({ type, className = 'h-4 w-4', ...rest }) => {
   const icons = {
@@ -30,6 +31,7 @@ const Icon = ({ type, className = 'h-4 w-4', ...rest }) => {
     plus: <SvgPlus className={className} {...rest}></SvgPlus>,
     minus: <SvgMinus className={className} {...rest}></SvgMinus>,
     arrowUp: <SvgArrowUp className={className} {...rest}></SvgArrowUp>,
+    checkMark: <SvgCheckMark className={className} {...rest}></SvgCheckMark>,
     default: null
   };
   return icons[type] || icons['default'];

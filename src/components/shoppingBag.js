@@ -6,7 +6,7 @@ import MainButton from './mainButton';
 import ShoppingBagProduct from './shoppingBagProduct';
 import ShoppingBagTotal from './shoppingBagTotal';
 
-const ShoppingBag = ({ ...rest }) => {
+const ShoppingBag = ({ products, totalProducts, totalPrice, ...rest }) => {
   return (
     <div
       className='z-50 fixed top-0 right-0 h-screen bg-white w-2/6 px-4 md:px-6 lg:px-12 py-12 shadow-2xl'
@@ -18,11 +18,12 @@ const ShoppingBag = ({ ...rest }) => {
         position='absolute top-0 right-0 mr-10 mt-6'
       />
       <h1 className='uppercase text-2xl font-bold tracking-wide mb-8'>
-        your shopping bag <span className='ml-2 text-base font-light'>(1)</span>
+        your shopping bag{' '}
+        <span className='ml-2 text-base font-light'>({totalProducts})</span>
       </h1>
       <div className='w-full'>
-        <ShoppingBagProduct></ShoppingBagProduct>
-        <ShoppingBagTotal></ShoppingBagTotal>
+        <ShoppingBagProduct products={products}></ShoppingBagProduct>
+        <ShoppingBagTotal totalPrice={totalPrice}></ShoppingBagTotal>
         <Link to='/cart'>
           <MainButton hoverable>View your Shopping Bag</MainButton>
         </Link>

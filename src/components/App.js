@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import ScrollToTop from './common/scrollToTop';
 import Header from './header';
 import Home from './home';
 import Cart from './cart';
 import Products from './products';
 import Product from './product';
 import Footer from './footer';
-import ScrollToTop from './common/scrollToTop';
 import SuccessfulOrder from './successfulOrder';
 import NotFound from './notFound';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import useWindowSize from '../hooks/useWindowSize';
+import { CartProvider } from '../context/cartContext';
 import { breakpoints } from '../config.json';
 
 function App({ history }) {
@@ -75,48 +76,51 @@ function App({ history }) {
         ></span>
       )}
 
-      <Header
-        isMenuOpen={isMenuOpen}
-        handleMenuClick={toggleMenu}
-        isShoppingBagOpen={isShoppingBagOpen}
-        handleShoppingBagClick={handleShoppingBagClick}
-        viewportSize={viewportSize}
-      ></Header>
-      <main>
-        <ScrollToTop />
-        <Switch>
-          <Route exact path='/' component={Home}></Route>
-          <Route exact path='/products/:id' component={Product}></Route>
-          <Route
-            path='/men'
-            exact
-            render={props => (
-              <Products
-                {...props}
-                genre={'men'}
-                areFiltersShowing={areFiltersShowing}
-                handleFiltersClick={toggleFilters}
-              />
-            )}
-          ></Route>
-          <Route
-            path='/women'
-            exact
-            render={props => (
-              <Products
-                {...props}
-                genre={'women'}
-                areFiltersShowing={areFiltersShowing}
-                handleFiltersClick={toggleFilters}
-              />
-            )}
-          ></Route>
-          <Route path='/cart' component={Cart}></Route>
-          <Route path='/successful-order' component={SuccessfulOrder}></Route>
-          <Route path='/not-found' component={NotFound}></Route>
-          <Redirect to='/not-found'></Redirect>
-        </Switch>
-      </main>
+      <CartProvider>
+        <Header
+          isMenuOpen={isMenuOpen}
+          handleMenuClick={toggleMenu}
+          isShoppingBagOpen={isShoppingBagOpen}
+          handleShoppingBagClick={handleShoppingBagClick}
+          viewportSize={viewportSize}
+        ></Header>
+        <main>
+          <ScrollToTop />
+          <Switch>
+            <Route exact path='/' component={Home}></Route>
+            <Route exact path='/products/:id' component={Product}></Route>
+            <Route
+              path='/men'
+              exact
+              render={props => (
+                <Products
+                  {...props}
+                  genre={'men'}
+                  areFiltersShowing={areFiltersShowing}
+                  handleFiltersClick={toggleFilters}
+                />
+              )}
+            ></Route>
+            <Route
+              path='/women'
+              exact
+              render={props => (
+                <Products
+                  {...props}
+                  genre={'women'}
+                  areFiltersShowing={areFiltersShowing}
+                  handleFiltersClick={toggleFilters}
+                />
+              )}
+            ></Route>
+            <Route path='/cart' component={Cart}></Route>
+            <Route path='/successful-order' component={SuccessfulOrder}></Route>
+            <Route path='/not-found' component={NotFound}></Route>
+            <Redirect to='/not-found'></Redirect>
+          </Switch>
+        </main>
+      </CartProvider>
+
       <Footer></Footer>
     </div>
   );

@@ -1,13 +1,13 @@
 import React from 'react';
 import Img from 'react-image';
-import banner from '../../images/banner.jpg';
-import feature1 from '../../images/comfort.jpg';
-import feature2 from '../../images/waterproof.jpg';
-import feature3 from '../../images/light-weight.jpg';
-import feature4 from '../../images/customizable.jpg';
-import batcombeLord from '../../images/products/batcombe-lord.jpg';
-import callaRose from '../../images/products/calla-rose.webp';
-import milaMyth from '../../images/products/mila-myth.webp';
+import banner from '../../assets/images/banner.jpg';
+import feature1 from '../../assets/images/comfort.jpg';
+import feature2 from '../../assets/images/waterproof.jpg';
+import feature3 from '../../assets/images/light-weight.jpg';
+import feature4 from '../../assets/images/customizable.jpg';
+import batcombeLord from '../../assets/images/products/batcombe-lord.jpg';
+import callaRose from '../../assets/images/products/calla-rose.webp';
+import milaMyth from '../../assets/images/products/mila-myth.webp';
 
 const Image = ({ name, type, ...rest }) => {
   const classNames = {

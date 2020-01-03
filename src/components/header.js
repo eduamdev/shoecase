@@ -9,6 +9,7 @@ import Nav from './nav';
 import ShoppingBag from './shoppingBag';
 import Notice from './notice';
 import { breakpoints, navLinks } from '../config.json';
+import { useCart } from '../context/cartContext';
 
 const Header = ({
   isMenuOpen,
@@ -18,6 +19,7 @@ const Header = ({
   viewportSize
 }) => {
   const [isNoticeShowing, setIsNoticeShowing] = useState(true);
+  const [cartState] = useCart();
 
   function handleNoticeCloseClick() {
     setIsNoticeShowing(false);
@@ -88,10 +90,14 @@ const Header = ({
               <IconButton
                 focusable
                 icon={<Icon type='shoppingBag' />}
-                onClick={handleShoppingBagClick}
+                onClick={
+                  cartState.totalProducts > 0
+                    ? handleShoppingBagClick
+                    : undefined
+                }
               >
                 <BadgeCounter
-                  count={0}
+                  count={cartState.totalProducts}
                   style={{ marginTop: '-3.5px', marginLeft: '8px' }}
                 ></BadgeCounter>
               </IconButton>
@@ -100,7 +106,10 @@ const Header = ({
         </section>
       </header>
       {isShoppingBagOpen && viewportSize.width > breakpoints.md && (
-        <ShoppingBag onClick={handleShoppingBagClick}></ShoppingBag>
+        <ShoppingBag
+          {...cartState}
+          onClick={handleShoppingBagClick}
+        ></ShoppingBag>
       )}
     </>
   );
