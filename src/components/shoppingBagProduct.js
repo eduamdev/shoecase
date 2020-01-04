@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import Image from './common/image';
 import { NumberUtils } from '../utils';
 
-const ShoppingBagProduct = ({ products }) => {
+const ShoppingBagProduct = ({ products, isCartEmpty }) => {
   return (
     products &&
-    products.length > 0 &&
+    !isCartEmpty &&
     products.map((product, index) => {
       return (
         <Link key={index} to={`/products/${product.slug}`}>

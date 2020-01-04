@@ -7,7 +7,13 @@ import ShoppingBagProduct from './shoppingBagProduct';
 import ShoppingBagTotal from './shoppingBagTotal';
 import { NumberUtils } from '../utils';
 
-const ShoppingBag = ({ products, totalProducts, totalPrice, ...rest }) => {
+const ShoppingBag = ({
+  products,
+  totalProducts,
+  totalPrice,
+  isCartEmpty,
+  ...rest
+}) => {
   return (
     <div
       className='z-50 fixed top-0 right-0 h-screen bg-white w-2/6 px-4 md:px-6 lg:px-12 py-12 shadow-2xl overflow-x-auto'
@@ -23,7 +29,10 @@ const ShoppingBag = ({ products, totalProducts, totalPrice, ...rest }) => {
         <span className='ml-2 text-base font-light'>({totalProducts})</span>
       </h1>
       <div className='w-full'>
-        <ShoppingBagProduct products={products}></ShoppingBagProduct>
+        <ShoppingBagProduct
+          products={products}
+          isCartEmpty={isCartEmpty}
+        ></ShoppingBagProduct>
         <ShoppingBagTotal
           totalPrice={NumberUtils.formatCurrency(totalPrice, 2)}
         ></ShoppingBagTotal>

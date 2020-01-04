@@ -21,6 +21,8 @@ const Header = ({
   const [isNoticeShowing, setIsNoticeShowing] = useState(true);
   const [cartState] = useCart();
 
+  const { isCartEmpty, totalProducts } = cartState;
+
   function handleNoticeCloseClick() {
     setIsNoticeShowing(false);
   }
@@ -56,7 +58,7 @@ const Header = ({
                   focusable
                   icon={<Icon type='shoppingBag' />}
                 >
-                  <BadgeCounter count={cartState.totalProducts}></BadgeCounter>
+                  <BadgeCounter count={totalProducts}></BadgeCounter>
                 </IconLink>
               </div>
             </div>
@@ -90,14 +92,10 @@ const Header = ({
               <IconButton
                 focusable
                 icon={<Icon type='shoppingBag' />}
-                onClick={
-                  cartState.totalProducts > 0
-                    ? handleShoppingBagClick
-                    : undefined
-                }
+                onClick={isCartEmpty ? undefined : handleShoppingBagClick}
               >
                 <BadgeCounter
-                  count={cartState.totalProducts}
+                  count={totalProducts}
                   style={{ marginTop: '-3.5px', marginLeft: '8px' }}
                 ></BadgeCounter>
               </IconButton>

@@ -19,10 +19,10 @@ const Cart = () => {
         ></CartShoppingBag>
       </section>
       <section id='rightColumn' className='w-full lg:w-2/6'>
-        {cartState.totalProducts > 0 ? (
-          <CartPaymentDetails></CartPaymentDetails>
-        ) : (
+        {cartState.isCartEmpty ? (
           <ContactDetails></ContactDetails>
+        ) : (
+          <CartPaymentDetails></CartPaymentDetails>
         )}
       </section>
     </div>
