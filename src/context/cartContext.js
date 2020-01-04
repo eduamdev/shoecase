@@ -6,86 +6,77 @@ const CartDispatchContext = createContext();
 const initialState = {
   products: [],
   totalProducts: 0,
-  totalPrice: 0
+  totalPrice: 0,
+  isCartEmpty: true
 };
 
 function cartReducer(state, action) {
   switch (action.type) {
     case 'ADD_PRODUCT_TO_CART': {
-      let newProducts = [];
+      let newState = { ...state };
 
-      if (state.products && state.products.length > 0) {
-        if (state.products.some(p => p._id === action.product._id)) {
+      if (newState.isCartEmpty) {
+        newState.products.push(action.payload);
+      } else {
+        if (newState.products.find(p => p._id === action.payload._id)) {
           // Product already exist in cart, increment quantity
-          const product = state.products.find(
-            p => p._id === action.product._id
-          );
-          const rest = state.products.filter(p => p._id !== action.product._id);
-          product.quantity++;
-
-          newProducts = [...rest, product];
+          newState.products.find(p => p._id === action.payload._id).quantity++;
         } else {
           // Product doesnt exist in cart, add
-          newProducts = [...state.products, action.product];
+          newState.products.push(action.payload);
         }
-      } else {
-        newProducts.push(action.product);
       }
 
-      const newTotalPrice =
-        newProducts.length > 0
-          ? newProducts.reduce(
-              (accumulator, currentValue) =>
-                parseFloat(accumulator) +
-                parseFloat(currentValue.price) *
-                  parseInt(currentValue.quantity),
-              0
-            )
-          : 0;
+      newState.isCartEmpty =
+        Array.isArray(newState.products) && newState.products.length === 0;
 
-      const newTotalProducts = state.totalProducts
-        ? parseInt(state.totalProducts) + 1
-        : 1;
+      newState.totalProducts = newState.isCartEmpty
+        ? 1
+        : newState.products.reduce(
+            (accumulator, currentValue) =>
+              parseInt(accumulator) + parseInt(currentValue.quantity),
+            0
+          );
 
-      return {
-        products: newProducts,
-        totalProducts: newTotalProducts,
-        totalPrice: newTotalPrice
-      };
+      newState.totalPrice = newState.isCartEmpty
+        ? 0
+        : newState.products.reduce(
+            (accumulator, currentValue) =>
+              parseFloat(accumulator) +
+              parseFloat(currentValue.price) * parseInt(currentValue.quantity),
+            0
+          );
+
+      return newState;
     }
     case 'REMOVE_PRODUCT_FROM_CART': {
-      let newProducts = [];
+      let newState = { ...state };
 
-      console.log(action.product);
+      newState.products = newState.products.filter(
+        p => p._id !== action.payload._id
+      );
 
-      if (state.products && state.products.length > 1) {
-        newProducts = state.products.filter(p => p._id !== action.product._id);
-      } else {
-        newProducts = [];
-      }
+      newState.isCartEmpty =
+        Array.isArray(newState.products) && newState.products.length === 0;
 
-      console.log(newProducts);
+      newState.totalProducts = newState.isCartEmpty
+        ? 0
+        : newState.products.reduce(
+            (accumulator, currentValue) =>
+              parseInt(accumulator) + parseInt(currentValue.quantity),
+            0
+          );
 
-      const newTotalPrice =
-        newProducts.length > 0
-          ? newProducts.reduce(
-              (accumulator, currentValue) =>
-                parseFloat(accumulator) +
-                parseFloat(currentValue.price) *
-                  parseInt(currentValue.quantity),
-              0
-            )
-          : 0;
+      newState.totalPrice = newState.isCartEmpty
+        ? 0
+        : newState.products.reduce(
+            (accumulator, currentValue) =>
+              parseFloat(accumulator) +
+              parseFloat(currentValue.price) * parseInt(currentValue.quantity),
+            0
+          );
 
-      const newTotalProducts = state.totalProducts
-        ? parseInt(state.totalProducts) - 1
-        : 0;
-
-      return {
-        products: newProducts,
-        totalProducts: newTotalProducts,
-        totalPrice: newTotalPrice
-      };
+      return newState;
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);

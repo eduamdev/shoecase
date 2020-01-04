@@ -80,7 +80,7 @@ const CartShoppingBag = ({
                               onClick={() =>
                                 cartDispatch({
                                   type: 'REMOVE_PRODUCT_FROM_CART',
-                                  product
+                                  payload: product
                                 })
                               }
                               icon={<Icon type='trashCan' />}
@@ -126,17 +126,16 @@ const CartShoppingBag = ({
                         <p className='w-full text-sm tracking-wide leading-relaxed'>
                           Color: {product.color.name}
                         </p>
-                        <button className='border py-2 px-4 border-gray-300 rounded-sm mt-8'>
-                          <Icon
-                            onClick={() =>
-                              cartDispatch({
-                                type: 'REMOVE_PRODUCT_FROM_CART',
-                                product
-                              })
-                            }
-                            type='trashCan'
-                          ></Icon>
-                        </button>
+                        <IconButton
+                          className='border py-2 px-4 border-gray-300 rounded-sm mt-8'
+                          onClick={() =>
+                            cartDispatch({
+                              type: 'REMOVE_PRODUCT_FROM_CART',
+                              payload: product
+                            })
+                          }
+                          icon={<Icon type='trashCan' />}
+                        />
                       </div>
                       <div>
                         <div className='border border-black'>

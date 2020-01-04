@@ -16,12 +16,16 @@ const ShoppingBagProduct = ({ products }) => {
               {product.name}{' '}
               {product.quantity > 1 ? (
                 <span className='block text-sm tracking-wide'>
-                  ({product.quantity})
+                  ({parseInt(product.quantity)})
                 </span>
               ) : null}
             </span>
             <span className=''>
-              ${NumberUtils.formatCurrency(product.price * product.quantity, 2)}
+              $
+              {NumberUtils.formatCurrency(
+                parseFloat(product.price) * parseInt(product.quantity),
+                2
+              )}
             </span>
           </div>
         </Link>

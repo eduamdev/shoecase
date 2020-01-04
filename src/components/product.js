@@ -33,7 +33,7 @@ const Product = ({ match }) => {
             onClick={() =>
               cartDispatch({
                 type: 'ADD_PRODUCT_TO_CART',
-                product
+                payload: { ...product, quantity: 1 }
               })
             }
           >

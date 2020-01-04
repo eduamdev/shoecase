@@ -25,8 +25,7 @@ const products = [
       _id: '5b21ca3eeb7f6fbccd471818',
       name: 'Black'
     },
-    featured: true,
-    quantity: 1
+    featured: true
   },
   {
     _id: '5b21ca3eeb7f6fbccd471816',
@@ -50,8 +49,7 @@ const products = [
       _id: '5b21ca3eeb7f6fbccd471820',
       name: 'Brown'
     },
-    featured: false,
-    quantity: 1
+    featured: false
   },
   {
     _id: '5b21ca3eeb7f6fbccd471817',
@@ -70,8 +68,7 @@ const products = [
       _id: '5b21ca3eeb7f6fbccd471820',
       name: 'Brown'
     },
-    featured: true,
-    quantity: 1
+    featured: true
   }
 ];
 
