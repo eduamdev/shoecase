@@ -3,11 +3,11 @@ import FeaturedProducts from './featuredProducts';
 import MainButton from './mainButton';
 import Image from './common/image';
 import { getProductBySlug } from '../services/fakeProductService';
-import { useCart } from '../context/cartContext';
+import { useCartDispatch } from '../context/cartContext';
 import { NumberUtils } from '../utils';
 
 const Product = ({ match }) => {
-  const [cartState, cartDispatch] = useCart();
+  const cartDispatch = useCartDispatch();
 
   const slug = match.params.id;
   const product = getProductBySlug(slug);

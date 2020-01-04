@@ -18,7 +18,7 @@ const CartPaymentDetails = () => {
             <InputWithLabel
               label='email *'
               name='email'
-              className='placeholder-italic w-full px-4 py-3 border outline-none text-sm tracking-wider lg:tracking-widest mb-10 rounded-sm border-gray-300'
+              className='w-full px-4 py-3 border outline-none text-sm tracking-wider mb-10 rounded-sm border-gray-300'
               placeholder='email@domain.com'
             ></InputWithLabel>
             <InputWithLabel

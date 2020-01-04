@@ -10,42 +10,68 @@ const initialState = {
   isCartEmpty: true
 };
 
+const checkCart = state =>
+  Array.isArray(state.products) && state.products.length === 0;
+
+const getTotalPrice = (state, initialValue = 0) =>
+  state.isCartEmpty
+    ? initialValue
+    : state.products.reduce(
+        (accumulator, currentValue) =>
+          parseFloat(accumulator) +
+          parseFloat(currentValue.price) * parseInt(currentValue.quantity),
+        0
+      );
+
+const getTotalProducts = (state, initialValue = 0) =>
+  state.isCartEmpty
+    ? initialValue
+    : state.products.reduce(
+        (accumulator, currentValue) =>
+          parseInt(accumulator) + parseInt(currentValue.quantity),
+        0
+      );
+
 function cartReducer(state, action) {
   switch (action.type) {
     case 'ADD_PRODUCT_TO_CART': {
       let newState = { ...state };
 
-      if (newState.isCartEmpty) {
-        newState.products.push(action.payload);
+      if (newState.products.find(p => p._id === action.payload._id)) {
+        // Product already exist in cart, increment quantity
+        ++newState.products.find(p => p._id === action.payload._id).quantity;
       } else {
-        if (newState.products.find(p => p._id === action.payload._id)) {
-          // Product already exist in cart, increment quantity
-          newState.products.find(p => p._id === action.payload._id).quantity++;
-        } else {
-          // Product doesnt exist in cart, add
-          newState.products.push(action.payload);
-        }
+        // Product doesnt exist in cart, add
+        newState.products.push(action.payload);
       }
 
-      newState.isCartEmpty =
-        Array.isArray(newState.products) && newState.products.length === 0;
+      newState.isCartEmpty = checkCart(newState);
+      newState.totalProducts = getTotalProducts(newState);
+      newState.totalPrice = getTotalPrice(newState);
 
-      newState.totalProducts = newState.isCartEmpty
-        ? 1
-        : newState.products.reduce(
-            (accumulator, currentValue) =>
-              parseInt(accumulator) + parseInt(currentValue.quantity),
-            0
-          );
+      return newState;
+    }
+    case 'SUBTRACT_PRODUCT_FROM_CART': {
+      const newState = { ...state };
 
-      newState.totalPrice = newState.isCartEmpty
-        ? 0
-        : newState.products.reduce(
-            (accumulator, currentValue) =>
-              parseFloat(accumulator) +
-              parseFloat(currentValue.price) * parseInt(currentValue.quantity),
-            0
-          );
+      // determine if product exists
+      if (newState.products.find(p => p._id === action.payload._id)) {
+        // retrieve item
+        const item = state.products.find(i => i._id === action.payload._id);
+
+        // if quantity is less than 2, do nothing
+        if (item.quantity >= 2)
+          --newState.products.find(p => p._id === action.payload._id).quantity;
+      }
+
+      newState.isCartEmpty = checkCart(newState);
+      newState.totalProducts = getTotalProducts(newState);
+      newState.totalPrice = getTotalPrice(newState);
+
+      return newState;
+    }
+    case 'ON_CHANGE_PRODUCT_QUANTITY_FROM_CART': {
+      const newState = { ...state };
 
       return newState;
     }
@@ -56,25 +82,9 @@ function cartReducer(state, action) {
         p => p._id !== action.payload._id
       );
 
-      newState.isCartEmpty =
-        Array.isArray(newState.products) && newState.products.length === 0;
-
-      newState.totalProducts = newState.isCartEmpty
-        ? 0
-        : newState.products.reduce(
-            (accumulator, currentValue) =>
-              parseInt(accumulator) + parseInt(currentValue.quantity),
-            0
-          );
-
-      newState.totalPrice = newState.isCartEmpty
-        ? 0
-        : newState.products.reduce(
-            (accumulator, currentValue) =>
-              parseFloat(accumulator) +
-              parseFloat(currentValue.price) * parseInt(currentValue.quantity),
-            0
-          );
+      newState.isCartEmpty = checkCart(newState);
+      newState.totalProducts = getTotalProducts(newState);
+      newState.totalPrice = getTotalPrice(newState);
 
       return newState;
     }
@@ -115,4 +125,4 @@ function useCart() {
   return [useCartState(), useCartDispatch()];
 }
 
-export { CartProvider, useCart };
+export { CartProvider, useCart, useCartState, useCartDispatch };

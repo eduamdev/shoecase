@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from './common/icon';
 import Image from './common/image';
@@ -10,27 +10,18 @@ const CartShoppingBag = ({
   products,
   totalProducts,
   totalPrice,
+  isCartEmpty,
   cartDispatch
 }) => {
-  const [quantity, setQuantity] = useState(1);
+  // function handleQuantityChange(e) {
+  //   const currValue = e.target.value;
+  //   const re = /^[0-9\b]+$/;
 
-  function handleQuantityChange(e) {
-    const currValue = e.target.value;
-    const re = /^[0-9\b]+$/;
-
-    if (currValue === '') setQuantity(1);
-    if (re.test(currValue)) {
-      if (currValue > 0) setQuantity(Number.parseInt(currValue, 10));
-    }
-  }
-
-  function handleIncrement() {
-    setQuantity(quantity + 1);
-  }
-
-  function handleDecrement() {
-    if (quantity >= 2) setQuantity(quantity - 1);
-  }
+  //   if (currValue === '') setQuantity(1);
+  //   if (re.test(currValue)) {
+  //     if (currValue > 0) setQuantity(Number.parseInt(currValue, 10));
+  //   }
+  // }
 
   return (
     <>
@@ -44,7 +35,7 @@ const CartShoppingBag = ({
         </span>
       </h2>
 
-      {totalProducts === 0 ? (
+      {isCartEmpty ? (
         <>
           <span className='block font-light mb-12 text-sm tracking-wider'>
             Your shopping bag is empty
@@ -98,14 +89,17 @@ const CartShoppingBag = ({
                     <div className='flex flex-wrap items-center justify-between py-6 px-4 md:px-6 lg:px-12'>
                       <div className='border border-black'>
                         <ProductQuantity
-                          quantity={quantity}
-                          handleQuantityChange={handleQuantityChange}
-                          handleIncrement={handleIncrement}
-                          handleDecrement={handleDecrement}
+                          product={product}
+                          cartDispatch={cartDispatch}
                         ></ProductQuantity>
                       </div>
                       <span className='font-medium'>
-                        $ {NumberUtils.formatCurrency(product.price, 2)}
+                        ${' '}
+                        {NumberUtils.formatCurrency(
+                          parseFloat(product.price) *
+                            parseInt(product.quantity),
+                          2
+                        )}
                       </span>
                     </div>
                   </article>
@@ -140,15 +134,18 @@ const CartShoppingBag = ({
                       <div>
                         <div className='border border-black'>
                           <ProductQuantity
-                            quantity={quantity}
-                            handleQuantityChange={handleQuantityChange}
-                            handleIncrement={handleIncrement}
-                            handleDecrement={handleDecrement}
+                            product={product}
+                            cartDispatch={cartDispatch}
                           ></ProductQuantity>
                         </div>
                       </div>
-                      <div className='font-medium '>
-                        $ {NumberUtils.formatCurrency(product.price, 2)}
+                      <div className='font-medium w-24 text-right'>
+                        ${' '}
+                        {NumberUtils.formatCurrency(
+                          parseFloat(product.price) *
+                            parseInt(product.quantity),
+                          2
+                        )}
                       </div>
                     </div>
                   </article>
