@@ -13,16 +13,6 @@ const CartShoppingBag = ({
   isCartEmpty,
   cartDispatch
 }) => {
-  // function handleQuantityChange(e) {
-  //   const currValue = e.target.value;
-  //   const re = /^[0-9\b]+$/;
-
-  //   if (currValue === '') setQuantity(1);
-  //   if (re.test(currValue)) {
-  //     if (currValue > 0) setQuantity(Number.parseInt(currValue, 10));
-  //   }
-  // }
-
   return (
     <>
       <h2 className='text-xl  lg:text-2xl font-bold uppercase tracking-wide mb-4 lg:mb-8'>

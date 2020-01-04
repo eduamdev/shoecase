@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
+import { RegExpUtils } from '../utils';
 
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();
@@ -62,18 +63,41 @@ function cartReducer(state, action) {
         // if quantity is less than 2, do nothing
         if (item.quantity >= 2)
           --newState.products.find(p => p._id === action.payload._id).quantity;
+
+        newState.isCartEmpty = checkCart(newState);
+        newState.totalProducts = getTotalProducts(newState);
+        newState.totalPrice = getTotalPrice(newState);
+
+        return newState;
       }
 
-      newState.isCartEmpty = checkCart(newState);
-      newState.totalProducts = getTotalProducts(newState);
-      newState.totalPrice = getTotalPrice(newState);
-
-      return newState;
+      // if not valid product return previous state
+      return state;
     }
     case 'ON_CHANGE_PRODUCT_QUANTITY_FROM_CART': {
       const newState = { ...state };
 
-      return newState;
+      // determine if product exists
+      if (newState.products.find(p => p._id === action.payload._id)) {
+        const index = newState.products.findIndex(
+          p => p._id === action.payload._id
+        );
+
+        const newQuantity = action.payload.newQuantity;
+
+        if (newQuantity === '') newState.products[index].quantity = 1;
+        if (RegExpUtils.onlyContainsNumbers(newQuantity) && newQuantity > 0)
+          newState.products[index].quantity = parseInt(newQuantity);
+
+        newState.isCartEmpty = checkCart(newState);
+        newState.totalProducts = getTotalProducts(newState);
+        newState.totalPrice = getTotalPrice(newState);
+
+        return newState;
+      }
+
+      // if not valid product return previous state
+      return state;
     }
     case 'REMOVE_PRODUCT_FROM_CART': {
       let newState = { ...state };
