@@ -16,7 +16,7 @@ const ArticleTitle = ({ children }) => (
 );
 
 const ArticleInput = ({ title, name, input }) => (
-  <article className='w-full md:w-1/4 xl:w-2/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '>
+  <article className='w-full md:w-1/4 xl:w-2/6 px-4 md:px-6 lg:px-12 py-3 md:py-12 lg:py-16 '>
     <ArticleTitle>{title}</ArticleTitle>
     <NewsletterInput
       name={name}
@@ -26,7 +26,7 @@ const ArticleInput = ({ title, name, input }) => (
 );
 
 const ArticleCategories = ({ title, categories }) => (
-  <article className='inline-block align-top w-1/2 md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '>
+  <article className='inline-block align-top w-1/2 md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-3 md:py-12 lg:py-16 '>
     <ArticleTitle>{title}</ArticleTitle>
     {categories &&
       categories.map(c => (
@@ -41,7 +41,7 @@ const ArticleCategories = ({ title, categories }) => (
 );
 
 const ArticleIcons = ({ title, icons }) => (
-  <article className='w-full md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-6 md:py-16 '>
+  <article className='w-full md:w-1/4 xl:w-1/6 px-4 md:px-6 lg:px-12 py-3 md:py-12 lg:py-16 '>
     <ArticleTitle>{title}</ArticleTitle>
     <div className='flex mb-4 text-gray-400 fill-current'>
       {icons &&
