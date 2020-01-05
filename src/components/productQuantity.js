@@ -1,8 +1,11 @@
 import React from 'react';
 import Button from './common/button';
 import Input from './common/input';
+import { useCartDispatch } from '../context/cartContext';
 
-const ProductQuantity = ({ product, cartDispatch }) => {
+const ProductQuantity = ({ product }) => {
+  const cartDispatch = useCartDispatch();
+
   return (
     <>
       <Button

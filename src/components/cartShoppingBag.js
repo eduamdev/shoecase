@@ -4,15 +4,15 @@ import Icon from './common/icon';
 import Image from './common/image';
 import IconButton from './iconButton';
 import ProductQuantity from './productQuantity';
+import { useCart } from '../context/cartContext';
 import { NumberUtils } from '../utils';
 
-const CartShoppingBag = ({
-  products,
-  totalProducts,
-  totalPrice,
-  isCartEmpty,
-  cartDispatch
-}) => {
+const CartShoppingBag = () => {
+  const [
+    { products, totalProducts, totalPrice, isCartEmpty },
+    cartDispatch
+  ] = useCart();
+
   return (
     <>
       <h2 className='text-xl  lg:text-2xl font-bold uppercase tracking-wide mb-4 lg:mb-8'>
@@ -78,10 +78,7 @@ const CartShoppingBag = ({
                     </div>
                     <div className='flex flex-wrap items-center justify-between py-6 px-4 md:px-6 lg:px-12'>
                       <div className='border border-black'>
-                        <ProductQuantity
-                          product={product}
-                          cartDispatch={cartDispatch}
-                        ></ProductQuantity>
+                        <ProductQuantity product={product}></ProductQuantity>
                       </div>
                       <span className='font-medium'>
                         ${' '}
@@ -123,10 +120,7 @@ const CartShoppingBag = ({
                       </div>
                       <div>
                         <div className='border border-black'>
-                          <ProductQuantity
-                            product={product}
-                            cartDispatch={cartDispatch}
-                          ></ProductQuantity>
+                          <ProductQuantity product={product}></ProductQuantity>
                         </div>
                       </div>
                       <div className='font-medium w-24 text-right'>

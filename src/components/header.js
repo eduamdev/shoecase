@@ -8,8 +8,8 @@ import IconLink from './iconLink';
 import Nav from './nav';
 import ShoppingBag from './shoppingBag';
 import Notice from './notice';
+import { useCartState } from '../context/cartContext';
 import { breakpoints, navLinks } from '../config.json';
-import { useCart } from '../context/cartContext';
 
 const Header = ({
   isMenuOpen,
@@ -19,9 +19,7 @@ const Header = ({
   viewportSize
 }) => {
   const [isNoticeShowing, setIsNoticeShowing] = useState(true);
-  const [cartState] = useCart();
-
-  const { isCartEmpty, totalProducts } = cartState;
+  const { isCartEmpty, totalProducts } = useCartState();
 
   function handleNoticeCloseClick() {
     setIsNoticeShowing(false);
@@ -104,10 +102,7 @@ const Header = ({
         </section>
       </header>
       {isShoppingBagOpen && viewportSize.width > breakpoints.md && (
-        <ShoppingBag
-          {...cartState}
-          onClick={handleShoppingBagClick}
-        ></ShoppingBag>
+        <ShoppingBag onClick={handleShoppingBagClick}></ShoppingBag>
       )}
     </>
   );

@@ -60,7 +60,6 @@ function cartReducer(state, action) {
         // retrieve item
         const item = state.products.find(i => i._id === action.payload._id);
 
-        // if quantity is less than 2, do nothing
         if (item.quantity >= 2)
           --newState.products.find(p => p._id === action.payload._id).quantity;
 
