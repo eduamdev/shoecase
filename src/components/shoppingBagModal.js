@@ -7,7 +7,7 @@ import ShoppingBagProduct from './shoppingBagProduct';
 import ShoppingBagTotal from './shoppingBagTotal';
 import { useCartState } from '../context/cartContext';
 
-const ShoppingBag = ({ ...rest }) => {
+const ShoppingBagModal = ({ ...rest }) => {
   const { totalProducts } = useCartState();
 
   return (
@@ -35,4 +35,4 @@ const ShoppingBag = ({ ...rest }) => {
   );
 };
 
-export default ShoppingBag;
+export default ShoppingBagModal;

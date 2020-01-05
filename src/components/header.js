@@ -6,7 +6,7 @@ import LogoLink from './logoLink';
 import IconButton from './iconButton';
 import IconLink from './iconLink';
 import Nav from './nav';
-import ShoppingBag from './shoppingBag';
+import ShoppingBagModal from './shoppingBagModal';
 import Notice from './notice';
 import { useCartState } from '../context/cartContext';
 import { breakpoints, navLinks } from '../config.json';
@@ -14,7 +14,7 @@ import { breakpoints, navLinks } from '../config.json';
 const Header = ({
   isMenuOpen,
   handleMenuClick,
-  isShoppingBagOpen,
+  isShoppingBagModalShowing,
   handleShoppingBagClick,
   viewportSize
 }) => {
@@ -101,8 +101,8 @@ const Header = ({
           </article>
         </section>
       </header>
-      {isShoppingBagOpen && viewportSize.width > breakpoints.md && (
-        <ShoppingBag onClick={handleShoppingBagClick}></ShoppingBag>
+      {isShoppingBagModalShowing && viewportSize.width > breakpoints.md && (
+        <ShoppingBagModal onClick={handleShoppingBagClick}></ShoppingBagModal>
       )}
     </>
   );
