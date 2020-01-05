@@ -1,8 +1,8 @@
 import React from 'react';
+import { breakpoints } from '../config.json';
 
 const Backdrop = ({
   viewportSize,
-  breakpoints,
   areFiltersShowing,
   hideModals,
   isMenuOpen,

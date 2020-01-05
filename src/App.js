@@ -12,7 +12,6 @@ import SuccessfulOrder from './routes/successfulOrder';
 import NotFound from './routes/notFound';
 import useWindowSize from './hooks/useWindowSize';
 import { CartProvider } from './context/cartContext';
-import { breakpoints } from './config.json';
 
 function App({ history }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,22 +43,15 @@ function App({ history }) {
   }
 
   function hideModals() {
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-    if (areFiltersShowing) {
-      setAreFiltersShowing(false);
-    }
-    if (isShoppingBagModalShowing) {
-      setIsShoppingBagModalShowing(false);
-    }
+    setIsMenuOpen(false);
+    setAreFiltersShowing(false);
+    setIsShoppingBagModalShowing(false);
   }
 
   return (
     <div className='App h-screen w-screen max-h-full max-w-full font-global'>
       <Backdrop
         viewportSize={viewportSize}
-        breakpoints={breakpoints}
         areFiltersShowing={areFiltersShowing}
         hideModals={hideModals}
         isMenuOpen={isMenuOpen}
