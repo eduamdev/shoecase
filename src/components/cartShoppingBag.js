@@ -155,7 +155,7 @@ const CartShoppingBag = () => {
                 total :
               </div>
               <div className='w-1/2 text-right font-bold text-lg md:text-xl'>
-                {NumberUtils.formatCurrency(totalPrice, 2)}
+                $ {NumberUtils.formatCurrency(totalPrice, 2)}
               </div>
             </div>
           </article>
