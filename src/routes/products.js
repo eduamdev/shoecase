@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ProductFilter from './productFilter';
-import ProductCard from './productCard';
+import ProductFilter from '../components/productFilter';
+import ProductCard from '../components/productCard';
 import { getProducts } from '../services/fakeProductService';
 import { NumberUtils } from '../utils';
 

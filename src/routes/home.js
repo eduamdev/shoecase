@@ -1,7 +1,7 @@
 import React from 'react';
-import Banner from './banner';
-import Features from './features';
-import FeaturedProducts from './featuredProducts';
+import Banner from '../components/banner';
+import Features from '../components/features';
+import FeaturedProducts from '../components/featuredProducts';
 
 const Home = () => {
   return (

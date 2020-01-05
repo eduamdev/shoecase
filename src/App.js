@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-import ScrollToTop from './common/scrollToTop';
-import Header from './header';
-import Home from './home';
-import Cart from './cart';
-import Products from './products';
-import Product from './product';
-import Footer from './footer';
-import SuccessfulOrder from './successfulOrder';
-import NotFound from './notFound';
-import useWindowSize from '../hooks/useWindowSize';
-import { CartProvider } from '../context/cartContext';
-import { breakpoints } from '../config.json';
+import ScrollToTop from './components/common/scrollToTop';
+import Header from './components/header';
+import Home from './routes/home';
+import Product from './routes/product';
+import Products from './routes/products';
+import Cart from './routes/cart';
+import SuccessfulOrder from './routes/successfulOrder';
+import NotFound from './routes/notFound';
+import Footer from './components/footer';
+import useWindowSize from './hooks/useWindowSize';
+import { CartProvider } from './context/cartContext';
+import { breakpoints } from './config.json';
 
 function App({ history }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -120,7 +120,6 @@ function App({ history }) {
           </Switch>
         </main>
       </CartProvider>
-
       <Footer></Footer>
     </div>
   );

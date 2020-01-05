@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './common/icon';
+import Icon from '../components/common/icon';
 
 const SuccessfulOrder = () => {
   return (

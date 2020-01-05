@@ -1,7 +1,7 @@
 import React from 'react';
-import CartShoppingBag from './cartShoppingBag';
-import CartPaymentDetails from './cartPaymentDetails';
-import ContactDetails from './contactDetails';
+import CartShoppingBag from '../components/cartShoppingBag';
+import CartPaymentDetails from '../components/cartPaymentDetails';
+import ContactDetails from '../components/contactDetails';
 import { useCartState } from '../context/cartContext';
 
 const Cart = () => {

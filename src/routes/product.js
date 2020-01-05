@@ -1,7 +1,7 @@
 import React from 'react';
-import FeaturedProducts from './featuredProducts';
-import MainButton from './mainButton';
-import Image from './common/image';
+import FeaturedProducts from '../components/featuredProducts';
+import MainButton from '../components/mainButton';
+import Image from '../components/common/image';
 import { getProductBySlug } from '../services/fakeProductService';
 import { useCartDispatch } from '../context/cartContext';
 import { NumberUtils } from '../utils';

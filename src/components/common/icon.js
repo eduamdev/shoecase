@@ -13,6 +13,7 @@ import { ReactComponent as SvgPlus } from '../../assets/icons/plus.svg';
 import { ReactComponent as SvgMinus } from '../../assets/icons/minus.svg';
 import { ReactComponent as SvgArrowUp } from '../../assets/icons/arrow-up.svg';
 import { ReactComponent as SvgCheckMark } from '../../assets/icons/check-mark.svg';
+import { ReactComponent as SvgLoading } from '../../assets/icons/loading.svg';
 
 const Icon = ({ type, className = 'h-4 w-4', ...rest }) => {
   const icons = {
@@ -32,6 +33,7 @@ const Icon = ({ type, className = 'h-4 w-4', ...rest }) => {
     minus: <SvgMinus className={className} {...rest}></SvgMinus>,
     arrowUp: <SvgArrowUp className={className} {...rest}></SvgArrowUp>,
     checkMark: <SvgCheckMark className={className} {...rest}></SvgCheckMark>,
+    loading: <SvgLoading className={className} {...rest}></SvgLoading>,
     default: null
   };
   return icons[type] || icons['default'];
