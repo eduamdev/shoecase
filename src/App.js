@@ -19,14 +19,24 @@ function App({ history }) {
   const [isShoppingBagModalShowing, setIsShoppingBagModalShowing] = useState(
     false
   );
+  const [searchQuery, setSearchQuery] = useState('');
+
+  function handleSearchChange(e) {
+    setSearchQuery(e.target.value);
+  }
 
   const viewportSize = useWindowSize();
 
   useEffect(() =>
     history.listen(() => {
-      hideModals();
+      reset();
     })
   );
+
+  function reset() {
+    hideModals();
+    setSearchQuery('');
+  }
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
@@ -65,11 +75,24 @@ function App({ history }) {
           isShoppingBagModalShowing={isShoppingBagModalShowing}
           handleShoppingBagClick={handleShoppingBagClick}
           viewportSize={viewportSize}
+          searchQuery={searchQuery}
+          handleSearchChange={handleSearchChange}
         ></Header>
         <main>
           <ScrollToTop />
           <Switch>
             <Route exact path='/' component={Home}></Route>
+            <Route
+              exact
+              path='/search/:query'
+              render={props => (
+                <Products
+                  {...props}
+                  areFiltersShowing={areFiltersShowing}
+                  handleFiltersClick={toggleFilters}
+                />
+              )}
+            ></Route>
             <Route exact path='/products/:id' component={Product}></Route>
             <Route
               path='/men'

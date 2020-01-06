@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import Icon from './common/icon';
+import Form from './common/form';
 import BadgeCounter from './common/badgeCounter';
 import SearchBox from './searchBox';
 import LogoLink from './logoLink';
@@ -16,13 +18,22 @@ const Header = ({
   handleMenuClick,
   isShoppingBagModalShowing,
   handleShoppingBagClick,
-  viewportSize
+  viewportSize,
+  history,
+  searchQuery,
+  handleSearchChange
 }) => {
   const [isNoticeShowing, setIsNoticeShowing] = useState(true);
   const { isCartEmpty, totalProducts } = useCartState();
 
   function handleNoticeCloseClick() {
     setIsNoticeShowing(false);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    history.push(`/search/${searchQuery}`);
   }
 
   return (
@@ -66,10 +77,14 @@ const Header = ({
             className={isMenuOpen ? 'px-4 pt-2 pb-4 hidden' : 'px-4 pt-2 pb-4'}
           >
             <div className='flex flex-wrap items-center justify-between w-full'>
-              <SearchBox
-                icon={<Icon type='magnifier' className='h-4 w-4 absolute' />}
-                placeholder='Products...'
-              />
+              <Form className='w-full' onSubmit={handleSubmit}>
+                <SearchBox
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  icon={<Icon type='magnifier' className='h-4 w-4 absolute' />}
+                  placeholder='Product ...'
+                />
+              </Form>
             </div>
           </article>
         </section>
@@ -81,10 +96,14 @@ const Header = ({
             <Nav navLinks={navLinks} isMenuOpen={isMenuOpen} size='md+'></Nav>
           </article>
           <article className='flex flex-wrap items-center justify-end w-1/2'>
-            <SearchBox
-              icon={<Icon type='magnifier' className='h-4 w-4 absolute' />}
-              placeholder='Products...'
-            />
+            <Form onSubmit={handleSubmit}>
+              <SearchBox
+                value={searchQuery}
+                onChange={handleSearchChange}
+                icon={<Icon type='magnifier' className='h-4 w-4 absolute' />}
+                placeholder='Product ...'
+              />
+            </Form>
             <div className='flex flex-wrap justify-between w-20'>
               <IconButton focusable icon={<Icon type='user' />} />
               <IconButton
@@ -108,4 +127,4 @@ const Header = ({
   );
 };
 
-export default Header;
+export default withRouter(Header);

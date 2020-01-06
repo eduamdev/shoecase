@@ -7,7 +7,12 @@ import IconButton from './iconButton';
 import { getCategories } from '../services/fakeCategoryService';
 import { getColors } from '../services/fakeColorService';
 
-const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
+const ProductFilter = ({
+  genre,
+  count,
+  areFiltersShowing,
+  handleFiltersClick
+}) => {
   const [categories, setCategories] = useState([]);
   const [colors, setColors] = useState([]);
   const [currentColor, setCurrentColor] = useState('');
@@ -35,10 +40,14 @@ const ProductFilter = ({ areFiltersShowing, handleFiltersClick }) => {
         className={`relative bg-white w-full h-12 border-b border-gray-300 md:h-auto z-20`}
       >
         <div className='flex flex-wrap items-center justify-between w-full h-full '>
-          <h2 className='text-left capitalize font-bold pl-4 md:pl-6 lg:pl-12 md:text-lg tracking-wide'>
-            All shoes{' '}
-            <span className='text-xs lg:text-sm font-light tracking-wider lg:ml-2 text-gray-800'>
-              ( 4 Products)
+          <h2
+            className={`text-left capitalize font-bold pl-4 md:pl-6 lg:pl-12 md:text-lg tracking-wide ${
+              genre ? '' : 'invisible'
+            }`}
+          >
+            All shoes for {genre}{' '}
+            <span className='text-xs lg:text-sm font-light tracking-wider lg:ml-2 text-gray-800 capitalize'>
+              ( {count} {count === 1 ? `product` : `products`})
             </span>
           </h2>
           <div className='h-full border-l border-gray-300'>
