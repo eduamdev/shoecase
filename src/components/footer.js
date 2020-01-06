@@ -15,7 +15,7 @@ const Footer = () => {
       </section>
 
       <section className='bg-black px-6 py-10 lg:pt-0 lg:pb-16'>
-        <p className='text-gray-200 text-sm tracking-wider font-thin text-center leading-loose'>
+        <p className='text-gray-200 text-sm tracking-widest font-thin text-center leading-loose'>
           Design & built by Eduardo Rodriguez
           {data &&
             data.links &&
