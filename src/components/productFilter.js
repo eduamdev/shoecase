@@ -45,7 +45,7 @@ const ProductFilter = ({
               genre ? '' : 'invisible'
             }`}
           >
-            All shoes for {genre}{' '}
+            All shoes{' '}
             <span className='text-xs lg:text-sm font-light tracking-wider lg:ml-2 text-gray-800 capitalize'>
               ( {count} {count === 1 ? `product` : `products`})
             </span>
