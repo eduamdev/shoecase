@@ -32,7 +32,7 @@ const ArticleCategories = ({ title, categories }) => (
       categories.map(c => (
         <span
           key={c}
-          className='block text-xs lg:text-sm xl:text-base tracking-wider font-light leading-loose lg:leading-relaxed text-gray-400 capitalize mb-2 lg:mb-4'
+          className='block text-xs lg:text-sm tracking-wider lg:tracking-widest font-light leading-loose lg:leading-relaxed text-gray-400 capitalize mb-2 lg:mb-4'
         >
           {c}
         </span>
