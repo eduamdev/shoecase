@@ -3,54 +3,48 @@ import ProductFilter from '../components/productFilter';
 import NoResultsFound from '../components/noResultsFound';
 import ShowProducts from '../components/showProducts';
 import { getProducts } from '../services/fakeProductService';
-import { filterList } from '../helpers/productsHelper';
+import {
+  filterProductsBySearch,
+  filterProductsByGenre
+} from '../helpers/productsHelper';
 
-const Products = ({ genre, match, areFiltersShowing, handleFiltersClick }) => {
+const Products = ({ match, genre, areFiltersShowing, handleFiltersClick }) => {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
   const [productsFilteredBySearch, setProductsFilterBySearch] = useState([]);
   const [productsFilteredByGenre, setProductsFilterByGenre] = useState([]);
 
   useEffect(() => {
-    function filterProductsBy(key, value, products) {
-      switch (key) {
-        case 'querySearch':
-          return filterList(value, products);
-
-        case 'genre':
-          return products.filter(p => p.genre === value);
-
-        default:
-          break;
-      }
-    }
-
     function fetchData() {
       setProducts(getProducts());
+    }
 
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    function filterData() {
       if (products.length > 0) {
-        if (match.params.query) {
-          const filtered = filterProductsBy(
-            'querySearch',
-            match.params.query,
-            products
-          );
-          setProductsFilterBySearch(filtered);
-          setCount(filtered.length || 0);
+        const search = match.params.query;
+
+        if (search) {
+          const filtered = filterProductsBySearch(products, search);
+          setProductsFilterBySearch(filtered ? filtered : []);
+          setCount(filtered ? filtered.length : 0);
           setProductsFilterByGenre([]);
         }
 
         if (genre) {
-          const filtered = filterProductsBy('genre', genre, products);
-          setProductsFilterByGenre(filtered);
-          setCount(filtered.length || 0);
+          const filtered = filterProductsByGenre(products, genre);
+          setProductsFilterByGenre(filtered ? filtered : []);
+          setCount(filtered ? filtered.length : 0);
           setProductsFilterBySearch([]);
         }
       }
     }
 
-    fetchData();
-  }, [products, genre, match.params.query]);
+    filterData();
+  }, [products, match.params.query, genre]);
 
   return (
     <>

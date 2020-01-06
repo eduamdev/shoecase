@@ -1,4 +1,4 @@
-export function filterList(q, list, key = 'name') {
+function filterList(q, list, key) {
   function escapeRegExp(s) {
     return s.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
   }
@@ -24,4 +24,34 @@ export function filterList(q, list, key = 'name') {
   return list.filter(item => {
     return searchRegex.test(item[key]);
   });
+}
+
+function filterBy(key, value, products) {
+  switch (key) {
+    case 'name':
+      return (
+        filterList(value, products, key) ||
+        products.filter(p => p.sku === value)
+      );
+    case 'sku':
+      return products.filter(p => p.sku === value);
+    case 'genre':
+      return products.filter(p => p.genre === value);
+
+    default:
+      return [];
+  }
+}
+
+export function filterProductsBySearch(products, value) {
+  let filtered = filterBy('name', value, products);
+  filtered = filtered.length > 0 ? filtered : filterBy('sku', value, products);
+
+  return filtered.length > 0 ? filtered : null;
+}
+
+export function filterProductsByGenre(products, value) {
+  const filtered = filterBy('genre', value, products);
+
+  return filtered.length > 0 ? filtered : null;
 }

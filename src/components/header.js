@@ -82,7 +82,7 @@ const Header = ({
                   value={searchQuery}
                   onChange={handleSearchChange}
                   icon={<Icon type='magnifier' className='h-4 w-4 absolute' />}
-                  placeholder='Product ...'
+                  placeholder='Product, SKU ...'
                 />
               </Form>
             </div>
@@ -101,7 +101,7 @@ const Header = ({
                 value={searchQuery}
                 onChange={handleSearchChange}
                 icon={<Icon type='magnifier' className='h-4 w-4 absolute' />}
-                placeholder='Product ...'
+                placeholder='Product, SKU ...'
               />
             </Form>
             <div className='flex flex-wrap justify-between w-20'>
