@@ -18,11 +18,11 @@
   "features": [
     {
       "image": {
-        "name": "comfort",
-        "alt": "A pair of comfortable shoes"
+        "name": "light-weight",
+        "alt": "A pair of light weight sneakers"
       },
-      "title": "comfort",
-      "content": "Like walking on the clouds"
+      "title": "light weight",
+      "content": "As light as air"
     },
     {
       "image": {
@@ -34,11 +34,11 @@
     },
     {
       "image": {
-        "name": "light-weight",
-        "alt": "A pair of light weight sneakers"
+        "name": "comfort",
+        "alt": "A pair of comfortable shoes"
       },
-      "title": "light weight",
-      "content": "As light as air"
+      "title": "comfort",
+      "content": "Like walking on the clouds"
     },
     {
       "image": {
