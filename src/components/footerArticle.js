@@ -10,7 +10,7 @@ const articles = {
 };
 
 const ArticleTitle = ({ children }) => (
-  <h3 className='capitalize font-medium font-sm mb-4 md:mb-6 text-gray-300'>
+  <h3 className='capitalize font-medium mb-4 md:mb-6 text-gray-300 tracking-wide'>
     {children}
   </h3>
 );
@@ -32,7 +32,7 @@ const ArticleCategories = ({ title, categories }) => (
       categories.map(c => (
         <span
           key={c}
-          className='block text-xs lg:text-sm tracking-wider font-light leading-loose lg:leading-relaxed text-gray-400 capitalize mb-2 lg:mb-4'
+          className='block text-xs lg:text-sm xl:text-base tracking-wider font-light leading-loose lg:leading-relaxed text-gray-400 capitalize mb-2 lg:mb-4'
         >
           {c}
         </span>
