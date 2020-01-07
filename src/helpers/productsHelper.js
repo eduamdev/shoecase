@@ -1,3 +1,5 @@
+import { ArrayUtils } from '../utils';
+
 function filterList(q, list, key) {
   function escapeRegExp(s) {
     return s.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -43,15 +45,24 @@ function filterBy(key, value, products) {
   }
 }
 
-export function filterProductsBySearch(products, value) {
-  let filtered = filterBy('name', value, products);
-  filtered = filtered.length > 0 ? filtered : filterBy('sku', value, products);
+export function filterProducts(key, value, products) {
+  switch (key) {
+    case 'search':
+      const filteredByName = filterBy('name', value, products);
+      const filteredBySku = filterBy('sku', value, products);
 
-  return filtered.length > 0 ? filtered : null;
-}
+      const filteredBySearch = ArrayUtils.isArrayEmpty(filteredByName)
+        ? filteredBySku
+        : filteredByName;
 
-export function filterProductsByGenre(products, value) {
-  const filtered = filterBy('genre', value, products);
+      return ArrayUtils.isArrayEmpty(filteredBySearch)
+        ? null
+        : filteredBySearch;
+    case 'genre':
+      const filteredByGenre = filterBy('genre', value, products);
 
-  return filtered.length > 0 ? filtered : null;
+      return ArrayUtils.isArrayEmpty(filteredByGenre) ? null : filteredByGenre;
+    default:
+      return null;
+  }
 }

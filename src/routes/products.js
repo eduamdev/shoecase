@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ProductFilter from '../components/productFilter';
+import ProductFilters from '../components/productFilters';
 import NoResultsFound from '../components/noResultsFound';
 import ShowProducts from '../components/showProducts';
 import { getProducts } from '../services/fakeProductService';
-import {
-  filterProductsBySearch,
-  filterProductsByGenre
-} from '../helpers/productsHelper';
+import { filterProducts } from '../helpers/productsHelper';
 
 const Products = ({ match, genre, areFiltersShowing, handleFiltersClick }) => {
   const [products, setProducts] = useState([]);
@@ -28,14 +25,14 @@ const Products = ({ match, genre, areFiltersShowing, handleFiltersClick }) => {
         const search = match.params.query;
 
         if (search) {
-          const filtered = filterProductsBySearch(products, search);
+          const filtered = filterProducts('search', search, products);
           setProductsFilterBySearch(filtered ? filtered : []);
           setCount(filtered ? filtered.length : 0);
           setProductsFilterByGenre([]);
         }
 
         if (genre) {
-          const filtered = filterProductsByGenre(products, genre);
+          const filtered = filterProducts('genre', genre, products);
           setProductsFilterByGenre(filtered ? filtered : []);
           setCount(filtered ? filtered.length : 0);
           setProductsFilterBySearch([]);
@@ -63,12 +60,12 @@ const Products = ({ match, genre, areFiltersShowing, handleFiltersClick }) => {
         </div>
       )}
       {count > 0 && (
-        <ProductFilter
+        <ProductFilters
           genre={genre}
           count={count}
           areFiltersShowing={areFiltersShowing}
           handleFiltersClick={handleFiltersClick}
-        ></ProductFilter>
+        ></ProductFilters>
       )}
 
       <section className='bg-white flex flex-wrap w-full'>

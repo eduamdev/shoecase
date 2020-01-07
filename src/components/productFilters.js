@@ -7,7 +7,7 @@ import IconButton from './iconButton';
 import { getCategories } from '../services/fakeCategoryService';
 import { getColors } from '../services/fakeColorService';
 
-const ProductFilter = ({
+const ProductFilters = ({
   genre,
   count,
   areFiltersShowing,
@@ -229,4 +229,4 @@ const ProductFilter = ({
   );
 };
 
-export default ProductFilter;
+export default ProductFilters;
