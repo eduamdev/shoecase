@@ -14,7 +14,9 @@ const ProductFilters = ({
   handleFiltersClick
 }) => {
   const [categories, setCategories] = useState([]);
+  const [isCategoriesOpen, setCategoriesOpen] = useState(false);
   const [colors, setColors] = useState([]);
+  const [isColorsOpen, setColorsOpen] = useState(false);
   const [currentColor, setCurrentColor] = useState('');
 
   useEffect(() => {
@@ -32,6 +34,14 @@ const ProductFilters = ({
 
   function handleMouseLeave() {
     setCurrentColor('');
+  }
+
+  function toggleCategories() {
+    setCategoriesOpen(!isCategoriesOpen);
+  }
+
+  function toggleColors() {
+    setColorsOpen(!isColorsOpen);
   }
 
   return (
@@ -82,12 +92,14 @@ const ProductFilters = ({
                     text='reset'
                     type='reset'
                     className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                    onClick={() => console.log('reset')}
                   ></TextButton>
                   <IconButton
+                    onClick={toggleCategories}
                     focusable
                     icon={
                       <Icon
-                        type='plus'
+                        type={isCategoriesOpen ? 'minus' : 'plus'}
                         className='h-4 w-4 text-gray-800 fill-current'
                       />
                     }
@@ -95,21 +107,23 @@ const ProductFilters = ({
                 </div>
               </div>
             </div>
-            <div className='w-full px-4 bg-gray-200'>
-              <ul className='w-full py-4'>
-                {categories &&
-                  categories.map(category => (
-                    <li
-                      key={category._id}
-                      className='flex flex-wrap items-center  w-full h-12 text-left text-sm capitalize font-light tracking-wide'
-                    >
-                      <Button className='w-full h-full focus:outline-none text-left'>
-                        {category.name}
-                      </Button>
-                    </li>
-                  ))}
-              </ul>
-            </div>
+            {isCategoriesOpen && (
+              <div className='w-full px-4 bg-gray-200'>
+                <ul className='w-full py-4'>
+                  {categories &&
+                    categories.map(category => (
+                      <li
+                        key={category._id}
+                        className='flex flex-wrap items-center  w-full h-12 text-left text-sm capitalize font-light tracking-wide'
+                      >
+                        <Button className='w-full h-full focus:outline-none text-left'>
+                          {category.name}
+                        </Button>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
             <div className='w-full h-12 px-4'>
               <div className='flex flex-wrap items-center justify-between w-full h-12'>
                 <h2 className='text-left text-sm uppercase tracking-wide font-bold'>
@@ -120,12 +134,14 @@ const ProductFilters = ({
                     text='reset'
                     type='reset'
                     className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                    onClick={() => console.log('reset')}
                   ></TextButton>
                   <IconButton
+                    onClick={toggleColors}
                     focusable
                     icon={
                       <Icon
-                        type='minus'
+                        type={isColorsOpen ? 'minus' : 'plus'}
                         className='h-4 w-4 text-gray-800 fill-current'
                       />
                     }
@@ -133,20 +149,22 @@ const ProductFilters = ({
                 </div>
               </div>
             </div>
-            <div className='w-full px-4 bg-gray-200 '>
-              <div className='flex flex-wrap items-center w-full h-24'>
-                {colors &&
-                  colors.map(color => {
-                    let { _id, name } = color;
-                    name = name
-                      .toString()
-                      .toLowerCase()
-                      .trim();
+            {isColorsOpen && (
+              <div className='w-full px-4 bg-gray-200 '>
+                <div className='flex flex-wrap items-center w-full h-24'>
+                  {colors &&
+                    colors.map(color => {
+                      let { _id, name } = color;
+                      name = name
+                        .toString()
+                        .toLowerCase()
+                        .trim();
 
-                    return <ColorButton key={_id} color={name}></ColorButton>;
-                  })}
+                      return <ColorButton key={_id} color={name}></ColorButton>;
+                    })}
+                </div>
               </div>
-            </div>
+            )}
           </section>
 
           {/* Medium+ devices */}

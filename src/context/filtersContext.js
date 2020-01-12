@@ -4,12 +4,25 @@ const FiltersStateContext = createContext();
 const FiltersDispatchContext = createContext();
 
 const initialState = {
-  filters: []
+  filters: [],
+  areFiltersSelected: false
 };
 
 function filtersReducer(state, action) {
   switch (action.type) {
-    case 'FILTER_SELECTED':
+    case 'COLOR_SELECTED':
+      break;
+
+    case 'CATEGORY_SELECTED':
+      break;
+
+    case 'RESET_CATEGORIES':
+      break;
+
+    case 'RESET_COLORS':
+      break;
+
+    case 'RESET_ALL_FILTERS':
       break;
 
     default:
