@@ -156,19 +156,39 @@ const ProductFilters = ({
                         key={category._id}
                         className='flex flex-wrap items-center  w-full h-12 text-left text-sm capitalize font-light tracking-wide'
                       >
-                        <Button
-                          className='w-full h-full focus:outline-none text-left'
-                          onClick={() =>
-                            filtersDispatch({
-                              type: 'TOGGLE_CATEGORY',
-                              payload: {
-                                id: category._id
-                              }
-                            })
-                          }
-                        >
-                          {category.name}
-                        </Button>
+                        {category.selected ? (
+                          <Button
+                            className='flex flex-wrap items-center bg-black tracking-wider font-light text-sm text-white text-center py-2 px-4 rounded-sm hover:bg-gray-300 hover:text-black capitalize'
+                            onClick={() =>
+                              filtersDispatch({
+                                type: 'TOGGLE_CATEGORY',
+                                payload: {
+                                  id: category._id
+                                }
+                              })
+                            }
+                          >
+                            {category.name}
+                            <Icon
+                              type='close'
+                              className='ml-2 h-3 w-3 fill-current'
+                            ></Icon>
+                          </Button>
+                        ) : (
+                          <Button
+                            className='w-full h-full focus:outline-none text-left'
+                            onClick={() =>
+                              filtersDispatch({
+                                type: 'TOGGLE_CATEGORY',
+                                payload: {
+                                  id: category._id
+                                }
+                              })
+                            }
+                          >
+                            {category.name}
+                          </Button>
+                        )}
                       </li>
                     ))}
                 </ul>
