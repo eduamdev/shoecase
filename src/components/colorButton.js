@@ -12,7 +12,7 @@ const ColorButton = ({ color, selected = false, ...rest }) => {
 
   return colors[color] ? (
     <Button
-      className={`${className} ${selected ? 'shadow-outline' : ''}`}
+      className={`${className} ${selected ? 'custom-outline' : ''}`}
       {...rest}
     ></Button>
   ) : null;

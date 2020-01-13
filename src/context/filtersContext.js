@@ -17,6 +17,38 @@ const verifySelected = arr => arr.some(c => c.selected);
 
 function filtersReducer(state, action) {
   switch (action.type) {
+    case 'TOGGLE_FILTER': {
+      const newState = { ...state };
+
+      // Check if color exist
+      if (newState.colors.find(c => c._id === action.payload.id)) {
+        const index = newState.colors.findIndex(
+          c => c._id === action.payload.id
+        );
+
+        newState.colors[index].selected = !newState.colors[index].selected;
+        newState.areColorsSelected = verifySelected(newState.colors);
+
+        return newState;
+      }
+
+      // Check if category exist
+      if (newState.categories.find(c => c._id === action.payload.id)) {
+        const index = newState.categories.findIndex(
+          c => c._id === action.payload.id
+        );
+
+        newState.categories[index].selected = !newState.categories[index]
+          .selected;
+        newState.areCategoriesSelected = verifySelected(newState.categories);
+
+        return newState;
+      }
+
+      // return previous state
+      return state;
+    }
+
     case 'TOGGLE_COLOR': {
       const newState = { ...state };
 

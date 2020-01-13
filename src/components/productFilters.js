@@ -69,6 +69,48 @@ const ProductFilters = ({
           </div>
         </div>
       </section>
+      {!areFiltersShowing && (areCategoriesSelected || areColorsSelected) && (
+        <section className='relative bg-white hidden md:block w-full h-full border-b border-gray-300 z-20'>
+          <div className='flex flex-wrap justify-between items-center px-4 md:px-6 lg:px-12 py-4'>
+            <ul className='flex flex-wrap'>
+              {[...categories, ...colors].map(
+                c =>
+                  c.selected && (
+                    <li key={c._id} className='mr-4'>
+                      <Button
+                        className='flex flex-wrap items-center w-full bg-black tracking-wider font-light text-sm text-white text-center py-3 px-4 rounded-sm hover:bg-gray-300 hover:text-black capitalize'
+                        onClick={() =>
+                          filtersDispatch({
+                            type: 'TOGGLE_FILTER',
+                            payload: {
+                              id: c._id
+                            }
+                          })
+                        }
+                      >
+                        {c.name}
+                        <Icon
+                          type='close'
+                          className='ml-2 h-3 w-3 fill-current'
+                        ></Icon>
+                      </Button>
+                    </li>
+                  )
+              )}
+            </ul>
+            <TextButton
+              text='reset all'
+              type='reset'
+              className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+              onClick={() =>
+                filtersDispatch({
+                  type: 'RESET_ALL_FILTERS'
+                })
+              }
+            ></TextButton>
+          </div>
+        </section>
+      )}
 
       {areFiltersShowing && (
         <>
@@ -217,19 +259,39 @@ const ProductFilters = ({
                   {categories &&
                     categories.map(category => (
                       <li key={category._id} className='leading-loose mb-1'>
-                        <Button
-                          className='w-full h-full focus:outline-none text-left'
-                          onClick={() =>
-                            filtersDispatch({
-                              type: 'TOGGLE_CATEGORY',
-                              payload: {
-                                id: category._id
-                              }
-                            })
-                          }
-                        >
-                          {category.name}
-                        </Button>
+                        {category.selected ? (
+                          <Button
+                            className='flex flex-wrap items-center bg-black tracking-wider font-light text-sm text-white text-center py-2 px-4 rounded-sm hover:bg-gray-300 hover:text-black capitalize'
+                            onClick={() =>
+                              filtersDispatch({
+                                type: 'TOGGLE_CATEGORY',
+                                payload: {
+                                  id: category._id
+                                }
+                              })
+                            }
+                          >
+                            {category.name}
+                            <Icon
+                              type='close'
+                              className='ml-2 h-3 w-3 fill-current'
+                            ></Icon>
+                          </Button>
+                        ) : (
+                          <Button
+                            className='w-full h-full focus:outline-none text-left py-2'
+                            onClick={() =>
+                              filtersDispatch({
+                                type: 'TOGGLE_CATEGORY',
+                                payload: {
+                                  id: category._id
+                                }
+                              })
+                            }
+                          >
+                            {category.name}
+                          </Button>
+                        )}
                       </li>
                     ))}
                 </ul>

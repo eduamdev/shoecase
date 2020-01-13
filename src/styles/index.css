@@ -93,4 +93,8 @@
   font-style: italic;
 }
 
+.custom-outline{
+  box-shadow: 0 0 0 2px black;
+}
+
 @tailwind utilities;
