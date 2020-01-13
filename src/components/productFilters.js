@@ -28,11 +28,11 @@ const ProductFilters = ({
     setCurrentColor('');
   }
 
-  function toggleCategories() {
+  function toggleCategoriesSmall() {
     setCategoriesOpen(!isCategoriesOpen);
   }
 
-  function toggleColors() {
+  function toggleColorsSmall() {
     setColorsOpen(!isColorsOpen);
   }
 
@@ -135,7 +135,7 @@ const ProductFilters = ({
                     ></TextButton>
                   )}
                   <IconButton
-                    onClick={toggleCategories}
+                    onClick={toggleCategoriesSmall}
                     focusable
                     icon={
                       <Icon
@@ -213,7 +213,7 @@ const ProductFilters = ({
                     ></TextButton>
                   )}
                   <IconButton
-                    onClick={toggleColors}
+                    onClick={toggleColorsSmall}
                     focusable
                     icon={
                       <Icon
