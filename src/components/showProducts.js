@@ -12,42 +12,37 @@ const ShowProducts = ({ products }) => {
     areColorsSelected
   } = useFiltersState();
 
+  const getSelectedColors = () =>
+    colors.filter(c => c.selected).map(c => c._id);
+  const getSelectedCategories = () =>
+    categories.filter(c => c.selected).map(c => c._id);
+
   let filteredProducts = products;
 
   if (areColorsSelected) {
     // only colors selected
-    const selectedColors = colors.filter(c => c.selected).map(c => c._id);
     filteredProducts = products.filter(p =>
-      selectedColors.includes(p.color._id)
+      getSelectedColors().includes(p.color._id)
     );
 
     if (areCategoriesSelected) {
       // colors and categories selected
-      const selectedCategories = categories
-        .filter(c => c.selected)
-        .map(c => c._id);
-
       filteredProducts = filteredProducts.filter(p =>
-        selectedCategories.includes(p.category._id)
+        getSelectedCategories().includes(p.category._id)
       );
     }
   }
 
   if (areCategoriesSelected) {
     // only categories selected
-    const selectedCategories = categories
-      .filter(c => c.selected)
-      .map(c => c._id);
-
     filteredProducts = products.filter(p =>
-      selectedCategories.includes(p.category._id)
+      getSelectedCategories().includes(p.category._id)
     );
 
     if (areColorsSelected) {
       // categories and colors selected
-      const selectedColors = colors.filter(c => c.selected).map(c => c._id);
       filteredProducts = filteredProducts.filter(p =>
-        selectedColors.includes(p.color._id)
+        getSelectedColors().includes(p.color._id)
       );
     }
   }
