@@ -17,8 +17,8 @@ const products = [
       'Made in Italy'
     ],
     category: {
-      _id: '5b21ca3eeb7f6fbccd472561',
-      name: 'Formal'
+      _id: '5b21ca3eeb7f6fbccd472335',
+      name: 'Heels'
     },
     genre: 'women',
     color: {
@@ -41,13 +41,13 @@ const products = [
       'Made in Spain'
     ],
     category: {
-      _id: '5b21ca3eeb7f6fbccd472561',
-      name: 'Formal'
+      _id: '5b21ca3eeb7f6fbccd471515',
+      name: 'Boots'
     },
     genre: 'men',
     color: {
-      _id: '5b21ca3eeb7f6fbccd471820',
-      name: 'Brown'
+      _id: '5b21ca3eeb7f6fbccd471818',
+      name: 'black'
     },
     featured: false
   },
@@ -60,13 +60,13 @@ const products = [
     description: 'Womens Boots Dark Brown Suede',
     features: ['Calf Leather', 'Brown', 'Leather Outsole', 'Made in Rome'],
     category: {
-      _id: '5b21ca3eeb7f6fbccd472561',
-      name: 'Formal'
+      _id: '5b21ca3eeb7f6fbccd471515',
+      name: 'Boots'
     },
     genre: 'women',
     color: {
       _id: '5b21ca3eeb7f6fbccd471820',
-      name: 'Brown'
+      name: 'brown'
     },
     featured: true
   }

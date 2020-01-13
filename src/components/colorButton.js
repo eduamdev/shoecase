@@ -3,7 +3,7 @@ import Button from './common/button';
 
 const ColorButton = ({ color, selected = false, ...rest }) => {
   const colors = {
-    red: 'bg-red-400',
+    brown: 'bg-orange-900',
     black: 'bg-black',
     white: 'bg-gray-100'
   };
