@@ -1,32 +1,67 @@
 import React, { createContext, useContext, useReducer } from 'react';
+import { getCategories } from '../services/fakeCategoryService';
+import { getColors } from '../services/fakeColorService';
 
 const FiltersStateContext = createContext();
 const FiltersDispatchContext = createContext();
 
 const initialState = {
-  filters: [],
-  areFiltersSelected: false
+  colors: getColors(),
+  categories: getCategories(),
+  areCategoriesSelected: false,
+  areColorsSelected: false
 };
 
 function filtersReducer(state, action) {
   switch (action.type) {
-    case 'COLOR_SELECTED':
-      break;
+    case 'TOGGLE_COLOR': {
+      const newState = { ...state };
 
-    case 'CATEGORY_SELECTED':
-      break;
+      console.log('toggle color: ', action.payload.id);
 
-    case 'RESET_CATEGORIES':
-      break;
+      // Check if color exist
+      if (newState.colors.find(f => f._id === action.payload.id)) {
+        const index = newState.colors.findIndex(
+          f => f._id === action.payload.id
+        );
 
-    case 'RESET_COLORS':
-      break;
+        newState.colors[index].selected = !newState.colors[index].selected;
+
+        return newState;
+      }
+
+      // return previous state
+      return state;
+    }
+
+    case 'TOGGLE_CATEGORY': {
+      const newState = { ...state };
+
+      console.log('toggle category: ', action.payload.id);
+
+      return newState;
+    }
+
+    case 'RESET_CATEGORIES': {
+      const newState = { ...state };
+
+      console.log('reseting categories...');
+      return newState;
+    }
+
+    case 'RESET_COLORS': {
+      const newState = { ...state };
+
+      console.log('reseting colors...');
+      return newState;
+    }
 
     case 'RESET_ALL_FILTERS':
       break;
 
-    default:
-      break;
+    default: {
+      throw new Error(`Unhandled action type: ${action.type}`);
+    }
   }
 }
 

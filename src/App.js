@@ -12,6 +12,7 @@ import SuccessfulOrder from './routes/successfulOrder';
 import NotFound from './routes/notFound';
 import useWindowSize from './hooks/useWindowSize';
 import { CartProvider } from './context/cartContext';
+import { FiltersProvider } from './context/filtersContext';
 
 function App({ history }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -69,61 +70,66 @@ function App({ history }) {
         handleShoppingBagClick={handleShoppingBagClick}
       ></Backdrop>
       <CartProvider>
-        <Header
-          isMenuOpen={isMenuOpen}
-          handleMenuClick={toggleMenu}
-          isShoppingBagModalShowing={isShoppingBagModalShowing}
-          handleShoppingBagClick={handleShoppingBagClick}
-          viewportSize={viewportSize}
-          searchQuery={searchQuery}
-          handleSearchChange={handleSearchChange}
-        ></Header>
-        <main>
-          <ScrollToTop />
-          <Switch>
-            <Route exact path='/' component={Home}></Route>
-            <Route
-              exact
-              path='/search/:query'
-              render={props => (
-                <Products
-                  {...props}
-                  areFiltersShowing={areFiltersShowing}
-                  handleFiltersClick={toggleFilters}
-                />
-              )}
-            ></Route>
-            <Route exact path='/products/:id' component={Product}></Route>
-            <Route
-              path='/men'
-              exact
-              render={props => (
-                <Products
-                  {...props}
-                  genre={'men'}
-                  areFiltersShowing={areFiltersShowing}
-                  handleFiltersClick={toggleFilters}
-                />
-              )}
-            ></Route>
-            <Route
-              path='/women'
-              exact
-              render={props => (
-                <Products
-                  {...props}
-                  genre={'women'}
-                  areFiltersShowing={areFiltersShowing}
-                  handleFiltersClick={toggleFilters}
-                />
-              )}
-            ></Route>
-            <Route path='/cart' component={Cart}></Route>
-            <Route path='/successful-order' component={SuccessfulOrder}></Route>
-            <Route path='/not-found' component={NotFound}></Route>
-            <Redirect to='/not-found'></Redirect>
-          </Switch>
-        </main>
+        <FiltersProvider>
+          <Header
+            isMenuOpen={isMenuOpen}
+            handleMenuClick={toggleMenu}
+            isShoppingBagModalShowing={isShoppingBagModalShowing}
+            handleShoppingBagClick={handleShoppingBagClick}
+            viewportSize={viewportSize}
+            searchQuery={searchQuery}
+            handleSearchChange={handleSearchChange}
+          ></Header>
+          <main>
+            <ScrollToTop />
+            <Switch>
+              <Route exact path='/' component={Home}></Route>
+              <Route
+                exact
+                path='/search/:query'
+                render={props => (
+                  <Products
+                    {...props}
+                    areFiltersShowing={areFiltersShowing}
+                    handleFiltersClick={toggleFilters}
+                  />
+                )}
+              ></Route>
+              <Route exact path='/products/:id' component={Product}></Route>
+              <Route
+                path='/men'
+                exact
+                render={props => (
+                  <Products
+                    {...props}
+                    genre={'men'}
+                    areFiltersShowing={areFiltersShowing}
+                    handleFiltersClick={toggleFilters}
+                  />
+                )}
+              ></Route>
+              <Route
+                path='/women'
+                exact
+                render={props => (
+                  <Products
+                    {...props}
+                    genre={'women'}
+                    areFiltersShowing={areFiltersShowing}
+                    handleFiltersClick={toggleFilters}
+                  />
+                )}
+              ></Route>
+              <Route path='/cart' component={Cart}></Route>
+              <Route
+                path='/successful-order'
+                component={SuccessfulOrder}
+              ></Route>
+              <Route path='/not-found' component={NotFound}></Route>
+              <Redirect to='/not-found'></Redirect>
+            </Switch>
+          </main>
+        </FiltersProvider>
       </CartProvider>
       <Footer></Footer>
     </div>

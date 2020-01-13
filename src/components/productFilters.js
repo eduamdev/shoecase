@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from './common/button';
 import Icon from './common/icon';
 import ColorButton from './colorButton';
 import TextButton from './textButton';
 import IconButton from './iconButton';
-import { getCategories } from '../services/fakeCategoryService';
-import { getColors } from '../services/fakeColorService';
+import { useFilters } from '../context/filtersContext';
 
 const ProductFilters = ({
   genre,
@@ -13,20 +12,13 @@ const ProductFilters = ({
   areFiltersShowing,
   handleFiltersClick
 }) => {
-  const [categories, setCategories] = useState([]);
   const [isCategoriesOpen, setCategoriesOpen] = useState(false);
-  const [colors, setColors] = useState([]);
   const [isColorsOpen, setColorsOpen] = useState(false);
   const [currentColor, setCurrentColor] = useState('');
-
-  useEffect(() => {
-    const fetchData = () => {
-      setColors(getColors());
-      setCategories(getCategories());
-    };
-
-    fetchData();
-  }, []);
+  const [
+    { categories, colors, areCategoriesSelected, areColorsSelected },
+    filtersDispatch
+  ] = useFilters();
 
   function handleMouseEnter(e) {
     setCurrentColor(e.currentTarget.name);
@@ -88,12 +80,18 @@ const ProductFilters = ({
                   categories
                 </h2>
                 <div className='flex flex-wrap items-center'>
-                  <TextButton
-                    text='reset'
-                    type='reset'
-                    className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
-                    onClick={() => console.log('reset')}
-                  ></TextButton>
+                  {areCategoriesSelected && (
+                    <TextButton
+                      text='reset'
+                      type='reset'
+                      className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                      onClick={() =>
+                        filtersDispatch({
+                          type: 'RESET_CATEGORIES'
+                        })
+                      }
+                    ></TextButton>
+                  )}
                   <IconButton
                     onClick={toggleCategories}
                     focusable
@@ -116,7 +114,17 @@ const ProductFilters = ({
                         key={category._id}
                         className='flex flex-wrap items-center  w-full h-12 text-left text-sm capitalize font-light tracking-wide'
                       >
-                        <Button className='w-full h-full focus:outline-none text-left'>
+                        <Button
+                          className='w-full h-full focus:outline-none text-left'
+                          onClick={() =>
+                            filtersDispatch({
+                              type: 'TOGGLE_CATEGORY',
+                              payload: {
+                                id: category._id
+                              }
+                            })
+                          }
+                        >
                           {category.name}
                         </Button>
                       </li>
@@ -130,12 +138,18 @@ const ProductFilters = ({
                   colors
                 </h2>
                 <div className='flex flex-wrap items-center'>
-                  <TextButton
-                    text='reset'
-                    type='reset'
-                    className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
-                    onClick={() => console.log('reset')}
-                  ></TextButton>
+                  {areColorsSelected && (
+                    <TextButton
+                      text='reset'
+                      type='reset'
+                      className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                      onClick={() =>
+                        filtersDispatch({
+                          type: 'RESET_COLORS'
+                        })
+                      }
+                    ></TextButton>
+                  )}
                   <IconButton
                     onClick={toggleColors}
                     focusable
@@ -154,13 +168,24 @@ const ProductFilters = ({
                 <div className='flex flex-wrap items-center w-full h-24'>
                   {colors &&
                     colors.map(color => {
-                      let { _id, name } = color;
-                      name = name
-                        .toString()
-                        .toLowerCase()
-                        .trim();
-
-                      return <ColorButton key={_id} color={name}></ColorButton>;
+                      return (
+                        <ColorButton
+                          key={color._id}
+                          selected={color.selected}
+                          color={color.name
+                            .toString()
+                            .trim()
+                            .toLowerCase()}
+                          onClick={() =>
+                            filtersDispatch({
+                              type: 'TOGGLE_COLOR',
+                              payload: {
+                                id: color._id
+                              }
+                            })
+                          }
+                        ></ColorButton>
+                      );
                     })}
                 </div>
               </div>
@@ -174,18 +199,35 @@ const ProductFilters = ({
                 <h2 className='font-bold tracking-wide uppercase'>
                   categories
                 </h2>
-                <TextButton
-                  text='reset'
-                  type='reset'
-                  className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
-                ></TextButton>
+                {areCategoriesSelected && (
+                  <TextButton
+                    text='reset'
+                    type='reset'
+                    className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                    onClick={() =>
+                      filtersDispatch({
+                        type: 'RESET_CATEGORIES'
+                      })
+                    }
+                  ></TextButton>
+                )}
               </div>
               <div className='w-full px-4 md:px-6 lg:px-12 mt-6'>
                 <ul>
                   {categories &&
                     categories.map(category => (
                       <li key={category._id} className='leading-loose mb-1'>
-                        <Button className='w-full h-full focus:outline-none text-left'>
+                        <Button
+                          className='w-full h-full focus:outline-none text-left'
+                          onClick={() =>
+                            filtersDispatch({
+                              type: 'TOGGLE_CATEGORY',
+                              payload: {
+                                id: category._id
+                              }
+                            })
+                          }
+                        >
                           {category.name}
                         </Button>
                       </li>
@@ -196,11 +238,18 @@ const ProductFilters = ({
             <div className='w-1/2 py-2 md:py-6 lg:py-8 px-4 md:px-6 lg:px-12'>
               <div className='flex flex-wrap justify-between w-full '>
                 <h2 className='font-bold tracking-wide uppercase'>colors</h2>
-                <TextButton
-                  text='reset'
-                  type='reset'
-                  className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
-                ></TextButton>
+                {areColorsSelected && (
+                  <TextButton
+                    text='reset'
+                    type='reset'
+                    className='text-sm md:text-base font-sans tracking-wider underline mr-6 md:m-0 active:shadow-outline focus:outline-none focus:shadow-outline p-2 md:p-0 capitalize'
+                    onClick={() =>
+                      filtersDispatch({
+                        type: 'RESET_COLORS'
+                      })
+                    }
+                  ></TextButton>
+                )}
               </div>
               <span className='block mt-8 h-6 capitalize text-sm tracking-wide text-gray-800 font-semibold'>
                 {currentColor}
@@ -208,19 +257,28 @@ const ProductFilters = ({
               <div className='mt-2'>
                 {colors &&
                   colors.map(color => {
-                    let { _id, name } = color;
-                    name = name
-                      .toString()
-                      .toLowerCase()
-                      .trim();
-
                     return (
                       <ColorButton
-                        key={_id}
-                        name={name}
-                        color={name}
+                        key={color._id}
+                        selected={color.selected}
+                        name={color.name
+                          .toString()
+                          .trim()
+                          .toLowerCase()}
+                        color={color.name
+                          .toString()
+                          .trim()
+                          .toLowerCase()}
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
+                        onClick={() =>
+                          filtersDispatch({
+                            type: 'TOGGLE_COLOR',
+                            payload: {
+                              id: color._id
+                            }
+                          })
+                        }
                       ></ColorButton>
                     );
                   })}
