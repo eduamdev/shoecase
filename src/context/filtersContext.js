@@ -12,20 +12,22 @@ const initialState = {
   areColorsSelected: false
 };
 
+const deselect = arr => arr.map(c => (c.selected = false));
+const verifySelected = arr => arr.some(c => c.selected);
+
 function filtersReducer(state, action) {
   switch (action.type) {
     case 'TOGGLE_COLOR': {
       const newState = { ...state };
 
-      console.log('toggle color: ', action.payload.id);
-
       // Check if color exist
-      if (newState.colors.find(f => f._id === action.payload.id)) {
+      if (newState.colors.find(c => c._id === action.payload.id)) {
         const index = newState.colors.findIndex(
-          f => f._id === action.payload.id
+          c => c._id === action.payload.id
         );
 
         newState.colors[index].selected = !newState.colors[index].selected;
+        newState.areColorsSelected = verifySelected(newState.colors);
 
         return newState;
       }
@@ -37,27 +39,52 @@ function filtersReducer(state, action) {
     case 'TOGGLE_CATEGORY': {
       const newState = { ...state };
 
-      console.log('toggle category: ', action.payload.id);
+      // Check if category exist
+      if (newState.categories.find(c => c._id === action.payload.id)) {
+        const index = newState.categories.findIndex(
+          c => c._id === action.payload.id
+        );
 
-      return newState;
+        newState.categories[index].selected = !newState.categories[index]
+          .selected;
+        newState.areCategoriesSelected = verifySelected(newState.categories);
+
+        return newState;
+      }
+
+      // return previous state
+      return state;
     }
 
     case 'RESET_CATEGORIES': {
       const newState = { ...state };
 
-      console.log('reseting categories...');
+      deselect(newState.categories);
+      newState.areCategoriesSelected = verifySelected(newState.categories);
+
       return newState;
     }
 
     case 'RESET_COLORS': {
       const newState = { ...state };
 
-      console.log('reseting colors...');
+      deselect(newState.colors);
+      newState.areColorsSelected = verifySelected(newState.colors);
+
       return newState;
     }
 
-    case 'RESET_ALL_FILTERS':
-      break;
+    case 'RESET_ALL_FILTERS': {
+      const newState = { ...state };
+
+      deselect(newState.categories);
+      deselect(newState.colors);
+
+      newState.areCategoriesSelected = verifySelected(newState.categories);
+      newState.areColorsSelected = verifySelected(newState.colors);
+
+      return newState;
+    }
 
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
