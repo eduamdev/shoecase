@@ -15,17 +15,18 @@ const ShowProducts = ({ products }) => {
   let filteredProducts = products;
 
   if (areColorsSelected) {
+    // only colors selected
     const selectedColors = colors.filter(c => c.selected).map(c => c._id);
     filteredProducts = products.filter(p =>
       selectedColors.includes(p.color._id)
     );
 
     if (areCategoriesSelected) {
-      console.log('AND categories selected');
+      // colors and categories selected
       const selectedCategories = categories
         .filter(c => c.selected)
         .map(c => c._id);
-      console.log(selectedCategories);
+
       filteredProducts = filteredProducts.filter(p =>
         selectedCategories.includes(p.category._id)
       );
@@ -33,18 +34,17 @@ const ShowProducts = ({ products }) => {
   }
 
   if (areCategoriesSelected) {
-    console.log('first categories selected');
+    // only categories selected
     const selectedCategories = categories
       .filter(c => c.selected)
       .map(c => c._id);
-    console.log(selectedCategories);
+
     filteredProducts = products.filter(p =>
       selectedCategories.includes(p.category._id)
     );
 
-    console.log(filteredProducts);
-
     if (areColorsSelected) {
+      // categories and colors selected
       const selectedColors = colors.filter(c => c.selected).map(c => c._id);
       filteredProducts = filteredProducts.filter(p =>
         selectedColors.includes(p.color._id)
