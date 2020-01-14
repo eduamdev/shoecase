@@ -103,7 +103,10 @@ const Products = ({ match, genre, areFiltersShowing, handleFiltersClick }) => {
           </h2>
         </div>
       )}
-      {(areProductsFilteredByGenre || filteredProducts.length > 0) && (
+      {(areProductsFilteredByGenre ||
+        filteredProducts.length > 0 ||
+        areCategoriesSelected ||
+        areColorsSelected) && (
         <ProductFilters
           genre={genre}
           count={filteredProducts.length}
