@@ -4,10 +4,16 @@ import NoResultsFound from '../components/noResultsFound';
 import ShowProducts from '../components/showProducts';
 import { getProducts } from '../services/fakeProductService';
 import { filterProducts } from '../helpers/productsHelper';
-import { useFiltersState } from '../context/filtersContext';
+import { useFilters } from '../context/filtersContext';
 import { ArrayUtils } from '../utils';
 
-const Products = ({ match, genre, areFiltersShowing, handleFiltersClick }) => {
+const Products = ({
+  match,
+  history,
+  genre,
+  areFiltersShowing,
+  handleFiltersClick
+}) => {
   const [products, setProducts] = useState([]);
   let filteredProducts = [];
   let areProductsFilteredByGenre = false;
@@ -17,12 +23,18 @@ const Products = ({ match, genre, areFiltersShowing, handleFiltersClick }) => {
     setProducts(getProducts());
   }, []);
 
-  const {
-    categories,
-    colors,
-    areCategoriesSelected,
-    areColorsSelected
-  } = useFiltersState();
+  useEffect(() =>
+    history.listen(() => {
+      filtersDispatch({
+        type: 'RESET_ALL_FILTERS'
+      });
+    })
+  );
+
+  const [
+    { categories, colors, areCategoriesSelected, areColorsSelected },
+    filtersDispatch
+  ] = useFilters();
 
   const getSelectedColors = () =>
     colors.filter(c => c.selected).map(c => c._id);
