@@ -2,7 +2,7 @@
 
 # 👟 Shoecase
 
-The objective of this project is to obtain organic experience while learning modern architectures and technologies by creating a fully functional real-world application (e-commerce site) from scratch, keeping the number of third-party dependencies to a minimum. From the construction of the interface, database modeling, creation and integration of a REST API to the implementation stage.
+The objective of this project is to gain real-world experience while learning modern technologies by creating a fully functional web application (e-commerce site) from scratch (interface construction, database modeling, creation and integration of an API REST and implementation), keeping the number of third party dependencies to a minimum.
 
 ## Project setup
 
