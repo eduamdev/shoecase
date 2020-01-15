@@ -1,8 +1,10 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/efd79ed8-4944-485d-98c2-be329e3d173a/deploy-status)](https://app.netlify.com/sites/shoecase/deploys)
 
-# 👟 Shoecase
+# Shoecase 👟
 
-The objective of this project is to gain real-world experience while learning modern technologies by creating a fully functional web application (e-commerce site) from scratch (interface construction, database modeling, creation and integration of an API REST and implementation), keeping the number of third party dependencies to a minimum.
+The objective of this project is to gain real-world experience and learn modern technologies by creating a fully functional web application (e-commerce site) from scratch (interface design & construction, API REST integration, database modeling and implementation of the project itself), keeping the number of third party dependencies to a minimum.
+
+🚧🚧🚧 Work in Progress! 🚧🚧🚧
 
 ## Project setup
 
