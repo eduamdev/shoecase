@@ -1,10 +1,20 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/efd79ed8-4944-485d-98c2-be329e3d173a/deploy-status)](https://app.netlify.com/sites/shoecase/deploys)
+
 # 👟 Shoecase
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/efd79ed8-4944-485d-98c2-be329e3d173a/deploy-status)](https://app.netlify.com/sites/shoecase/deploys)
+The objective of this project is to obtain organic experience while learning new architectures, paradigms and technologies by creating a fully functional real-world application (e-commerce site) from scratch, keeping the number of third-party dependencies to a minimum. Starting from the construction of the interface, creation and integration of an API using a database until finally the implementation stage.
 
 ## Project setup
 
 - Run `yarn build` for production
+
+## Built With
+
+- [Reactjs](https://reactjs.org) - JavaScript library
+- [TailwindCSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Figma](https://www.figma.com/) -Interface design tool
+- [Hooks API](https://reactjs.org/docs/hooks-reference.html) - Used to handle app state
+- [Yarn](https://yarnpkg.com/en/) - Dependency manager
 
 ## License
 
