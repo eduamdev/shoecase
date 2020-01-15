@@ -93,7 +93,8 @@
   font-style: italic;
 }
 
-.custom-outline{
+.custom-outline,
+.hover-custom-outline:hover {
   box-shadow: 0 0 0 2px black;
 }
 

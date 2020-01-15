@@ -8,7 +8,7 @@ const ColorButton = ({ color, selected = false, ...rest }) => {
     white: 'bg-gray-100'
   };
 
-  const className = `w-8 h-8 border border-gray-400 mr-3 active:outline-none focus:outline-none hover:shadow-outline ${colors[color]}`;
+  const className = `w-8 h-8 lg:w-10 lg:h-10 border-4 border-gray-300 md:border-gray-200 mr-3 active:outline-none focus:outline-none hover-custom-outline ${colors[color]}`;
 
   return colors[color] ? (
     <Button

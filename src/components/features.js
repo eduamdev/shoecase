@@ -29,7 +29,7 @@ const Features = () => {
             <p className='font-bold uppercase leading-loose lg:text-2xl lg:tracking-wide'>
               {last.title}
             </p>
-            <p className=' text-sm tracking-wide lg:text-base font-light'>
+            <p className=' text-sm tracking-wide lg:text-base xl:text-xl font-light'>
               {last.content}
             </p>
           </div>
