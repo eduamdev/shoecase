@@ -25,7 +25,7 @@ const NoResultsFound = () => {
       </Link>
       <Image
         name='no-results'
-        className='w-full max-w-md lg:max-w-5xl mx-auto md:h-auto object-cover px-4 md:px-6 lg:px-12'
+        className='w-full max-w-md lg:max-w-5xl mx-auto md:h-auto object-cover px-3 md:px-6 lg:px-12'
       ></Image>
     </div>
   );
