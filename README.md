@@ -2,7 +2,7 @@
 
 # Shoecase 👟
 
-The objective of this project is to gain real-world experience and learn modern technologies by creating a fully functional web application (e-commerce site) from scratch (interface design & construction, API REST integration, database modeling and implementation of the project itself), keeping the number of third party dependencies to a minimum.
+The objective of this project is to put together a modern Full-Stack web application from scratch (interface design and construction, data persistence, implementation and everything in between) using the MERN stack.
 
 🚧🚧🚧 Work in Progress! 🚧🚧🚧
 
