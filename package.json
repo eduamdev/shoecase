@@ -27,7 +27,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "npm-run-all -p start:css start:js",
-    "build": "npm-run-all build:css build:js",
+    "build": "npm-run-all build:css build:js && cp build/index.html build/404.html",
     "start:js": "react-scripts start",
     "build:js": "react-scripts build",
     "start:css": "postcss src/styles/index.css -o src/styles/tailwind.css -w",
